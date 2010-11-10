@@ -14,7 +14,7 @@ body {
 .container .row {
   margin: 0 auto;
   max-width: 1104px;
-  overflow: hidden; /* find a better way to clear floats */
+  overflow: auto;
   width: 100%;
 }
 
