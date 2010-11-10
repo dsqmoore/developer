@@ -3,13 +3,17 @@
   author: maximilian schoening (@resetability)
 */
 
+body {
+  font-size: 100%;
+}
+
 .container {
-  padding: 0 20px;
+  padding: 0 24px; /* makes the max page width 1152 */
 }
 
 .row {
-  margin: 0 auto;
-  max-width: 1140px;
+  margin: 10px auto;
+  max-width: 1104px;
   overflow: hidden; /* find a better way to clear floats */
   width: 100%;
 }
@@ -17,59 +21,60 @@
 /* section: 1140
 ---------------------------------------------- */
 .col {
+  background: #e5e5e5;
   float: left;
-  margin: 0 3.8% 0 0;
+  margin: 0 4.3478261% 0 0;
 }
 
 .col:last-child {
   margin: 0;
 }
 
-.one {
-  width: 4.85%;
+.col_1 {
+  width: 4.3478261%;
 }
 
-.two {
-  width: 13.5%;
+.col_2 {
+  width: 13.0434783%;
 }
 
-.three {
-  width: 22.15%;
+.col_3 {
+  width: 21.7391304%;
 }
 
-.four {
-  width: 30.8%;
+.col_4 {
+  width: 30.4347826%;
 }
 
-.five {
-  width: 39.45%;
+.col_5 {
+  width: 39.1304348%;
 }
 
-.six {
-  width: 48.1%;
+.col_6 {
+  width: 47.826087%;
 }
 
-.seven {
-  width: 56.75%;
+.col_7 {
+  width: 56.5217391%;
 }
 
-.eight {
-  width: 61.6%;
+.col_8 {
+  width: 65.2173913%;
 }
 
-.nine {
-  width: 74.05%;
+.col_9 {
+  width: 73.9130435%;
 }
 
-.ten {
-  width: 82.7%;
+.col_10 {
+  width: 82.6086957%;
 }
 
-.eleven {
-  width: 91.35%;
+.col_11 {
+  width: 91.3043478%;
 }
 
-.twelve {
+.col_12 {
   width: 100%;
 }
 /* ------------------------------------------- */
@@ -79,7 +84,6 @@
 @media only screen and (max-width: 1024px) {
   body {
     font-size: 0.8em;
-    line-height: 1.5em;
   }
 }
 /* ------------------------------------------- */
@@ -87,16 +91,20 @@
 /* section: mobile
 ---------------------------------------------- */
 @media handheld, only screen and (max-width: 768px) {
-  .container, .row {
-    margin: 0;
+  .container {
     padding: 0;
-    width: 100%;
   }
 
-  .onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
-    margin: 0;
-    padding: 0 20px;
-    width: auto;
+  .row {
+    margin: 0 auto;
+    padding: 0 2%;
+    width: 96%;
+  }
+
+  .col {
+    float: none;
+    margin: 2% auto;
+    width: 100%;
   }
 }
 /* ------------------------------------------- */
