@@ -21,9 +21,8 @@ body {
 /* section: 1140
 ---------------------------------------------- */
 .container .row .col {
-  background: #e5e5e5;
   float: left;
-  margin: 0 4.3478261% 10px 0;
+  margin: 0 4.3478261% 0 0;
 }
 
 .container .row .col:last-child {

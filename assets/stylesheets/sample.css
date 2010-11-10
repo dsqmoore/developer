@@ -3,8 +3,19 @@
   author: maximilian schoening (@resetability)
 */
 
+/* section: 1140
+---------------------------------------------- */
+.container .row .col {
+  background: #e5e5e5;
+  margin-bottom: 10px;
+}
+/* ------------------------------------------- */
+
+/* section: mobile
+---------------------------------------------- */
 @media handheld, only screen and (max-width: 768px) {
   aside {
     display: none;
   }
 }
+/* ------------------------------------------- */
