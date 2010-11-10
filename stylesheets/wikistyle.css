@@ -91,7 +91,7 @@
   }
 
   .wikistyle ul.index li {
-    background: url("../../images/wikistyle/index_li_bullet.png") left center no-repeat;
+    background: url("../images/wikistyle/index_li_bullet.png") left center no-repeat;
     line-height: 1.4em;
     padding: 0 0 0 2em;
   }
