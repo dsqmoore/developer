@@ -1,0 +1,6 @@
+exclude:
+  - config.ru
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+permalink: /:title
