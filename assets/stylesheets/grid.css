@@ -2,3 +2,14 @@
   title: grid css
   author: maximilian schoening (@resetability)
 */
+
+.container {
+  padding: 0 20px;
+}
+
+.row {
+  margin: 0 auto;
+  max-width: 1140px;
+  overflow: hidden; /* find a better way to clear floats */
+  width: 100%;
+}
