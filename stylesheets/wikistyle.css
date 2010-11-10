@@ -38,7 +38,7 @@
 /* section: paragraphs
 ---------------------------------------------- */
 .wikistyle p {
-  font-family: "proxima-nova-1", "proxima-nova-2";
+  font-family: "proxima-nova-1", "proxima-nova-2", "Helvetica Neue", sans-serif;
   line-height: 2em;
   margin: 0 0 1.8em 0;
   text-align: justify;
