@@ -1,0 +1,10 @@
+/*
+  title: sample css
+  author: maximilian schoening (@resetability)
+*/
+
+@media handheld, only screen and (max-width: 768px) {
+  aside {
+    display: none;
+  }
+}
