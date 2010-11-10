@@ -1,0 +1,111 @@
+/*
+  title: grid css
+  author: maximilian schoening (@resetability)
+*/
+
+body {
+  font-size: 100%;
+}
+
+.container {
+  padding: 0 24px; /* makes the max page width 1152 */
+}
+
+.container .row {
+  margin: 0 auto;
+  max-width: 1104px;
+  overflow: hidden; /* find a better way to clear floats */
+  width: 100%;
+}
+
+/* section: 1140
+---------------------------------------------- */
+.container .row .col {
+  float: left;
+  margin: 0 4.3478261% 0 0;
+}
+
+.container .row .col:last-child {
+  margin-right: 0;
+}
+
+.container .row:last-childe .col {
+  margin-bottom: 0;
+}
+
+.container .row .col_1 {
+  width: 4.3478261%;
+}
+
+.container .row .col_2 {
+  width: 13.0434783%;
+}
+
+.container .row .col_3 {
+  width: 21.7391304%;
+}
+
+.container .row .col_4 {
+  width: 30.4347826%;
+}
+
+.container .row .col_5 {
+  width: 39.1304348%;
+}
+
+.container .row .col_6 {
+  width: 47.826087%;
+}
+
+.container .row .col_7 {
+  width: 56.5217391%;
+}
+
+.container .row .col_8 {
+  width: 65.2173913%;
+}
+
+.container .row .col_9 {
+  width: 73.9130435%;
+}
+
+.container .row .col_10 {
+  width: 82.6086957%;
+}
+
+.container .row .col_11 {
+  width: 91.3043478%;
+}
+
+.container .row .col_12 {
+  width: 100%;
+}
+/* ------------------------------------------- */
+
+/* section: < 1024
+---------------------------------------------- */
+@media only screen and (max-width: 1024px) {
+  body {
+    font-size: 0.8em;
+  }
+}
+/* ------------------------------------------- */
+
+/* section: mobile
+---------------------------------------------- */
+@media handheld, only screen and (max-width: 768px) {
+  .container {
+    padding: 0;
+  }
+
+  .container .row {
+    padding: 0 2%;
+    width: 96%;
+  }
+
+  .container .row .col {
+    float: none;
+    width: 100%;
+  }
+}
+/* ------------------------------------------- */
