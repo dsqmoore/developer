@@ -73,7 +73,26 @@
 /* section: < 1024
 ---------------------------------------------- */
 @media only screen and (max-width: 1024px) {
-  font-size: 0.8em;
-  line-height: 1.5em;
+  body {
+    font-size: 0.8em;
+    line-height: 1.5em;
+  }
+}
+/* ------------------------------------------- */
+
+/* section: mobile
+---------------------------------------------- */
+@media handheld, only screen and (max-width: 768px) {
+  .container, .row {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+    margin: 0;
+    padding: 0 20px;
+    width: auto;
+  }
 }
 /* ------------------------------------------- */
