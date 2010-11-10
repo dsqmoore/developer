@@ -5,9 +5,9 @@
 
 /* section: imports
 ---------------------------------------------- */
-@import url("utilities/reset.css");
-@import url("utilities/library.css");
+@import url("reset.css");
+@import url("library.css");
 
-@import url("utilities/grid.css");
-@import url("utilities/base.css");
+@import url("grid.css");
+@import url("base.css");
 /* ------------------------------------------- */

@@ -16,56 +16,60 @@
 
 /* section: 1140
 ---------------------------------------------- */
-.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
+.col {
   float: left;
   margin: 0 3.8% 0 0;
 }
 
-.onecol {
+.col:last-child {
+  margin: 0;
+}
+
+.one {
   width: 4.85%;
 }
 
-.twocol {
+.two {
   width: 13.5%;
 }
 
-.threecol {
+.three {
   width: 22.15%;
 }
 
-.fourcol {
+.four {
   width: 30.8%;
 }
 
-.fivecol {
+.five {
   width: 39.45%;
 }
 
-.sixcol {
+.six {
   width: 48.1%;
 }
 
-.sevencol {
+.seven {
   width: 56.75%;
 }
 
-.eightcol {
+.eight {
   width: 61.6%;
 }
 
-.ninecol {
+.nine {
   width: 74.05%;
 }
 
-.tencol {
+.ten {
   width: 82.7%;
 }
 
-.elevencol {
+.eleven {
   width: 91.35%;
 }
 
-.twelvecol {
+.twelve {
   width: 100%;
 }
 /* ------------------------------------------- */
