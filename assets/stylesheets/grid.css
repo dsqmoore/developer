@@ -11,8 +11,8 @@ body {
   padding: 0 24px; /* makes the max page width 1152 */
 }
 
-.row {
-  margin: 10px auto;
+.container .row {
+  margin: 0 auto;
   max-width: 1104px;
   overflow: hidden; /* find a better way to clear floats */
   width: 100%;
@@ -20,61 +20,65 @@ body {
 
 /* section: 1140
 ---------------------------------------------- */
-.col {
+.container .row .col {
   background: #e5e5e5;
   float: left;
-  margin: 0 4.3478261% 0 0;
+  margin: 0 4.3478261% 10px 0;
 }
 
-.col:last-child {
-  margin: 0;
+.container .row .col:last-child {
+  margin-right: 0;
 }
 
-.col_1 {
+.container .row:last-childe .col {
+  margin-bottom: 0;
+}
+
+.container .row .col_1 {
   width: 4.3478261%;
 }
 
-.col_2 {
+.container .row .col_2 {
   width: 13.0434783%;
 }
 
-.col_3 {
+.container .row .col_3 {
   width: 21.7391304%;
 }
 
-.col_4 {
+.container .row .col_4 {
   width: 30.4347826%;
 }
 
-.col_5 {
+.container .row .col_5 {
   width: 39.1304348%;
 }
 
-.col_6 {
+.container .row .col_6 {
   width: 47.826087%;
 }
 
-.col_7 {
+.container .row .col_7 {
   width: 56.5217391%;
 }
 
-.col_8 {
+.container .row .col_8 {
   width: 65.2173913%;
 }
 
-.col_9 {
+.container .row .col_9 {
   width: 73.9130435%;
 }
 
-.col_10 {
+.container .row .col_10 {
   width: 82.6086957%;
 }
 
-.col_11 {
+.container .row .col_11 {
   width: 91.3043478%;
 }
 
-.col_12 {
+.container .row .col_12 {
   width: 100%;
 }
 /* ------------------------------------------- */
@@ -95,15 +99,13 @@ body {
     padding: 0;
   }
 
-  .row {
-    margin: 0 auto;
+  .container .row {
     padding: 0 2%;
     width: 96%;
   }
 
-  .col {
+  .container .row .col {
     float: none;
-    margin: 2% auto;
     width: 100%;
   }
 }
