@@ -60,6 +60,15 @@
   font-size: .9em;
   padding: .1em .3em;
 }
+
+.wikistyle p sup {
+  font-size: .8em;
+  vertical-align: super;
+}
+
+.wikistyle p sup a:link, .wikistyle p sup a:visited {
+  border: 0;
+}
 /* ------------------------------------------- */
 
 /* section: lists
