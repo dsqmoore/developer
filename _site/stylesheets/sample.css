@@ -23,9 +23,22 @@ a:link, a:visited {
 }
 /* ------------------------------------------- */
 
-/* section: mobile
+/* section: iPad
+---------------------------------------------- */
+@media only screen and (device-width: 768px) {
+  body {
+    font-size: 11px;
+  }
+}
+/* ------------------------------------------- */
+
+/* section: iPhone
 ---------------------------------------------- */
 @media handheld, only screen and (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+
   aside {
     display: none;
   }
