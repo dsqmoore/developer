@@ -1,0 +1,40 @@
+/*
+  title: sample css
+  author: maximilian schoening (@resetability)
+*/
+
+body {
+  font: 13px "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+}
+
+a:link, a:visited {
+  color: #3e588d;
+  text-decoration: none;
+}
+
+/* section: 1140
+---------------------------------------------- */
+.container {
+  margin: 50px 0;
+}
+
+.container .row .col {
+  margin-bottom: 10px;
+}
+/* ------------------------------------------- */
+
+/* section: iPad
+---------------------------------------------- */
+@media only screen and (device-width: 768px) {
+
+}
+/* ------------------------------------------- */
+
+/* section: iPhone
+---------------------------------------------- */
+@media handheld, only screen and (max-width: 767px) {
+  aside {
+    display: none;
+  }
+}
+/* ------------------------------------------- */
