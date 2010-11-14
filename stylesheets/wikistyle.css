@@ -3,42 +3,45 @@
   author: maximilian schoening (@resetability)
 */
 
+body {
+  font-size: 13px;
+}
+
 .wikistyle {
   background: #fff;
   color: #444;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 /* section: headers
 ---------------------------------------------- */
 .wikistyle h1 {
   color: #333;
-  font-size: 1.4em;
+  font-size: 1.6em;
   font-weight: normal;
-  margin: 0 0 .6em 0;
+  margin: 0 0 .75em 0;
 }
 
 .wikistyle h2 {
   border-bottom: 1px solid #e5e5e5;
   color: #333;
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: normal;
-  margin: .6em 0;
-  padding: 0 0 .2em 0;
+  margin: .75em 0;
+  padding: 0 0 .25em 0;
 }
 
 .wikistyle h3 {
   color: #333;
-  font-size: 1em;
+  font-size: 1.2em;
   font-weight: bold;
-  margin: .6em 0;
+  margin: .75em 0;
 }
 /* ------------------------------------------- */
 
 /* section: paragraphs
 ---------------------------------------------- */
 .wikistyle p {
-  font-family: "proxima-nova-1", "proxima-nova-2", "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
   line-height: 2em;
   margin: 0 0 1.8em 0;
   text-align: justify;
@@ -66,7 +69,6 @@
 /* section: lists
 ---------------------------------------------- */
 .wikistyle ul, .wikistyle ol {
-  font-size: .9em;
   margin: 0 0 1.8em 0;
   padding: 0 0 0 3em;
 }
@@ -76,6 +78,7 @@
 }
 
 .wikistyle ul li, .wikistyle ol li {
+  line-height: 1.4em;
   margin: 0 0 .8em 0;
 }
 
@@ -92,7 +95,6 @@
 
   .wikistyle ul.index li {
     background: url("../../images/wikistyle/index_li_bullet.png") left center no-repeat;
-    line-height: 1.4em;
     padding: 0 0 0 2em;
   }
 
@@ -105,7 +107,6 @@
 /* section: definition lists
 ---------------------------------------------- */
 .wikistyle dl {
-  font-size: .9em;
   margin: 0 0 1.8em;
 }
 
@@ -133,9 +134,9 @@
     display: inline;
     font-family: Lucida Grande;
     padding: .5% 1.5%;
-    font-size: 12px;
+    font-size: .9em;
     font-weight: normal;
-    margin: 0 8px 0 0;
+    margin: 0 .5em 0 0;
   }
 
   .wikistyle dl.keys dd {
@@ -162,8 +163,8 @@
   color: #444;
   display: block;
   font-family: Monaco, monospace;
-  font-size: .8em;
-  line-height: 1.6em;
+  font-size: .9em;
+  line-height: 1.8em;
 }
 
   /* section: terminal
