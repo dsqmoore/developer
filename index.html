@@ -4,118 +4,14 @@ layout: master
 
 <div class="container">
   <div class="row">
-    <section class="col col_1">
-      1
+    <section class="col col_8 wikistyle">
+      {% for post in site.posts limit:1 %}
+        {{ post.content }}
+      {% endfor %}
     </section>
 
-    <section class="col col_11">
-      11
-    </section>
-  </div>
-
-  <div class="row">
-    <section class="col col_2">
-      2
-    </section>
-
-    <section class="col col_10">
-      10
-    </section>
-  </div>
-
-  <div class="row">
-    <section class="col col_3">
-      3
-    </section>
-
-    <section class="col col_9">
-      9
-    </section>
-  </div>
-
-  <div class="row">
-    <section class="col col_4">
-      4
-    </section>
-
-    <section class="col col_8">
-      8
-    </section>
-  </div>
-
-  <div class="row">
-    <section class="col col_5">
-      5
-    </section>
-
-    <section class="col col_7">
-      7
-    </section>
-  </div>
-
-  <div class="row">
-    <section class="col col_6">
-      6
-    </section>
-
-    <section class="col col_6">
-      6
-    </section>
-  </div>
-
-  <div class="row">
-    <section class="col col_7">
-      7
-    </section>
-
-    <section class="col col_5">
-      5
-    </section>
-  </div>
-
-  <div class="row">
-    <section class="col col_8">
-      8
-    </section>
-
-    <section class="col col_4">
-      4
-    </section>
-  </div>
-
-  <div class="row">
-    <section class="col col_9">
-      9
-    </section>
-
-    <section class="col col_3">
-      3
-    </section>
-  </div>
-
-  <div class="row">
-    <section class="col col_10">
-      10
-    </section>
-
-    <section class="col col_2">
-      2
-    </section>
-  </div>
-
-  <div class="row">
-    <section class="col col_11">
-      11
-    </section>
-
-    <section class="col col_1">
-      1
-    </section>
-  </div>
-
-  <div class="row">
-    <section class="col col_12">
-      12
-    </section>
+    <aside class="col col_4">
+      {% include sidebar.html %}
+    </aside>
   </div>
 </div>
