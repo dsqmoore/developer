@@ -103,6 +103,13 @@
     padding: 0 0 0 2em;
   }
 
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .wikistyle ul.index li {
+      background-image: url("../../images/wikistyle/index_li_bullet_2x.png");
+      background-size: 15px;
+    }
+  }
+
   .wikistyle ul.index li a:link, .wikistyle ul.index li a:visited {
     font-weight: bold;
   }
