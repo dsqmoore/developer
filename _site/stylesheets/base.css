@@ -117,5 +117,9 @@ a:link, a:visited {
   aside {
     display: none;
   }
+
+  #footer {
+    display: none;
+  }
 }
 /* ------------------------------------------- */
