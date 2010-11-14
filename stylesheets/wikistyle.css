@@ -214,10 +214,12 @@
 }
 
 .wikistyle .footnotes ol li p {
+  display: inline;
   margin: 0;
 }
 
 .wikistyle .footnotes ol li a:link, .wikistyle .footnotes ol li a:visited {
   border: 0;
+  display: inline;
 }
 /* ------------------------------------------- */
