@@ -161,9 +161,9 @@
   line-height: 1.8em;
 }
 
-  /* section: terminal
+  /* section: shell
   ---------------------------------------------- */
-  .wikistyle pre.terminal {
+  .wikistyle pre.shell {
     background: #e5e5e5;
     border: 1px solid #ccc;
   }
