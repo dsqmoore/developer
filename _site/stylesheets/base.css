@@ -114,6 +114,10 @@ a:link, a:visited {
     display: none;
   }
 
+  .wikistyle h1 {
+    text-align: center;
+  }
+
   aside {
     display: none;
   }
