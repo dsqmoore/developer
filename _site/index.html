@@ -26,10 +26,27 @@
 
   <body>
     <div class="container">
-  <div class="row">
-    <section class="col col_8 wikistyle">
-      
-        <h1 id='the_page_title'>The Page Title</h1>
+      <header class="row" id="header">
+        <div class="col col_4">
+          <h1><a href="#">CloudApp Developers</a></h1>
+        </div>
+
+        <div class="col col_8">
+          <nav>
+            <ul>
+              <li><a href="#">Application</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Login</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div class="row">
+        <section class="col col_8 wikistyle">
+          
+  <h1 id='the_page_title'>The Page Title</h1>
 
 <p>A paragraph is simply one or more consecutive <strong>lines of text</strong>, separated by one or more <em>blank lines</em>. (A blank line is any line that looks like a blank line — a line containing nothing but <a href='http://manual.macromates.com/en/working_with_text#using_spaces_instead_of_tabs'>spaces or tabs</a> is considered blank.) Normal paragraphs should not be indented with spaces or tabs.</p>
 
@@ -120,17 +137,36 @@ end</code></pre>
 <a href='#fnref:1' rev='footnote'>&#8617;</a></li><li id='fn:2'>
 <p>Another sample footnote with a <a href='#'>link</a>.</p>
 <a href='#fnref:2' rev='footnote'>&#8617;</a></li></ol></div>
-      
-    </section>
 
-    <aside class="col col_4">
-      <p>
+
+        </section>
+
+        <aside class="col col_4">
+          <p>
   This is just a sidebar.
 </p>
 
-    </aside>
-  </div>
-</div>
+        </aside>
+      </div>
 
+      <footer class="row" id="footer">
+        <div class="col col_8">
+          <ul>
+            <li>&copy; 2010 Linebreak S.L.</li>
+            <li>Powered by <a href="http://heroku.com/">Heroku</a></li>
+            <li><a href="http://support.getcloudapp.com/faqs/company/contact">Contact</a></li>
+            <li><a href="http://getcloudapp.com/terms/">Terms</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="http://developer.getcloudapp.com/">Developer</a></li>
+          </ul>
+        </div>
+
+        <div class="col col_4">
+          <ul class="right">
+            <li><a href='http://www.twitter.com/getcloudapp'>Twitter</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

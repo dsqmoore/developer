@@ -2,16 +2,6 @@
 layout: master
 ---
 
-<div class="container">
-  <div class="row">
-    <section class="col col_8 wikistyle">
-      {% for post in site.posts limit:1 %}
-        {{ post.content }}
-      {% endfor %}
-    </section>
-
-    <aside class="col col_4">
-      {% include sidebar.html %}
-    </aside>
-  </div>
-</div>
+{% for post in site.posts limit:1 %}
+  {{ post.content }}
+{% endfor %}

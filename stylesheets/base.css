@@ -17,9 +17,82 @@ a:link, a:visited {
 .container {
   margin: 50px 0;
 }
+/* ------------------------------------------- */
 
-.container .row .col {
-  margin-bottom: 10px;
+/* section: header
+---------------------------------------------- */
+#header {
+  font-size: 1.1em;
+  margin-bottom: 3.6em;
+}
+
+#header h1 a {
+  background: url("../../images/logo.png") center no-repeat;
+  display: block;
+  height: 30px;
+  text-indent: -99999px;
+  width: 170px;
+}
+
+#header nav ul {
+  float: right;
+  list-style: none;
+}
+
+#header nav ul li {
+  color: #666;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 30px;
+  margin: 0 3em 0 0;
+}
+
+#header nav ul li.disabled {
+  color: #e5e5e5;
+}
+
+#header nav ul li a:link, header nav ul li a:visited {
+  color: #444;
+}
+
+#header nav ul li a:hover, header nav ul li a:active {
+  color: #888;
+}
+/* ------------------------------------------- */
+
+/* section: footer
+---------------------------------------------- */
+#footer {
+  border-top: 4px double #e5e5e5;
+  font-size: .9em;
+  margin-top: 3.6em;
+  padding: 1em 0 0 0;
+}
+
+#footer ul li {
+  border-right: 1px solid #e5e5e5;
+  display: inline-block;
+  margin: 0 1em 0 0;
+  padding: 0 1em 0 0;
+}
+
+#footer ul li:last-child {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#footer ul li.disabled {
+  color: #e5e5e5;
+}
+
+#footer ul li a:link, footer ul li a:visited {
+  color: #2c2c2c;
+  font-weight: bold;
+}
+
+#footer ul li a:hover, footer ul li a:active {
+  color: #8b8b8b;
 }
 /* ------------------------------------------- */
 
@@ -33,6 +106,14 @@ a:link, a:visited {
 /* section: iPhone
 ---------------------------------------------- */
 @media handheld, only screen and (max-width: 767px) {
+  #header h1 a {
+    margin: 0 auto;
+  }
+
+  #header nav {
+    display: none;
+  }
+
   aside {
     display: none;
   }

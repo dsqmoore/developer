@@ -25,6 +25,52 @@
   </head>
 
   <body>
-    {{ content }}
+    <div class="container">
+      <header class="row" id="header">
+        <div class="col col_4">
+          <h1><a href="#">CloudApp Developers</a></h1>
+        </div>
+
+        <div class="col col_8">
+          <nav>
+            <ul>
+              <li><a href="#">Application</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Login</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div class="row">
+        <section class="col col_8 wikistyle">
+          {{ content }}
+        </section>
+
+        <aside class="col col_4">
+          {% include sidebar.html %}
+        </aside>
+      </div>
+
+      <footer class="row" id="footer">
+        <div class="col col_8">
+          <ul>
+            <li>&copy; 2010 Linebreak S.L.</li>
+            <li>Powered by <a href="http://heroku.com/">Heroku</a></li>
+            <li><a href="http://support.getcloudapp.com/faqs/company/contact">Contact</a></li>
+            <li><a href="http://getcloudapp.com/terms/">Terms</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="http://developer.getcloudapp.com/">Developer</a></li>
+          </ul>
+        </div>
+
+        <div class="col col_4">
+          <ul class="right">
+            <li><a href='http://www.twitter.com/getcloudapp'>Twitter</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
