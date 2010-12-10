@@ -54,4 +54,4 @@ Change the security of newly created items to either private (long links) or pub
               }
             }' \
          -X PUT \
-         "http://my.cloudapp.local/account"
+         "http://my.cl.ly/account"
