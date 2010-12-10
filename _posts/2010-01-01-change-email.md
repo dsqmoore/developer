@@ -38,8 +38,8 @@ Update the email address on an account.
         "subscribed":       false,
         "alpha":            false,
         "created_at":       "2010-12-10T17:07:01Z",
-        "updated_at":       "2010-12-10T17:07:01Z",
-        "activated_at":     null
+        "updated_at":       "2010-12-10T20:33:38Z",
+        "activated_at":     "2010-12-10T17:12:51Z"
       }
 
 
@@ -57,4 +57,4 @@ Update the email address on an account.
               }
             }' \
          -X PUT \
-         "http://my.cloudapp.local/account"
+         "http://my.cl.ly/account"
