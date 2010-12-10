@@ -36,7 +36,7 @@ Update the email address on an account.
         "domain_home_page": null,
         "private_items":    true,
         "subscribed":       false,
-        "alpha":            null,
+        "alpha":            false,
         "created_at":       "2010-12-10T17:07:01Z",
         "updated_at":       "2010-12-10T17:07:01Z",
         "activated_at":     null
