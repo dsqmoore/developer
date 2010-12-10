@@ -1,3 +1,11 @@
+---
+sidebar_cats:
+- introduction
+- api_wrapper
+- account
+- items
+---
+
 <!DOCTYPE html>
 <html class="no-js" dir="ltr" lang="en">
   <head>
@@ -48,21 +56,23 @@
           {{ content }}
         </section>
 
-        <aside class="col col_4">
+        <aside class="col col_4" id="sidebar">
           {% for cat in (page.sidebar_cats) %}
-            <h3>{{ cat | replace:'_',' ' | capitalize }}</h3>
+            <section class="categories">
+              <h3>{{ cat | replace:'_',' ' | capitalize }}</h3>
 
-            <ul>
-              {% for post in site.posts reversed %}
-                {% if post.categories contains cat %}
-                  {% if page.title == post.title %}
-                    <li>{{ page.title }}</li>
-                  {% else %}
-                    <li><a href="{{ post.url }}" id="{{ cat }}">{{ post.title }}</a></li>
+              <ul>
+                {% for post in site.posts reversed %}
+                  {% if post.categories contains cat %}
+                    {% if page.title == post.title %}
+                      <li>{{ page.title }}</li>
+                    {% else %}
+                      <li><a href="{{ post.url }}" id="{{ cat }}">{{ post.title }}</a></li>
+                    {% endif %}
                   {% endif %}
-                {% endif %}
-              {% endfor %}
-            </ul>
+                {% endfor %}
+              </ul>
+            </section>
           {% endfor %}
         </aside>
       </div>

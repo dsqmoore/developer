@@ -60,6 +60,28 @@ a:link, a:visited {
 }
 /* ------------------------------------------- */
 
+/* section: sidebar
+---------------------------------------------- */
+#sidebar .categories h3 {
+  font-size: 1.1em;
+  margin: 0 0 .75em 0;
+  text-transform: uppercase;
+}
+
+#sidebar .categories ul {
+  list-style: none;
+  margin: 0 0 1.8em;
+}
+
+#sidebar .categories ul li {
+  margin: 0 0 .8em 0;
+}
+
+#sidebar .categories ul li:last-child {
+  margin: 0;
+}
+/* ------------------------------------------- */
+
 /* section: footer
 ---------------------------------------------- */
 #footer {

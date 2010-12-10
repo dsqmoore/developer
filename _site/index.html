@@ -46,102 +46,358 @@
       <div class="row">
         <section class="col col_8 wikistyle">
           
-  <h1 id='the_page_title'>The Page Title</h1>
+  <h1 id='view_item'>View Item</h1>
 
-<p>A paragraph is simply one or more consecutive <strong>lines of text</strong>, separated by one or more <em>blank lines</em>. (A blank line is any line that looks like a blank line — a line containing nothing but <a href='http://manual.macromates.com/en/working_with_text#using_spaces_instead_of_tabs'>spaces or tabs</a> is considered blank.) Normal paragraphs should not be indented with spaces or tabs.</p>
+<p>Get metadata about a cl.ly URL like name, type, or view count.</p>
 
-<h2 id='lists_a_second_level_header'>Lists (a second level header)</h2>
-
-<p>Lists are simple way to display ordered or unordered content. Applying classes to lists modifies their styling.<sup id='fnref:1'><a href='#fn:1' rel='footnote'>1</a></sup></p>
-
-<h3 id='unordered_lists_a_third_level_header'>Unordered Lists (a third level header)</h3>
+<h2 id='request'>Request</h2>
 
 <ul>
-<li>This is a list item</li>
+<li>HTTP Method: GET</li>
 
-<li>Another item on a list</li>
-
-<li>Items have no specific order</li>
+<li>URL: Value of <code>url</code> on an item. <em>(e.g., http://cl.ly/2wr4)</em></li>
 </ul>
 
-<h3 id='ordered_lists'>Ordered Lists</h3>
+<h2 id='response'>Response</h2>
 
-<ol>
-<li>This is a list item</li>
+<ul>
+<li>
+<p>Status: 200 OK</p>
+</li>
 
-<li>Another item on a list</li>
+<li>
+<p>Body:</p>
 
-<li>These items only make sense in order</li>
-</ol>
-
-<h3 id='index_lists'>Index Lists</h3>
-
-<p>At the top of a document you might want to link to other articles or to specific regions on the current page.<sup id='fnref:2'><a href='#fn:2' rel='footnote'>2</a></sup> To add special styling for these kind of lists you add an index <code>class</code>.</p>
-
-<ul class='index'>
-<li>This is a list item</li>
-
-<li><a href='#'>This list item points to another article</a></li>
-
-<li><a href='#'>This list item points to a region on a page</a></li>
+<pre><code>{
+  &quot;href&quot;:        &quot;http://my.cl.ly/items/1912559&quot;,
+  &quot;name&quot;:        &quot;CloudApp Logo.png&quot;,
+  &quot;private&quot;:     false,
+  &quot;url&quot;:         &quot;http://cl.ly/2wr4&quot;,
+  &quot;content_url&quot;: &quot;http://cl.ly/2wr4/content&quot;,
+  &quot;item_type&quot;:   &quot;image&quot;,
+  &quot;view_counter&quot;: 42,
+  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/image.png&quot;,
+  &quot;remote_url&quot;:   &quot;http://f.cl.ly/items/7c7aea1395c3db0aee18/CloudApp%20Logo.png&quot;,
+  &quot;redirect_url&quot;: null,
+  &quot;created_at&quot;:   &quot;2010-10-23T19:50:13Z&quot;,
+  &quot;updated_at&quot;:   &quot;2010-10-23T19:50:38Z&quot;,
+  &quot;deleted_at&quot;:   null
+}</code></pre>
+</li>
 </ul>
 
-<h2 id='code_samples'>Code Samples</h2>
+<h2 id='example'>Example</h2>
 
-<p>Sometimes you want to display snippets of code. You can also modify the look of code snippets depending on their nature.</p>
-
-<h3 id='default_code_samples'>Default Code Samples</h3>
-
-<pre><code>#sample code
-def foo
-  bar
-end</code></pre>
-
-<h3 id='shell_code_samples'>Shell Code Samples</h3>
-
-<pre class='shell'><code>$ git push heroku master
-----&gt; Heroku receiving push
-----&gt; Rails app detected
-----&gt; Leaunching ..... done
-      http://sushi.heroku.com deployed</code></pre>
-
-<h2 id='quotes'>Quotes</h2>
-
-<p>Sometimes you will want to quote someone or show a partial of an article. Wouldn&#8217;t it be neat to have a style for this? Here you go.</p>
-
-<blockquote>
-<p>Man is least himself when he talks in his own person. Give him a mask, and he will tell you the truth.</p>
-</blockquote>
-
-<h2 id='definition_lists'>Definition Lists</h2>
-
-<p>If you would like to display terms and associated definitions a so called <em>Definition List</em> is what you need.</p>
-
-<h3 id='default_definition_list'>Default Definition List</h3>
-
-<dl>
-<dt>Taking It Easy</dt>
-
-<dd>This is probably the best definition ever.</dd>
-</dl>
-
-<h3 id='keyword_definition_list'>Keyword Definition List</h3>
-
-<dl class='keys'>
-<dt>Keyword</dt>
-
-<dd>A description with a <a href='#'>link</a>, it&#8217;s the future.</dd>
-</dl>
-<div class='footnotes'><hr /><ol><li id='fn:1'>
-<p>This is a sample footnote.</p>
-<a href='#fnref:1' rev='footnote'>&#8617;</a></li><li id='fn:2'>
-<p>Another sample footnote with a <a href='#'>link</a>.</p>
-<a href='#fnref:2' rev='footnote'>&#8617;</a></li></ol></div>
+<pre class='shell'><code>curl -H &quot;Accept: application/json&quot; http://cl.ly/2wr4</code></pre>
 
 
         </section>
 
-        <aside class="col col_4">
+        <aside class="col col_4" id="sidebar">
+          
+            <section class="categories">
+              <h3>Introduction</h3>
+
+              <ul>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/usage" id="introduction">Usage</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            </section>
+          
+            <section class="categories">
+              <h3>Api wrapper</h3>
+
+              <ul>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/objective-c-wrapper" id="api_wrapper">Objective-C Wrapper</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/perl-wrapper" id="api_wrapper">Perl Wrapper</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/php-wrapper" id="api_wrapper">PHP Wrapper</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/python-wrapper" id="api_wrapper">Python Wrapper</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/ruby-wrapper" id="api_wrapper">Ruby Wrapper</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            </section>
+          
+            <section class="categories">
+              <h3>Account</h3>
+
+              <ul>
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/change-email" id="account">Change Email</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/change-password" id="account">Change Password</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/change-security" id="account">Change Security</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/register" id="account">Register</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/reset-password" id="account">Reset Password</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/set-custom-domain" id="account">Set Custom Domain</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/view-account-details" id="account">View Account Details</a></li>
+                    
+                  
+                
+                  
+                
+              </ul>
+            </section>
+          
+            <section class="categories">
+              <h3>Items</h3>
+
+              <ul>
+                
+                  
+                
+                  
+                    
+                      <li><a href="/bookmark-link" id="items">Bookmark Link</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/change-security-of-item" id="items">Change Security Of Item</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/delete-item" id="items">Delete Item</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/empty-trash" id="items">Empty Trash</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/list-items" id="items">List Items</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/recover-deleted-item" id="items">Recover Deleted Item</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/rename-item" id="items">Rename Item</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/upload-file" id="items">Upload File</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/view-item" id="items">View Item</a></li>
+                    
+                  
+                
+              </ul>
+            </section>
           
         </aside>
       </div>
