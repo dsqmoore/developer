@@ -78,6 +78,6 @@ If you're lucky, the HTTP library you use will take care of this for you.
 ## Example
 
 {: .shell}
-    curl --digest -u authur@dent.com:towel \
+    curl --digest -u arthur@dent.com:towel \
          -H "Accept: application/json" \
          "http://my.cl.ly/items?page=1&per_page=5"

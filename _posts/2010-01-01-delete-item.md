@@ -39,7 +39,7 @@ Send an item to the trash.
 ## Example
 
 {: .shell}
-    curl --digest -u authur@dent.com:towel \
+    curl --digest -u arthur@dent.com:towel \
          -H "Accept: application/json" \
          -X DELETE \
          "http://my.cl.ly/items/1912565"

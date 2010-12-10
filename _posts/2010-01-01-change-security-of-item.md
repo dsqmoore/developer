@@ -45,7 +45,7 @@ Modify an item with a private URL to have a public URL or vice versa.
 ## Example
 
 {: .shell}
-    curl --digest -u authur@dent.com:towel \
+    curl --digest -u arthur@dent.com:towel \
          -H "Accept: application/json" \
          -H "Content-Type: application/json" \
          -d \
