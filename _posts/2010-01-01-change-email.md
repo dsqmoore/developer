@@ -6,7 +6,7 @@ categories: account
 
 # Change Email
 
-Update the email address on an account.
+Change the email address for an account.
 
 
 ## Request
