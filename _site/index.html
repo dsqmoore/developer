@@ -28,16 +28,16 @@
     <div class="container">
       <header class="row" id="header">
         <div class="col col_4">
-          <h1><a href="#">CloudApp Developers</a></h1>
+          <h1><a href="/">CloudApp Developers</a></h1>
         </div>
 
         <div class="col col_8">
           <nav>
             <ul>
-              <li><a href="#">Application</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Support</a></li>
-              <li><a href="#">Login</a></li>
+              <li><a href="http://getcloudapp.com/">Application</a></li>
+              <li><a href="http://blog.getcloudapp.com/">Blog</a></li>
+              <li><a href="http://support.getcloudapp.com/">Support</a></li>
+              <li><a href="http://my.cl.ly/">Login</a></li>
             </ul>
           </nav>
         </div>
@@ -45,52 +45,19 @@
 
       <div class="row">
         <section class="col col_8 wikistyle">
-          
-  <h1 id='view_item'>View Item</h1>
+          <h1 id='usage'>Usage</h1>
 
-<p>Get metadata about a cl.ly URL like name, type, or view count.</p>
+<p>You can use the CloudApp API to <a href='#register'>register an account</a>, <a href='#list_items'>list your items</a>, <a href='#upload_file'>upload a file</a> &#8211; anything <a href='http://getcloudapp.com/download/'>Cloud.app</a> or the <a href='http://my.cl.ly/'>web app</a> can do.</p>
 
-<h2 id='request'>Request</h2>
+<h3 id='authentication'>Authentication</h3>
 
-<ul>
-<li>HTTP Method: GET</li>
+<p><a href='http://en.wikipedia.org/wiki/Digest_access_authentication/'>HTTP Digest</a> is used to authenticate all requests.</p>
 
-<li>URL: Value of <code>url</code> on an item. <em>(e.g., http://cl.ly/2wr4)</em></li>
-</ul>
+<h3 id='json'>JSON</h3>
 
-<h2 id='response'>Response</h2>
+<p>You&#8217;re probably interested in JSON responses and not HTML. Add the header <code>Accept: application/json</code> on requests to receive JSON and <code>Content-Type: application/json</code> when you&#8217;re sending JSON.</p>
 
-<ul>
-<li>
-<p>Status: 200 OK</p>
-</li>
-
-<li>
-<p>Body:</p>
-
-<pre><code>{
-  &quot;href&quot;:        &quot;http://my.cl.ly/items/1912559&quot;,
-  &quot;name&quot;:        &quot;CloudApp Logo.png&quot;,
-  &quot;private&quot;:     false,
-  &quot;url&quot;:         &quot;http://cl.ly/2wr4&quot;,
-  &quot;content_url&quot;: &quot;http://cl.ly/2wr4/content&quot;,
-  &quot;item_type&quot;:   &quot;image&quot;,
-  &quot;view_counter&quot;: 42,
-  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/image.png&quot;,
-  &quot;remote_url&quot;:   &quot;http://f.cl.ly/items/7c7aea1395c3db0aee18/CloudApp%20Logo.png&quot;,
-  &quot;redirect_url&quot;: null,
-  &quot;created_at&quot;:   &quot;2010-10-23T19:50:13Z&quot;,
-  &quot;updated_at&quot;:   &quot;2010-10-23T19:50:38Z&quot;,
-  &quot;deleted_at&quot;:   null
-}</code></pre>
-</li>
-</ul>
-
-<h2 id='example'>Example</h2>
-
-<pre class='shell'><code>curl -H &quot;Accept: application/json&quot; http://cl.ly/2wr4</code></pre>
-
-
+<p>Keep in mind usage of the CloudApp API is bound to our <a href='http://getcloudapp.com/terms/'>Terms Of Service</a>.</p>
         </section>
 
         <aside class="col col_4" id="sidebar">
@@ -409,8 +376,8 @@
             <li>Powered by <a href="http://heroku.com/">Heroku</a></li>
             <li><a href="http://support.getcloudapp.com/faqs/company/contact">Contact</a></li>
             <li><a href="http://getcloudapp.com/terms/">Terms</a></li>
-            <li><a href="/privacy">Privacy</a></li>
-            <li><a href="http://developer.getcloudapp.com/">Developer</a></li>
+            <li><a href="http://getcloudapp.com/privacy/">Privacy</a></li>
+            <li><a href="/">Developer</a></li>
           </ul>
         </div>
 
