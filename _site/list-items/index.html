@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html class="no-js" dir="ltr" lang="en">
+  <head>
+    <title>CloudApp &raquo; Developers</title>
+
+    <meta charset="utf-8">
+
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0, user-scalable = no" name="viewport">
+
+    <!--[if !IE 6]><!-->
+    <link href="../stylesheets/screen.css" rel="stylesheet">
+    <!--<![endif]-->
+
+    <script src="../javascripts/jquery-1.4.3.min.js"></script>
+    <script src="../javascripts/modernizr-1.6.min.js"></script>
+
+    <!--[if IE 6]>
+    <link href="http://universal-ie6-css.googlecode.com/files/ie6.0.3.css" rel="stylesheet">
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script src="../javascripts/selectivizr-1.0.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="row" id="header">
+        <div class="col col_4">
+          <h1><a href="#">CloudApp Developers</a></h1>
+        </div>
+
+        <div class="col col_8">
+          <nav>
+            <ul>
+              <li><a href="#">Application</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Login</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div class="row">
+        <section class="col col_8 wikistyle">
+          <h1 id='list_items'>List Items</h1>
+
+<p>Page through your items. For the best performance, make sure your requests:</p>
+
+<ul>
+<li>Read and set <a href='http://en.wikipedia.org/wiki/HTTP_cookie'>cookies</a>.</li>
+
+<li>Read the <a href='http://en.wikipedia.org/wiki/HTTP_ETag'>Etag</a> header on the responses to set the <a href='http://en.wikipedia.org/wiki/HTTP_ETag'>If-None-Match</a> header on future requests.</li>
+
+<li>Read the <a href='http://en.wikipedia.org/wiki/List_of_HTTP_headers'>Last-Modified</a> header on responses to set the <a href='http://en.wikipedia.org/wiki/List_of_HTTP_headers'>If-Modified-Since</a> header on future requests.</li>
+</ul>
+
+<p>If you&#8217;re lucky, the HTTP library you use will take care of this for you.</p>
+
+<h2 id='request'>Request</h2>
+
+<ul>
+<li>
+<p>Requires <a href='/authentication/'>authentication</a></p>
+</li>
+
+<li>
+<p>HTTP Method: GET</p>
+</li>
+
+<li>
+<p>URL: http://my.cl.ly/items</p>
+</li>
+
+<li>
+<p>Optional paramters:</p>
+
+<ul>
+<li><code>page=1</code>: Page number starting at 1.</li>
+
+<li><code>per_page=5</code>: Number of items per page.</li>
+
+<li><code>type=image</code>: Filter items by type (image, bookmark, text, archive, audio, video, or unknown).</li>
+
+<li><code>deleted=true</code>: Show trashed items.</li>
+</ul>
+</li>
+</ul>
+
+<h2 id='response'>Response</h2>
+
+<ul>
+<li>
+<p>Status: 200 OK</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>[{
+  &quot;href&quot;:         &quot;http://my.cl.ly/items/1912729&quot;,
+  &quot;name&quot;:         &quot;My CloudApp&quot;,
+  &quot;private&quot;:      true,
+  &quot;url&quot;:          &quot;http://cl.ly/40b6ab341aca432a34ee&quot;,
+  &quot;content_url&quot;:  &quot;http://cl.ly/40b6ab341aca432a34ee/content&quot;,
+  &quot;item_type&quot;:    &quot;bookmark&quot;,
+  &quot;view_counter&quot;: 0,
+  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/bookmark.png&quot;,
+  &quot;remote_url&quot;:   null,
+  &quot;redirect_url&quot;: &quot;http://my.cl.ly&quot;,
+  &quot;created_at&quot;:   &quot;2010-10-23T20:10:37Z&quot;,
+  &quot;updated_at&quot;:   &quot;2010-10-23T20:10:41Z&quot;,
+  &quot;deleted_at&quot;:   null
+}, {
+  &quot;href&quot;:         &quot;http://my.cl.ly/items/1912565&quot;,
+  &quot;name&quot;:         &quot;CloudApp&quot;,
+  &quot;private&quot;:      false,
+  &quot;url&quot;:          &quot;http://cl.ly/2wt6&quot;,
+  &quot;content_url&quot;:  &quot;http://cl.ly/2wt6/content&quot;,
+  &quot;item_type&quot;:    &quot;bookmark&quot;,
+  &quot;view_counter&quot;: 2,
+  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/bookmark.png&quot;,
+  &quot;remote_url&quot;:   null,
+  &quot;redirect_url&quot;: &quot;http://getcloudapp.com&quot;,
+  &quot;created_at&quot;:   &quot;2010-10-23T19:50:24Z&quot;,
+  &quot;updated_at&quot;:   &quot;2010-10-23T19:50:39Z&quot;,
+  &quot;deleted_at&quot;:   null
+}, {
+  &quot;href&quot;:         &quot;http://my.cl.ly/items/1912559&quot;,
+  &quot;name&quot;:         &quot;CloudApp Logo.png&quot;,
+  &quot;private&quot;:      false,
+  &quot;url&quot;:          &quot;http://cl.ly/2wr4&quot;,
+  &quot;content_url&quot;:  &quot;http://cl.ly/2wr4/content&quot;,
+  &quot;item_type&quot;:    &quot;image&quot;,
+  &quot;view_counter&quot;: 2,
+  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/image.png&quot;,
+  &quot;remote_url&quot;:   &quot;http://f.cl.ly/items/7c7aea1395c3db0aee18/CloudApp%20Logo.png&quot;,
+  &quot;redirect_url&quot;: null,
+  &quot;created_at&quot;:   &quot;2010-10-23T19:50:13Z&quot;,
+  &quot;updated_at&quot;:   &quot;2010-10-23T19:50:38Z&quot;,
+  &quot;deleted_at&quot;:   null
+}]</code></pre>
+</li>
+</ul>
+
+<h2 id='example'>Example</h2>
+
+<pre class='shell'><code>curl --digest -u authur@dent.com:towel \
+     -H &quot;Accept: application/json&quot; \
+     &quot;http://my.cl.ly/items?page=1&amp;per_page=5&quot;</code></pre>
+        </section>
+
+        <aside class="col col_4" id="sidebar">
+          
+            <section class="categories">
+              <h3>Introduction</h3>
+
+              <ul>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/usage" id="introduction">Usage</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            </section>
+          
+            <section class="categories">
+              <h3>Api wrapper</h3>
+
+              <ul>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/objective-c-wrapper" id="api_wrapper">Objective-C Wrapper</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/perl-wrapper" id="api_wrapper">Perl Wrapper</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/php-wrapper" id="api_wrapper">PHP Wrapper</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/python-wrapper" id="api_wrapper">Python Wrapper</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/ruby-wrapper" id="api_wrapper">Ruby Wrapper</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            </section>
+          
+            <section class="categories">
+              <h3>Account</h3>
+
+              <ul>
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/change-email" id="account">Change Email</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/change-password" id="account">Change Password</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/change-security" id="account">Change Security</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/register" id="account">Register</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/reset-password" id="account">Reset Password</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/set-custom-domain" id="account">Set Custom Domain</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/view-account-details" id="account">View Account Details</a></li>
+                    
+                  
+                
+                  
+                
+              </ul>
+            </section>
+          
+            <section class="categories">
+              <h3>Items</h3>
+
+              <ul>
+                
+                  
+                
+                  
+                    
+                      <li><a href="/bookmark-link" id="items">Bookmark Link</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/change-security-of-item" id="items">Change Security Of Item</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/delete-item" id="items">Delete Item</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/empty-trash" id="items">Empty Trash</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li>List Items</li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/recover-deleted-item" id="items">Recover Deleted Item</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/rename-item" id="items">Rename Item</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/upload-file" id="items">Upload File</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/view-item" id="items">View Item</a></li>
+                    
+                  
+                
+              </ul>
+            </section>
+          
+        </aside>
+      </div>
+
+      <footer class="row" id="footer">
+        <div class="col col_8">
+          <ul>
+            <li>&copy; 2010 Linebreak S.L.</li>
+            <li>Powered by <a href="http://heroku.com/">Heroku</a></li>
+            <li><a href="http://support.getcloudapp.com/faqs/company/contact">Contact</a></li>
+            <li><a href="http://getcloudapp.com/terms/">Terms</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="http://developer.getcloudapp.com/">Developer</a></li>
+          </ul>
+        </div>
+
+        <div class="col col_4">
+          <ul class="right">
+            <li><a href='http://www.twitter.com/getcloudapp'>Twitter</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

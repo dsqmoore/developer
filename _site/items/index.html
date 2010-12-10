@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="no-js" dir="ltr" lang="en">
+  <head>
+    <title>CloudApp &raquo; Developers</title>
+
+    <meta charset="utf-8">
+
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0, user-scalable = no" name="viewport">
+
+    <!--[if !IE 6]><!-->
+    <link href="../stylesheets/screen.css" rel="stylesheet">
+    <!--<![endif]-->
+
+    <script src="../javascripts/jquery-1.4.3.min.js"></script>
+    <script src="../javascripts/modernizr-1.6.min.js"></script>
+
+    <!--[if IE 6]>
+    <link href="http://universal-ie6-css.googlecode.com/files/ie6.0.3.css" rel="stylesheet">
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script src="../javascripts/selectivizr-1.0.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="row" id="header">
+        <div class="col col_4">
+          <h1><a href="#">CloudApp Developers</a></h1>
+        </div>
+
+        <div class="col col_8">
+          <nav>
+            <ul>
+              <li><a href="#">Application</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Login</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div class="row">
+        <section class="col col_8 wikistyle">
+          <h1 id='items'>Items</h1>
+
+<p>Items are anything you can create with CloudApp: files and bookmarks. Perhaps you&#8217;d like to <a href='#upload_file'>upload a screenshot</a>, <a href='#bookmark_link'>bookmark a web page</a>, or <a href='#recover_deleted_item'>recover a deleted item from the trash</a>.</p>
+
+<h2 id='view_item'>View Item</h2>
+
+<p>Get metadata about a cl.ly URL like name, type, or view count.</p>
+
+<h3 id='request'>Request</h3>
+
+<ul>
+<li>HTTP Method: GET</li>
+
+<li>URL: Value of <code>url</code> on an item. <em>(e.g., http://cl.ly/2wr4)</em></li>
+</ul>
+
+<h3 id='response'>Response</h3>
+
+<ul>
+<li>
+<p>Status: 200 OK</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>{
+  &quot;href&quot;:           &quot;http://my.cl.ly/items/1912559&quot;,
+  &quot;name&quot;:           &quot;CloudApp Logo.png&quot;,
+  &quot;private&quot;:        false,
+  &quot;url&quot;:            &quot;http://cl.ly/2wr4&quot;,
+  &quot;content_url&quot;:    &quot;http://cl.ly/2wr4/content&quot;,
+  &quot;item_type&quot;:      &quot;image&quot;,
+  &quot;view_counter&quot;:   42,
+  &quot;icon&quot;:           &quot;http://my.cl.ly/images/item_types/image.png&quot;,
+  &quot;remote_url&quot;:     &quot;http://f.cl.ly/items/7c7aea1395c3db0aee18/CloudApp%20Logo.png&quot;,
+  &quot;redirect_url&quot;:   null,
+  &quot;created_at&quot;:     &quot;2010-10-23T19:50:13Z&quot;,
+  &quot;updated_at&quot;:     &quot;2010-10-23T19:50:38Z&quot;,
+  &quot;deleted_at&quot;:     null
+}</code></pre>
+</li>
+</ul>
+
+<h3 id='example'>Example</h3>
+
+<pre><code>curl -H &quot;Accept: application/json&quot; http://cl.ly/2wr4</code></pre>
+
+<h2 id='list_items'>List Items</h2>
+
+<p>Page through your items. For the best performance, make sure your requests:</p>
+
+<ul>
+<li>Read and set <span>cookies</span>.</li>
+
+<li>Read the <span>Etag</span> header on the responses to set the <span>If-None-Match</span> header on future requests.</li>
+
+<li>Read the <span>Last-Modified</span> header on responses to set the <span>If-Modified-Since</span> header on future requests.</li>
+</ul>
+
+<p>If you&#8217;re lucky, the HTTP library you use will take care of this for you.</p>
+
+<h3 id='request'>Request</h3>
+
+<ul>
+<li>
+<p>Requires <span>authentication</span></p>
+</li>
+
+<li>
+<p>HTTP Method: GET</p>
+</li>
+
+<li>
+<p>URL: http://my.cl.ly/items</p>
+</li>
+
+<li>
+<p>Optional paramters:</p>
+
+<ul>
+<li><code>page=1</code>: Page number starting at 1.</li>
+
+<li><code>per_page=5</code>: Number of items per page.</li>
+
+<li><code>type=image</code>: Filter items by type (image, bookmark, text, archive, audio, video, or unknown).</li>
+
+<li><code>deleted=true</code>: Show trashed items.</li>
+</ul>
+</li>
+</ul>
+
+<h3 id='response'>Response</h3>
+
+<ul>
+<li>
+<p>Status: 200 OK</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>[{
+  &quot;href&quot;:         &quot;http://my.cl.ly/items/1912729&quot;,
+  &quot;name&quot;:         &quot;My CloudApp&quot;,
+  &quot;private&quot;:      true,
+  &quot;url&quot;:          &quot;http://cl.ly/40b6ab341aca432a34ee&quot;,
+  &quot;content_url&quot;:  &quot;http://cl.ly/40b6ab341aca432a34ee/content&quot;,
+  &quot;item_type&quot;:    &quot;bookmark&quot;,
+  &quot;view_counter&quot;: 0,
+  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/bookmark.png&quot;,
+  &quot;remote_url&quot;:   null,
+  &quot;redirect_url&quot;: &quot;http://my.cl.ly&quot;,
+  &quot;created_at&quot;:   &quot;2010-10-23T20:10:37Z&quot;,
+  &quot;updated_at&quot;:   &quot;2010-10-23T20:10:41Z&quot;,
+  &quot;deleted_at&quot;:   null
+}, {
+  &quot;href&quot;:         &quot;http://my.cl.ly/items/1912565&quot;,
+  &quot;name&quot;:         &quot;CloudApp&quot;,
+  &quot;private&quot;:      false,
+  &quot;url&quot;:          &quot;http://cl.ly/2wt6&quot;,
+  &quot;content_url&quot;:  &quot;http://cl.ly/2wt6/content&quot;,
+  &quot;item_type&quot;:    &quot;bookmark&quot;,
+  &quot;view_counter&quot;: 2,
+  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/bookmark.png&quot;,
+  &quot;remote_url&quot;:   null,
+  &quot;redirect_url&quot;: &quot;http://getcloudapp.com&quot;,
+  &quot;created_at&quot;:   &quot;2010-10-23T19:50:24Z&quot;,
+  &quot;updated_at&quot;:   &quot;2010-10-23T19:50:39Z&quot;,
+  &quot;deleted_at&quot;:   null
+}, {
+  &quot;href&quot;:         &quot;http://my.cl.ly/items/1912559&quot;,
+  &quot;name&quot;:         &quot;CloudApp Logo.png&quot;,
+  &quot;private&quot;:      false,
+  &quot;url&quot;:          &quot;http://cl.ly/2wr4&quot;,
+  &quot;content_url&quot;:  &quot;http://cl.ly/2wr4/content&quot;,
+  &quot;item_type&quot;:    &quot;image&quot;,
+  &quot;view_counter&quot;: 2,
+  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/image.png&quot;,
+  &quot;remote_url&quot;:   &quot;http://f.cl.ly/items/7c7aea1395c3db0aee18/CloudApp%20Logo.png&quot;,
+  &quot;redirect_url&quot;: null,
+  &quot;created_at&quot;:   &quot;2010-10-23T19:50:13Z&quot;,
+  &quot;updated_at&quot;:   &quot;2010-10-23T19:50:38Z&quot;,
+  &quot;deleted_at&quot;:   null
+}]</code></pre>
+</li>
+</ul>
+
+<h3 id='example'>Example</h3>
+
+<pre><code>curl --digest -u authur@dent.com:towel \
+     -H &quot;Accept: application/json&quot; \
+     &quot;http://my.cl.ly/items?page=1&amp;per_page=5&quot;</code></pre>
+
+<h2 id='bookmark_link'>Bookmark Link</h2>
+
+<h3 id='request'>Request</h3>
+
+<ul>
+<li>
+<p>Requires <span>authentication</span></p>
+</li>
+
+<li>
+<p>HTTP Method: POST</p>
+</li>
+
+<li>
+<p>URL: http://my.cl.ly/items</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code> {
+   &quot;item&quot;: {
+     &quot;name&quot;: &quot;CloudApp&quot;,
+     &quot;redirect_url&quot;: &quot;http://cloudapp.com&quot;
+   }
+ }</code></pre>
+</li>
+</ul>
+
+<h3 id='response'>Response</h3>
+
+<ul>
+<li>
+<p>Status: 200 OK</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code> {
+   &quot;href&quot;:         &quot;http://my.cl.ly/items/1912565&quot;,
+   &quot;name&quot;:         &quot;CloudApp&quot;,
+   &quot;private&quot;:      true,
+   &quot;url&quot;:          &quot;http://cl.ly/4febbfdfb185c63d5e14&quot;,
+   &quot;content_url&quot;:  &quot;http://cl.ly/4febbfdfb185c63d5e14/content&quot;,
+   &quot;item_type&quot;:    &quot;bookmark&quot;,
+   &quot;view_counter&quot;: 0,
+   &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/bookmark.png&quot;,
+   &quot;remote_url&quot;:   null,
+   &quot;redirect_url&quot;: &quot;http://getcloudapp.com&quot;,
+   &quot;created_at&quot;:   &quot;2010-10-23T19:50:24Z&quot;,
+   &quot;updated_at&quot;:   &quot;2010-10-23T19:50:39Z&quot;,
+   &quot;deleted_at&quot;:   null
+ }</code></pre>
+</li>
+</ul>
+
+<h3 id='example'>Example</h3>
+
+<pre><code> curl --digest -u authur@dent.com:towel \
+      -H &quot;Accept: application/json&quot; \
+      -H &quot;Content-Type: application/json&quot; \
+      -d \
+        &#39;{
+          &quot;item&quot;: {
+            &quot;name&quot;: &quot;CloudApp&quot;,
+            &quot;redirect_url&quot;: &quot;http://getcloudapp.com&quot;
+          }
+        }&#39; \
+      &quot;http://my.cl.ly/items&quot;</code></pre>
+        </section>
+
+        <aside class="col col_4" id="sidebar">
+          
+            <section class="categories">
+              <h3>Introduction</h3>
+
+              <ul>
+                
+                  
+                
+                  
+                
+              </ul>
+            </section>
+          
+            <section class="categories">
+              <h3>Api</h3>
+
+              <ul>
+                
+                  
+                    
+                      <li><a href="/account" id="api">Account</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li>Items</li>
+                    
+                  
+                
+              </ul>
+            </section>
+          
+        </aside>
+      </div>
+
+      <footer class="row" id="footer">
+        <div class="col col_8">
+          <ul>
+            <li>&copy; 2010 Linebreak S.L.</li>
+            <li>Powered by <a href="http://heroku.com/">Heroku</a></li>
+            <li><a href="http://support.getcloudapp.com/faqs/company/contact">Contact</a></li>
+            <li><a href="http://getcloudapp.com/terms/">Terms</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="http://developer.getcloudapp.com/">Developer</a></li>
+          </ul>
+        </div>
+
+        <div class="col col_4">
+          <ul class="right">
+            <li><a href='http://www.twitter.com/getcloudapp'>Twitter</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

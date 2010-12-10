@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html class="no-js" dir="ltr" lang="en">
+  <head>
+    <title>CloudApp &raquo; Developers</title>
+
+    <meta charset="utf-8">
+
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0, user-scalable = no" name="viewport">
+
+    <!--[if !IE 6]><!-->
+    <link href="../stylesheets/screen.css" rel="stylesheet">
+    <!--<![endif]-->
+
+    <script src="../javascripts/jquery-1.4.3.min.js"></script>
+    <script src="../javascripts/modernizr-1.6.min.js"></script>
+
+    <!--[if IE 6]>
+    <link href="http://universal-ie6-css.googlecode.com/files/ie6.0.3.css" rel="stylesheet">
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script src="../javascripts/selectivizr-1.0.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="row" id="header">
+        <div class="col col_4">
+          <h1><a href="#">CloudApp Developers</a></h1>
+        </div>
+
+        <div class="col col_8">
+          <nav>
+            <ul>
+              <li><a href="#">Application</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Login</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div class="row">
+        <section class="col col_8 wikistyle">
+          <h1 id='upload_file'>Upload File</h1>
+
+<p>Files are uploaded directly to <a href='http://aws.amazon.com/s3/'>S3</a> to be as fast as possible. You&#8217;ll need to request a few parameters from CloudApp and send them along with the file.</p>
+
+<h2 id='request'>Request</h2>
+
+<ul>
+<li>Requires <a href='/authentication/'>authentication</a></li>
+
+<li>HTTP Method: GET</li>
+
+<li>URL: http://my.cl.ly/items/new</li>
+</ul>
+
+<h2 id='response'>Response</h2>
+
+<ul>
+<li>
+<p>Status: 200 OK</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>{
+  &quot;url&quot;: &quot;http://f.cl.ly&quot;,
+  &quot;params&quot;: {
+    &quot;AWSAccessKeyId&quot;:          &quot;AKIAIDPUZISHSBEOFS6Q&quot;,
+    &quot;key&quot;:                     &quot;items/qL/${filename}&quot;,
+    &quot;acl&quot;:                     &quot;public-read&quot;,
+    &quot;success_action_redirect&quot;: &quot;http://my.cl.ly/items/s3&quot;,
+    &quot;signature&quot;:               &quot;2vRWmaSy46WGs0MDUdLHAqjSL8k=&quot;,
+    &quot;policy&quot;:                  &quot;eyJleHBpcmF0aW9uIjoiMjAxMC0wNC0wMVQwMDowMDowMFoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJsaW5lYnJlYWstdGVzdCJ9LHsiYWNsIjoicHVibGljLXJlYWQifSx7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjoiaHR0cDovL215LmNsb3VkYXBwLmxvY2FsL3VwbG9hZHMvczMifSxbInN0YXJ0cy13aXRoIiwiJGtleSIsInVwbG9hZHMvcUwvIl1dfQ==&quot;
+  }
+}</code></pre>
+</li>
+</ul>
+
+<p>Use this response to construct the upload. Each item in <code>params</code> becomes a separate parameter you&#8217;ll need to post to <code>url</code>. Send the file as the parameter <code>file</code>.</p>
+
+<p>According to <a href='http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1434'>Amazon&#8217;s documentation</a>, any parameter after <code>file</code> is ignored. Make sure <code>file</code> is the last parameter or the upload will be rejected.</p>
+
+<h2 id='request'>Request</h2>
+
+<ul>
+<li>HTTP Method: POST</li>
+
+<li>URL: Value of <code>url</code> in response. <em>(e.g., http://f.cl.ly)</em></li>
+
+<li>Post each key and value from <code>params</code> as a separate parameter.</li>
+
+<li>Post the file data as the parameter <code>file</code>.</li>
+</ul>
+
+<h2 id='response'>Response</h2>
+
+<ul>
+<li>Status: 303 See Other <em>(Follow the redirect using CloudApp <a href='/authentication/'>authentication</a>.)</em></li>
+</ul>
+
+<h2 id='request'>Request</h2>
+
+<ul>
+<li>HTTP Method: GET</li>
+
+<li>URL: Value of <code>Location</code> header from previous response. <em>(e.g., http://my.cl.ly/items/s3)</em></li>
+</ul>
+
+<h2 id='response'>Response</h2>
+
+<ul>
+<li>
+<p>Status: 200 OK</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>{
+  &quot;href&quot;:         &quot;http://my.cl.ly/items/3&quot;,
+  &quot;name&quot;:         &quot;Screen shot 2010-04-01 at 12.00.00 AM.png&quot;,
+  &quot;private&quot;:      false,
+  &quot;url&quot;:          &quot;http://cl.ly/2wr4&quot;,
+  &quot;content_url&quot;:  &quot;http://cl.ly/2wr4/content&quot;,
+  &quot;item_type&quot;:    &quot;image&quot;,
+  &quot;view_counter&quot;: 0,
+  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/image.png&quot;,
+  &quot;remote_url&quot;:   &quot;http://f.cl.ly/items/3d7ba41682802c301150/Screen shot 2010-04-01 at 12.00.00 AM.png&quot;,
+  &quot;redirect_url&quot;: null,
+  &quot;created_at&quot;:   &quot;2010-04-01T12:00:00Z&quot;,
+  &quot;updated_at&quot;:   &quot;2010-04-01T12:00:00Z&quot;
+}</code></pre>
+</li>
+</ul>
+        </section>
+
+        <aside class="col col_4" id="sidebar">
+          
+            <section class="categories">
+              <h3>Introduction</h3>
+
+              <ul>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/usage" id="introduction">Usage</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            </section>
+          
+            <section class="categories">
+              <h3>Api wrapper</h3>
+
+              <ul>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/objective-c-wrapper" id="api_wrapper">Objective-C Wrapper</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/perl-wrapper" id="api_wrapper">Perl Wrapper</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/php-wrapper" id="api_wrapper">PHP Wrapper</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/python-wrapper" id="api_wrapper">Python Wrapper</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/ruby-wrapper" id="api_wrapper">Ruby Wrapper</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            </section>
+          
+            <section class="categories">
+              <h3>Account</h3>
+
+              <ul>
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/change-email" id="account">Change Email</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/change-password" id="account">Change Password</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/change-security" id="account">Change Security</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/register" id="account">Register</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/reset-password" id="account">Reset Password</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/set-custom-domain" id="account">Set Custom Domain</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/view-account-details" id="account">View Account Details</a></li>
+                    
+                  
+                
+                  
+                
+              </ul>
+            </section>
+          
+            <section class="categories">
+              <h3>Items</h3>
+
+              <ul>
+                
+                  
+                
+                  
+                    
+                      <li><a href="/bookmark-link" id="items">Bookmark Link</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/change-security-of-item" id="items">Change Security Of Item</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/delete-item" id="items">Delete Item</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/empty-trash" id="items">Empty Trash</a></li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/list-items" id="items">List Items</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/recover-deleted-item" id="items">Recover Deleted Item</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/rename-item" id="items">Rename Item</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li>Upload File</li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/view-item" id="items">View Item</a></li>
+                    
+                  
+                
+              </ul>
+            </section>
+          
+        </aside>
+      </div>
+
+      <footer class="row" id="footer">
+        <div class="col col_8">
+          <ul>
+            <li>&copy; 2010 Linebreak S.L.</li>
+            <li>Powered by <a href="http://heroku.com/">Heroku</a></li>
+            <li><a href="http://support.getcloudapp.com/faqs/company/contact">Contact</a></li>
+            <li><a href="http://getcloudapp.com/terms/">Terms</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="http://developer.getcloudapp.com/">Developer</a></li>
+          </ul>
+        </div>
+
+        <div class="col col_4">
+          <ul class="right">
+            <li><a href='http://www.twitter.com/getcloudapp'>Twitter</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
