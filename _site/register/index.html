@@ -46,6 +46,56 @@
       <div class="row">
         <section class="col col_8 wikistyle">
           <h1 id='register'>Register</h1>
+
+<p>Create a CloudApp account.</p>
+
+<h2 id='request'>Request</h2>
+
+<ul>
+<li>HTTP Method: POST</li>
+
+<li>URL: http://my.cl.ly/register</li>
+
+<li>Body:</li>
+</ul>
+
+<h2 id='response'>Response</h2>
+
+<ul>
+<li>
+<p>Status: 201 Created</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>{
+  &quot;id&quot;:                         138,
+  &quot;email&quot;:                      &quot;arthur@dent.com&quot;,
+  &quot;domain&quot;:                     null,
+  &quot;domain_home_page&quot;:           null,
+  &quot;private_items&quot;:              true,
+  &quot;subscribed&quot;:                 false,
+  &quot;alpha&quot;:                      null,
+  &quot;created_at&quot;:                 &quot;2010-12-10T17:07:01Z&quot;,
+  &quot;updated_at&quot;:                 &quot;2010-12-10T17:07:01Z&quot;,
+  &quot;activated_at&quot;:               null
+}</code></pre>
+</li>
+</ul>
+
+<h2 id='example'>Example</h2>
+
+<pre class='shell'><code>curl -H &quot;Accept: application/json&quot; \
+     -H &quot;Content-Type: application/json&quot; \
+     -d \
+        &#39;{
+          &quot;user&quot;: {
+            &quot;email&quot;:    &quot;arthur@dent.com&quot;,
+            &quot;password&quot;: &quot;towel&quot;
+          }
+        }&#39; \
+     http://my.cloudapp.local/register</code></pre>
         </section>
 
         <aside class="col col_4" id="sidebar">
