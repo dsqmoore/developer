@@ -46,6 +46,75 @@
       <div class="row">
         <section class="col col_8 wikistyle">
           <h1 id='change_email'>Change Email</h1>
+
+<p>Update the email address on an account.</p>
+
+<h2 id='request'>Request</h2>
+
+<ul>
+<li>
+<p>Requires <a href='/authentication/'>authentication</a> and current password</p>
+</li>
+
+<li>
+<p>HTTP Method: PUT</p>
+</li>
+
+<li>
+<p>URL: http://my.cl.ly/account</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>{
+  &quot;user&quot;: {
+    &quot;email&quot;:            &quot;ford@prefect.com&quot;,
+    &quot;current_password&quot;: &quot;towel&quot;,
+  }
+}</code></pre>
+</li>
+</ul>
+
+<h2 id='response'>Response</h2>
+
+<ul>
+<li>
+<p>Status: 200 OK</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>{
+  &quot;id&quot;:               1,
+  &quot;email&quot;:            &quot;ford@prefect.com&quot;,
+  &quot;domain&quot;:           null,
+  &quot;domain_home_page&quot;: null,
+  &quot;private_items&quot;:    true,
+  &quot;subscribed&quot;:       false,
+  &quot;alpha&quot;:            null,
+  &quot;created_at&quot;:       &quot;2010-12-10T17:07:01Z&quot;,
+  &quot;updated_at&quot;:       &quot;2010-12-10T17:07:01Z&quot;,
+  &quot;activated_at&quot;:     null
+}</code></pre>
+</li>
+</ul>
+
+<h2 id='example'>Example</h2>
+
+<pre class='shell'><code>curl --digest -u arthur@dent.com:towel \
+     -H &quot;Accept: application/json&quot; \
+     -H &quot;Content-Type: application/json&quot; \
+     -d \
+       &#39;{
+          &quot;user&quot;: {
+            &quot;email&quot;:            &quot;ford@prefect.com&quot;,
+            &quot;current_password&quot;: &quot;towel&quot;
+          }
+        }&#39; \
+     -X PUT \
+     &quot;http://my.cloudapp.local/account&quot;</code></pre>
         </section>
 
         <aside class="col col_4" id="sidebar">
