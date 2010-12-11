@@ -1,7 +1,7 @@
 ---
 layout: master
-title: Reset Password
+title: Forgot Password
 categories: account
 ---
 
-# Reset Password
+# Forgot Password
