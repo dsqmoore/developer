@@ -46,6 +46,49 @@
       <div class="row">
         <section class="col col_8 wikistyle">
           <h1 id='view_account_details'>View Account Details</h1>
+
+<p>Get the basic details of the authenticated account. This is the same response as returned by most account endpoints.</p>
+
+<h2 id='request'>Request</h2>
+
+<ul>
+<li>Requires <a href='/authentication/'>authentication</a></li>
+
+<li>HTTP Method: GET</li>
+
+<li>URL: http://my.cl.ly/account</li>
+</ul>
+
+<h2 id='response'>Response</h2>
+
+<ul>
+<li>
+<p>Status: 200 OK</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>{
+  &quot;id&quot;:               1,
+  &quot;email&quot;:            &quot;arthur@dent.com&quot;,
+  &quot;domain&quot;:           null,
+  &quot;domain_home_page&quot;: null,
+  &quot;private_items&quot;:    true,
+  &quot;subscribed&quot;:       false,
+  &quot;alpha&quot;:            false,
+  &quot;created_at&quot;:       &quot;2010-12-10T17:07:01Z&quot;,
+  &quot;updated_at&quot;:       &quot;2010-12-10T17:12:51Z&quot;,
+  &quot;activated_at&quot;:     &quot;2010-12-10T17:12:51Z&quot;
+}</code></pre>
+</li>
+</ul>
+
+<h2 id='example'>Example</h2>
+
+<pre class='shell'><code>curl --digest -u arthur@dent.com:towel \
+     -H &quot;Accept: application/json&quot; \
+     &quot;http://my.cl.ly/account&quot;</code></pre>
         </section>
 
         <aside class="col col_4" id="sidebar">
