@@ -129,8 +129,6 @@ a:link, a:visited {
 ---------------------------------------------- */
 @media handheld, only screen and (max-width: 767px) {
   #header h1 a {
-    background-image: url("../../images/logo_2x.png");
-    background-size: 170px 30px;
     margin: 0 auto;
   }
 
