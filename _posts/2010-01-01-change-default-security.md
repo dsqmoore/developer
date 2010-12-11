@@ -11,7 +11,7 @@ Change the security of newly created items to either private (long links) or pub
 
 ## Request
 
-- Requires [authentication](/authentication/)
+- Requires [authentication](/usage/#authentication)
 - HTTP Method: PUT
 - URL: http://my.cl.ly/account
 - Body:

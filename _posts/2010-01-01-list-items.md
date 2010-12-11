@@ -17,7 +17,7 @@ If you're lucky, the HTTP library you use will take care of this for you.
 
 ## Request
 
-- Requires [authentication](/authentication/)
+- Requires [authentication](/usage/#authentication)
 - HTTP Method: GET
 - URL: http://my.cl.ly/items
 - Optional paramters:

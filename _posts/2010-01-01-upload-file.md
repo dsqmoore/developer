@@ -10,7 +10,7 @@ Files are uploaded directly to [S3](http://aws.amazon.com/s3/) to be as fast as 
 
 ## Request
 
-- Requires [authentication](/authentication/)
+- Requires [authentication](/usage/#authentication)
 - HTTP Method: GET
 - URL: http://my.cl.ly/items/new
 
@@ -44,7 +44,7 @@ According to [Amazon's documentation](http://developer.amazonwebservices.com/con
 
 ## Response
 
-- Status: 303 See Other *(Follow the redirect using CloudApp [authentication](/authentication/).)*
+- Status: 303 See Other *(Follow the redirect using CloudApp [authentication](/usage/#authentication)(/authentication/).)*
 
 ## Request
 

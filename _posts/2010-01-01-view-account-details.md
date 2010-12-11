@@ -11,7 +11,7 @@ Get the basic details of the authenticated account. This is the same response as
 
 ## Request
 
-- Requires [authentication](/authentication/)
+- Requires [authentication](/usage/#authentication)
 - HTTP Method: GET
 - URL: http://my.cl.ly/account
 

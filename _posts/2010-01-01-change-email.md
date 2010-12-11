@@ -11,7 +11,7 @@ Change the email address for an account.
 
 ## Request
 
-- Requires [authentication](/authentication/) and current password
+- Requires [authentication](/usage/#authentication) and current password
 - HTTP Method: PUT
 - URL: http://my.cl.ly/account
 - Body:

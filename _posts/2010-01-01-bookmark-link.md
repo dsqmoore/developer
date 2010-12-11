@@ -8,7 +8,7 @@ categories: items
 
 ## Request
 
-- Requires [authentication](/authentication/)
+- Requires [authentication](/usage/#authentication)
 - HTTP Method: POST
 - URL: http://my.cl.ly/items
 - Body:

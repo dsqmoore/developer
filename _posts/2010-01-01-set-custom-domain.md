@@ -11,7 +11,7 @@ If the account has a CloudApp Pro subscription, add or change the domain used fo
 
 ## Request
 
-- Requires [authentication](/authentication/)
+- Requires [authentication](/usage/#authentication)
 - HTTP Method: PUT
 - URL: http://my.cl.ly/account
 - Body:
