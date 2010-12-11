@@ -28,3 +28,7 @@ The CloudApp API follows standard REST guidelines and implementation should be p
 * [Asking your question](http://stackoverflow.com/) on Stackoverflow (experienced developers will be able to help)
 * [Browsing through the developer discussions](http://support.getcloudapp.com/discussions/developersapi/) in our support forum
 * [Starting a new discussion](http://support.getcloudapp.com/discussions/developersapi/#new_topic_form) if you can't find what you are looking for
+
+## Contribute
+
+Our developer docs are available on [Github](http://github.com/cloudapp/developer). If you would like to include a client library you wrote or update the documentation for a third-party API wrapper simply fork the repository and send us a pull request.
