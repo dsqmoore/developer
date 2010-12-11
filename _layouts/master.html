@@ -61,8 +61,9 @@ sidebar_cats:
 
       <section class="row" id="quicknav">
         <select class="col col_12">
-          {% for cat in (page.sidebar_cats) %}
+          <option value="/" {% unless page.title %}selected{% endunless %}>Welcome</option>
 
+          {% for cat in (page.sidebar_cats) %}
             <optgroup label="{{ cat | replace:'_',' ' | capitalize }}">
               {% for post in site.posts reversed %}
                 {% if post.categories contains cat %}
