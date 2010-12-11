@@ -12,7 +12,7 @@ Change the name of an item.
 
 - Requires [authentication](/usage/#authentication)
 - HTTP Method: PUT
-- URL: Value of item's `href` attribute. _(e.g., http://my.cl.ly/1912565)_
+- URL: Value of item's `href` attribute. _(e.g., http://my.cl.ly/items/1912565)_
 - Body:
 
       {

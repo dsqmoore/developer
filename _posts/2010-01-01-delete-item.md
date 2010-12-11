@@ -12,7 +12,7 @@ Send an item to the trash.
 
 - Requires [authentication](/usage/#authentication)
 - HTTP Method: DELETE
-- URL: Value of item's `href` attribute. _(e.g., http://my.cl.ly/1912565)_
+- URL: Value of item's `href` attribute. _(e.g., http://my.cl.ly/items/1912565)_
 
 ## Response
 
