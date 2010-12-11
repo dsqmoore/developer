@@ -1,7 +1,7 @@
 ---
 layout: master
 title: Perl Wrapper
-categories: api_wrapper
+categories: wrapper
 ---
 
 #Perl Wrapper

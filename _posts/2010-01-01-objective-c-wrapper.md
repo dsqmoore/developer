@@ -1,7 +1,7 @@
 ---
 layout: master
 title: Objective-C Wrapper
-categories: api_wrapper
+categories: wrapper
 ---
 
 # Objetive-C Wrapper

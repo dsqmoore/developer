@@ -1,7 +1,7 @@
 ---
 layout: master
 title: Python Wrapper
-categories: api_wrapper
+categories: wrapper
 ---
 
 # Python Wrapper

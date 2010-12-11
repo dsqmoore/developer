@@ -1,7 +1,7 @@
 ---
 layout: master
 title: Ruby Wrapper
-categories: api_wrapper
+categories: wrapper
 ---
 
 # Ruby Wrapper

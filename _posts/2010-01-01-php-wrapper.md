@@ -1,7 +1,7 @@
 ---
 layout: master
 title: PHP Wrapper
-categories: api_wrapper
+categories: wrapper
 ---
 
 #PHP Wrapper
