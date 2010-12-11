@@ -1,18 +1,32 @@
 ---
 layout: master
+title: Welcome
+categories: introduction
 ---
 
-# Usage
+# Welcome
 
-You can use the CloudApp API to [register an account](#register), [list your items](#list_items), [upload a file](#upload_file) -- anything [Cloud.app](http://getcloudapp.com/download/) or the [web app](http://my.cl.ly/) can do.
+Welcome to the CloudApp developer site. Here you can find everything you need to integrate your application with CloudApp.
 
-### Authentication
+## Getting Started
 
-[HTTP Digest](http://en.wikipedia.org/wiki/Digest_access_authentication/) is used to authenticate all requests.
+There is a good chance most of the work is already cut out for you. A variety of third-party client libraries are available to interface with the CloudApp REST API. We recommend checking out the available API wrappers.
 
+## Real World Examples
 
-### JSON
+Great applications are already using the CloudApp API. Here are some popular examples:
 
-You're probably interested in JSON responses and not HTML. Add the header `Accept: application/json` on requests to receive JSON and `Content-Type: application/json` when you're sending JSON.
+{: .index}
+* [Cloud2go](http://cloud2goapp.com/) -- a powerful iPhone client to access CloudApp on the go
+* [Cloudette](http://cloudetteapp.com/) -- a free CloudApp iPhone client
+* [Doxie](http://www.getdoxie.com/) -- scan directly into the cloud
+* [Weet](http://weetapp.com/) -- a Twitter client with CloudApp integration
 
-Keep in mind usage of the CloudApp API is bound to our [Terms Of Service](http://getcloudapp.com/terms/).
+## Getting Help
+
+The CloudApp API follows standard REST guidelines and implementation should be pretty straight forward. Should you have questions we recommend:
+
+{: .index}
+* [Asking your question](http://stackoverflow.com/) on Stackoverflow (experienced developers will be able to help)
+* [Browsing through the developer discussions](http://support.getcloudapp.com/discussions/developersapi/) in our support forum
+* [Starting a new discussion](http://support.getcloudapp.com/discussions/developersapi/#new_topic_form) if you can't find what you are looking for
