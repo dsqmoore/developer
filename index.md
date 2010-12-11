@@ -1,7 +1,5 @@
 ---
 layout: master
-title: Welcome
-categories: introduction
 ---
 
 # Welcome
