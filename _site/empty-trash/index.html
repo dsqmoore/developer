@@ -22,6 +22,14 @@
     <!--[if lt IE 9]>
     <script src="../javascripts/selectivizr-1.0.min.js"></script>
     <![endif]-->
+
+    <script>
+      $(document).ready(function() {
+        $('#quicknav select').change(function() {
+          window.location = $(this).val();
+        });
+      });
+    </script>
   </head>
 
   <body>
@@ -42,6 +50,260 @@
           </nav>
         </div>
       </header>
+
+      <section class="row" id="quicknav">
+        <select class="col col_12">
+          
+
+            <optgroup label="Introduction">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <option value="/usage" >Usage</option>
+                
+              
+                
+              
+                
+              
+            </optgroup>
+          
+
+            <optgroup label="Wrapper">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <option value="/objective-c-wrapper" >Objective-C Wrapper</option>
+                
+              
+                
+                  <option value="/perl-wrapper" >Perl Wrapper</option>
+                
+              
+                
+                  <option value="/php-wrapper" >PHP Wrapper</option>
+                
+              
+                
+                  <option value="/python-wrapper" >Python Wrapper</option>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <option value="/ruby-wrapper" >Ruby Wrapper</option>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </optgroup>
+          
+
+            <optgroup label="Account">
+              
+                
+              
+                
+              
+                
+                  <option value="/change-default-security" >Change Default Security</option>
+                
+              
+                
+                  <option value="/change-email" >Change Email</option>
+                
+              
+                
+                  <option value="/change-password" >Change Password</option>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <option value="/forgot-password" >Forgot Password</option>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <option value="/register" >Register</option>
+                
+              
+                
+              
+                
+              
+                
+                  <option value="/set-custom-domain" >Set Custom Domain</option>
+                
+              
+                
+              
+                
+              
+                
+                  <option value="/view-account-details" >View Account Details</option>
+                
+              
+                
+              
+            </optgroup>
+          
+
+            <optgroup label="Items">
+              
+                
+              
+                
+                  <option value="/bookmark-link" >Bookmark Link</option>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <option value="/change-security-of-item" >Change Security Of Item</option>
+                
+              
+                
+                  <option value="/delete-item" >Delete Item</option>
+                
+              
+                
+                  <option value="/empty-trash" selected>Empty Trash</option>
+                
+              
+                
+              
+                
+                  <option value="/list-items" >List Items</option>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <option value="/recover-deleted-item" >Recover Deleted Item</option>
+                
+              
+                
+              
+                
+                  <option value="/rename-item" >Rename Item</option>
+                
+              
+                
+              
+                
+              
+                
+                  <option value="/upload-file" >Upload File</option>
+                
+              
+                
+              
+                
+              
+                
+                  <option value="/view-item" >View Item</option>
+                
+              
+            </optgroup>
+          
+        </select>
+      </section>
 
       <div class="row">
         <section class="col col_8 wikistyle">

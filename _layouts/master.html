@@ -30,6 +30,14 @@ sidebar_cats:
     <!--[if lt IE 9]>
     <script src="../javascripts/selectivizr-1.0.min.js"></script>
     <![endif]-->
+
+    <script>
+      $(document).ready(function() {
+        $('#quicknav select').change(function() {
+          window.location = $(this).val();
+        });
+      });
+    </script>
   </head>
 
   <body>
@@ -50,6 +58,21 @@ sidebar_cats:
           </nav>
         </div>
       </header>
+
+      <section class="row" id="quicknav">
+        <select class="col col_12">
+          {% for cat in (page.sidebar_cats) %}
+
+            <optgroup label="{{ cat | replace:'_',' ' | capitalize }}">
+              {% for post in site.posts reversed %}
+                {% if post.categories contains cat %}
+                  <option value="{{ post.url }}" {% if page.title == post.title %}selected{% endif %}>{{ post.title }}</option>
+                {% endif %}
+              {% endfor %}
+            </optgroup>
+          {% endfor %}
+        </select>
+      </section>
 
       <div class="row">
         <section class="col col_8 wikistyle">

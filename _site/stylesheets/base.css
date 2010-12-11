@@ -60,6 +60,13 @@ a:link, a:visited {
 }
 /* ------------------------------------------- */
 
+/* section: quicknav
+---------------------------------------------- */
+#quicknav {
+  display: none;
+}
+/* ------------------------------------------- */
+
 /* section: sidebar
 ---------------------------------------------- */
 #sidebar .categories h3 {
@@ -134,12 +141,21 @@ a:link, a:visited {
 /* section: iPhone
 ---------------------------------------------- */
 @media handheld, only screen and (max-width: 767px) {
+  #header {
+    margin-bottom: 1.8em;
+  }
+
   #header h1 a {
     margin: 0 auto;
   }
 
   #header nav {
     display: none;
+  }
+
+  #quicknav {
+    display: block;
+    margin-bottom: 1.8em;
   }
 
   aside {
