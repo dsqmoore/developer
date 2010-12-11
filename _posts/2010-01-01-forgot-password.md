@@ -11,7 +11,7 @@ Dispatch an email containing a link to reset the account's password.
 
 ## Request
 
-- HTTP Method: PUT
+- HTTP Method: POST
 - URL: http://my.cl.ly/reset
 - Body:
 
