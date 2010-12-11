@@ -74,11 +74,17 @@ a:link, a:visited {
 }
 
 #sidebar .categories ul li {
+  color: #999;
+  font-weight: bold;
   margin: 0 0 .8em 0;
 }
 
 #sidebar .categories ul li:last-child {
   margin: 0;
+}
+
+#sidebar .categories ul li a:link, #sidebar .categories ul li a:visited {
+  font-weight: normal;
 }
 /* ------------------------------------------- */
 
