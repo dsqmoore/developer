@@ -4,8 +4,8 @@ title: PHP Wrapper
 categories: wrapper
 ---
 
-#PHP Wrapper
+# PHP Wrapper
 
 - Author: **Matthias Plappert**
-- Git Repository: [CloudApp-API-PHP-wrapper](http://github.com/matthiasplappert/CloudApp-API-PHP-wrapper)
+- Git Repository: [CloudApp-API-PHP-wrapper](https://github.com/matthiasplappert/CloudApp-API-PHP-wrapper)
 - Git Clone URL: `git://github.com/matthiasplappert/CloudApp-API-PHP-wrapper.git`
