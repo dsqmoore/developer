@@ -166,4 +166,11 @@ a:link, a:visited {
     display: none;
   }
 }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  #header h1 a {
+    background-image: url("../../images/logo_2x.png");
+    background-size: 170px 30px;
+  }
+}
 /* ------------------------------------------- */
