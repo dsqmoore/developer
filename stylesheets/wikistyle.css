@@ -35,6 +35,14 @@
 }
 /* ------------------------------------------- */
 
+/* section: links
+---------------------------------------------- */
+.wikistyle a:link, .wikistyle a:visited {
+  border-bottom: 1px dotted #1c4fad;
+  color: #1c4fad;
+}
+/* ------------------------------------------- */
+
 /* section: paragraphs
 ---------------------------------------------- */
 .wikistyle p {
@@ -44,20 +52,6 @@
 
 .wikistyle p:last-child {
   margin: 0;
-}
-
-.wikistyle p a:link, .wikistyle p a:visited {
-  border-bottom: 1px dotted #1c4fad;
-  color: #1c4fad;
-}
-
-.wikistyle p code {
-  background: #f0f6fc;
-  border: 1px solid #d2dce6;
-  color: #444;
-  font-family: Monaco, monospace;
-  font-size: .9em;
-  padding: .1em .3em;
 }
 
 .wikistyle p sup {
@@ -156,6 +150,15 @@
 
 /* section: code
 ---------------------------------------------- */
+.wikistyle code {
+  background: #f0f6fc;
+  border: 1px solid #d2dce6;
+  color: #444;
+  font-family: Monaco, monospace;
+  font-size: .9em;
+  padding: .1em .3em;
+}
+
 .wikistyle pre {
   background: #f0f6fc;
   border: 1px solid #d2dce6;
@@ -169,11 +172,11 @@
 }
 
 .wikistyle pre code {
-  color: #444;
+  background: transparent;
+  border: 0;
   display: block;
-  font-family: Monaco, monospace;
-  font-size: .9em;
   line-height: 1.8em;
+  padding: 0;
 }
 
   /* section: shell
