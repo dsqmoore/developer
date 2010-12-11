@@ -1,6 +1,6 @@
 ---
 layout: master
-title: C# Wrapper
+title: C#
 categories: wrapper
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: master
-title: Python Wrapper
+title: Python
 categories: wrapper
 ---
 

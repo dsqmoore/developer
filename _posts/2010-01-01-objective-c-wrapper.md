@@ -1,6 +1,6 @@
 ---
 layout: master
-title: Objective-C Wrapper
+title: Objective-C
 categories: wrapper
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: master
-title: Java Wrapper
+title: Java
 categories: wrapper
 ---
 

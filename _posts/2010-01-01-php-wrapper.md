@@ -1,6 +1,6 @@
 ---
 layout: master
-title: PHP Wrapper
+title: PHP
 categories: wrapper
 ---
 

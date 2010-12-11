@@ -1,6 +1,6 @@
 ---
 layout: master
-title: Perl Wrapper
+title: Perl
 categories: wrapper
 ---
 

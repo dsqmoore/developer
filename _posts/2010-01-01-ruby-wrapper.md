@@ -1,6 +1,6 @@
 ---
 layout: master
-title: Ruby Wrapper
+title: Ruby
 categories: wrapper
 ---
 
