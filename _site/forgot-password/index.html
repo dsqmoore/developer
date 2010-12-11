@@ -46,6 +46,48 @@
       <div class="row">
         <section class="col col_8 wikistyle">
           <h1 id='forgot_password'>Forgot Password</h1>
+
+<p>Dispatch an email containing a link to reset the account&#8217;s password.</p>
+
+<h2 id='request'>Request</h2>
+
+<ul>
+<li>
+<p>HTTP Method: PUT</p>
+</li>
+
+<li>
+<p>URL: http://my.cl.ly/reset</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>{
+  &quot;user&quot;: {
+    &quot;email&quot;: &quot;arthur@dent.com&quot;
+  }
+}</code></pre>
+</li>
+</ul>
+
+<h2 id='response'>Response</h2>
+
+<ul>
+<li>Status: 200 OK</li>
+</ul>
+
+<h2 id='example'>Example</h2>
+
+<pre class='shell'><code>curl -H &quot;Accept: application/json&quot; \
+     -H &quot;Content-Type: application/json&quot; \
+     -d \
+       &#39;{
+          &quot;user&quot;: {
+            &quot;email&quot;: &quot;arthur@dent.com&quot;
+          }
+        }&#39; \
+     &quot;http://my.cl.ly/reset&quot;</code></pre>
         </section>
 
         <aside class="col col_4" id="sidebar">
