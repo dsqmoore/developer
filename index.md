@@ -4,7 +4,7 @@ layout: master
 
 # Welcome
 
-Welcome to the CloudApp developer site. Here you can find everything you need to integrate your application with CloudApp.
+Welcome to the CloudApp developer docs. Here you can find everything you need to integrate your application with CloudApp.
 
 ## Getting Started
 
