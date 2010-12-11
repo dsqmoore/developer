@@ -5,3 +5,5 @@ categories: items
 ---
 
 # Empty Trash
+
+Documentation coming soon.
