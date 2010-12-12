@@ -15,7 +15,7 @@ categories: items
 
       {
         "item": {
-          "name": "CloudApp",
+          "name":         "CloudApp",
           "redirect_url": "http://cloudapp.com"
         }
       }
@@ -50,8 +50,8 @@ categories: items
          -d \
            '{
              "item": {
-               "name": "CloudApp",
-               "redirect_url": "http://getcloudapp.com"
+                "name":         "CloudApp",
+                "redirect_url": "http://cloudapp.com"
              }
            }' \
          "http://my.cl.ly/items"

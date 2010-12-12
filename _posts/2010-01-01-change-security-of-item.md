@@ -12,7 +12,7 @@ Modify an item with a private URL to have a public URL or vice versa.
 
 - Requires [authentication](/usage/#authentication)
 - HTTP Method: PUT
-- URL: Value of item's `href` attribute. _(e.g., http://my.cl.ly/1912565)_
+- URL: Value of item's `href` attribute. _(e.g., http://my.cl.ly/items/1912565)_
 - Body:
 
       {

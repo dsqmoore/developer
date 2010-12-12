@@ -7,5 +7,5 @@ categories: wrapper
 # Objetive-C Wrapper
 
 - Author: **Nick Paulson**
-- Git Repository: [cl-objc](https://github.com/getcloudapp/cl-objc)
-- Git Clone URL: `git://github.com/getcloudapp/cl-objc.git`
+- Git Repository: [objective-c](https://github.com/cloudapp/objective-c)
+- Git Clone URL: `git://github.com/cloudapp/objective-c.git`
