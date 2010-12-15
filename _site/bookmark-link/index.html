@@ -103,6 +103,8 @@
                 
               
                 
+              
+                
                   <option value="/usage" >Usage</option>
                 
               
@@ -113,6 +115,8 @@
             </optgroup>
           
             <optgroup label="Wrapper">
+              
+                
               
                 
               
@@ -189,6 +193,8 @@
                 
               
                 
+              
+                
                   <option value="/change-default-security" >Change Default Security</option>
                 
               
@@ -254,6 +260,10 @@
               
                 
                   <option value="/bookmark-link" selected>Bookmark Link</option>
+                
+              
+                
+                  <option value="/bookmark-multiple-links" >Bookmark Multiple Links</option>
                 
               
                 
@@ -327,6 +337,8 @@
         <section class="col col_8 wikistyle">
           <h1 id='bookmark_link'>Bookmark Link</h1>
 
+<p>Create a bookmark to a URL.</p>
+
 <h2 id='request'>Request</h2>
 
 <ul>
@@ -395,6 +407,22 @@
          }
        }&#39; \
      &quot;http://my.cl.ly/items&quot;</code></pre>
+
+<h2 id='errors'>Errors</h2>
+
+<p>An array of error messages.</p>
+
+<ul>
+<li>
+<p>Status: 422 Unprocessable Entity</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>[ &quot;URL can&#39;t be blank&quot; ]</code></pre>
+</li>
+</ul>
         </section>
 
         <aside class="col col_4" id="sidebar">
@@ -403,6 +431,8 @@
               <h3>Basics</h3>
 
               <ul>
+                
+                  
                 
                   
                 
@@ -465,6 +495,8 @@
               <h3>Wrapper</h3>
 
               <ul>
+                
+                  
                 
                   
                 
@@ -559,6 +591,8 @@
                   
                 
                   
+                
+                  
                     
                       <li><a href="/change-default-security" id="account">Change Default Security</a></li>
                     
@@ -643,6 +677,12 @@
                   
                     
                       <li>Bookmark Link</li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/bookmark-multiple-links" id="items">Bookmark Multiple Links</a></li>
                     
                   
                 
