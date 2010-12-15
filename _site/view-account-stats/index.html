@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" dir="ltr" lang="en">
   <head>
-    <title>CloudApp Developer - Register</title>
+    <title>CloudApp Developer - View Account Stats</title>
 
     <meta charset="utf-8">
 
@@ -229,7 +229,7 @@
                 
               
                 
-                  <option value="/register" selected>Register</option>
+                  <option value="/register" >Register</option>
                 
               
                 
@@ -249,7 +249,7 @@
                 
               
                 
-                  <option value="/view-account-stats" >View Account Stats</option>
+                  <option value="/view-account-stats" selected>View Account Stats</option>
                 
               
                 
@@ -337,57 +337,42 @@
 
       <div class="row">
         <section class="col col_8 wikistyle">
-          <h1 id='register'>Register</h1>
+          <h1 id='view_account_stats'>View Account Stats</h1>
 
-<p>Create a CloudApp account.</p>
+<p>Get the total number of items created and total views for all items of the authenticated account.</p>
 
 <h2 id='request'>Request</h2>
 
 <ul>
-<li>HTTP Method: POST</li>
+<li>Requires <a href='/usage/#authentication'>authentication</a></li>
 
-<li>URL: http://my.cl.ly/register</li>
+<li>HTTP Method: GET</li>
 
-<li>Body:</li>
+<li>URL: http://my.cl.ly/account/stats</li>
 </ul>
 
 <h2 id='response'>Response</h2>
 
 <ul>
 <li>
-<p>Status: 201 Created</p>
+<p>Status: 200 OK</p>
 </li>
 
 <li>
 <p>Body:</p>
 
 <pre><code>{
-  &quot;id&quot;:               1,
-  &quot;email&quot;:            &quot;arthur@dent.com&quot;,
-  &quot;domain&quot;:           null,
-  &quot;domain_home_page&quot;: null,
-  &quot;private_items&quot;:    true,
-  &quot;subscribed&quot;:       false,
-  &quot;alpha&quot;:            false,
-  &quot;created_at&quot;:       &quot;2010-12-10T17:07:01Z&quot;,
-  &quot;updated_at&quot;:       &quot;2010-12-10T17:07:01Z&quot;,
-  &quot;activated_at&quot;:     null
+  &quot;items&quot;: 42,
+  &quot;views&quot;: 31337
 }</code></pre>
 </li>
 </ul>
 
 <h2 id='example'>Example</h2>
 
-<pre class='shell'><code>curl -H &quot;Accept: application/json&quot; \
-     -H &quot;Content-Type: application/json&quot; \
-     -d \
-        &#39;{
-          &quot;user&quot;: {
-            &quot;email&quot;:    &quot;arthur@dent.com&quot;,
-            &quot;password&quot;: &quot;towel&quot;
-          }
-        }&#39; \
-     http://my.cl.ly/register</code></pre>
+<pre class='shell'><code>curl --digest -u arthur@dent.com:towel \
+     -H &quot;Accept: application/json&quot; \
+     &quot;http://my.cl.ly/account/stats&quot;</code></pre>
         </section>
 
         <aside class="col col_4" id="sidebar">
@@ -601,7 +586,7 @@
                 
                   
                     
-                      <li>Register</li>
+                      <li><a href="/register" id="account">Register</a></li>
                     
                   
                 
@@ -627,7 +612,7 @@
                 
                   
                     
-                      <li><a href="/view-account-stats" id="account">View Account Stats</a></li>
+                      <li>View Account Stats</li>
                     
                   
                 
