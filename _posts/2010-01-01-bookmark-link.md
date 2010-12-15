@@ -6,6 +6,9 @@ categories: items
 
 # Bookmark Link
 
+Create a bookmark to a URL.
+
+
 ## Request
 
 - Requires [authentication](/usage/#authentication)
@@ -19,6 +22,7 @@ categories: items
           "redirect_url": "http://cloudapp.com"
         }
       }
+
 
 ## Response
 
@@ -41,6 +45,7 @@ categories: items
         "deleted_at":   null
       }
 
+
 ## Example
 
 {: .shell}
@@ -55,3 +60,13 @@ categories: items
              }
            }' \
          "http://my.cl.ly/items"
+
+
+## Errors
+
+An array of error messages.
+
+- Status: 422 Unprocessable Entity
+- Body:
+
+      [ "URL can't be blank" ]
