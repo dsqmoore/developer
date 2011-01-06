@@ -58,3 +58,14 @@ If the account has a CloudApp Pro subscription, add or change the domain used fo
             }' \
          -X PUT \
          "http://my.cl.ly/account"
+
+
+## Errors
+
+If the domain or domain home page are unable to be added, an array of errors
+will be returned.
+
+- Status: 422 Unprocessable Entity
+- Body:
+
+      [ "Domain requires a paid plan" ]

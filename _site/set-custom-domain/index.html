@@ -407,6 +407,22 @@
         }&#39; \
      -X PUT \
      &quot;http://my.cl.ly/account&quot;</code></pre>
+
+<h2 id='errors'>Errors</h2>
+
+<p>If the domain or domain home page are unable to be added, an array of errors will be returned.</p>
+
+<ul>
+<li>
+<p>Status: 422 Unprocessable Entity</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>[ &quot;Domain requires a paid plan&quot; ]</code></pre>
+</li>
+</ul>
         </section>
 
         <aside class="col col_4" id="sidebar">
