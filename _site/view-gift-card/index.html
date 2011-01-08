@@ -237,8 +237,6 @@
                 
               
                 
-                  <option value="/redeem-gift-card" >Redeem Gift Card</option>
-                
               
                 
                   <option value="/register" >Register</option>
@@ -264,8 +262,6 @@
                   <option value="/view-account-stats" >View Account Stats</option>
                 
               
-                
-                  <option value="/view-gift-card" selected>View Gift Card Details</option>
                 
               
                 
@@ -352,6 +348,70 @@
               
             </optgroup>
           
+            <optgroup label="Gift cards">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <option value="/redeem-gift-card" >Redeem Gift Card</option>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <option value="/view-gift-card" selected>View Gift Card Details</option>
+                
+              
+                
+              
+            </optgroup>
+          
         </select>
       </section>
 
@@ -364,8 +424,6 @@
 <h2 id='request'>Request</h2>
 
 <ul>
-<li>Requires <a href='/usage/#authentication'>authentication</a></li>
-
 <li>HTTP Method: GET</li>
 
 <li>URL: https://my.cl.ly/gift_cards/<strong><em>gift card code</em></strong> <em>(e.g., https://my.cl.ly/gift_cards/ABC123)</em></li>
@@ -384,11 +442,11 @@
 <pre><code>{
   &quot;id&quot;:           1,
   &quot;code&quot;:         &quot;ABC123&quot;,
-  &quot;plan&quot;:         &#39;pro&#39;,
+  &quot;plan&quot;:         &quot;pro&quot;,
   &quot;months&quot;:       12,
   &quot;href&quot;:         &quot;https://my.cl.ly/gift_cards/ABC123&quot;,
-  &quot;created_at&quot;:   &quot;2011-01-07T14:23:08Z&quot;,
-  &quot;updated_at&quot;:   &quot;2011-01-07T14:23:08Z&quot;,
+  &quot;created_at&quot;:   &quot;2011-01-08T20:11:26Z&quot;,
+  &quot;updated_at&quot;:   &quot;2011-01-08T20:11:26Z&quot;,
   &quot;redeemed_at&quot;:  null,
   &quot;effective_at&quot;: null,
   &quot;expires_at&quot;:   null
@@ -398,8 +456,7 @@
 
 <h2 id='example'>Example</h2>
 
-<pre class='shell'><code>curl --digest -u arthur@dent.com:towel \
-     -H &quot;Accept: application/json&quot; \
+<pre class='shell'><code>curl -H &quot;Accept: application/json&quot; \
      -H &quot;Content-Type: application/json&quot; \
      &quot;https://my.cl.ly/gift_cards/ABC123&quot;</code></pre>
         </section>
@@ -622,10 +679,6 @@
                   
                 
                   
-                    
-                      <li><a href="/redeem-gift-card" id="account">Redeem Gift Card</a></li>
-                    
-                  
                 
                   
                     
@@ -659,10 +712,6 @@
                     
                   
                 
-                  
-                    
-                      <li>View Gift Card Details</li>
-                    
                   
                 
                   
@@ -769,6 +818,78 @@
                     
                       <li><a href="/view-item" id="items">View Item</a></li>
                     
+                  
+                
+              </ul>
+            </section>
+          
+            <section class="categories">
+              <h3>Gift cards</h3>
+
+              <ul>
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li><a href="/redeem-gift-card" id="gift_cards">Redeem Gift Card</a></li>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                      <li>View Gift Card Details</li>
+                    
+                  
+                
                   
                 
               </ul>

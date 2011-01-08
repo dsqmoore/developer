@@ -1,7 +1,7 @@
 ---
 layout: master
 title: View Gift Card Details
-categories: account
+categories: gift_cards
 ---
 
 # View Gift Card Details
@@ -11,9 +11,9 @@ Get the details of an unredeemed gift card.
 
 ## Request
 
-- Requires [authentication](/usage/#authentication)
 - HTTP Method: GET
 - URL: https://my.cl.ly/gift_cards/**_gift card code_** _(e.g., https://my.cl.ly/gift\_cards/ABC123)_
+
 
 ## Response
 
@@ -23,20 +23,20 @@ Get the details of an unredeemed gift card.
       {
         "id":           1,
         "code":         "ABC123",
-        "plan":         'pro',
+        "plan":         "pro",
         "months":       12,
         "href":         "https://my.cl.ly/gift_cards/ABC123",
-        "created_at":   "2011-01-07T14:23:08Z",
-        "updated_at":   "2011-01-07T14:23:08Z",
+        "created_at":   "2011-01-08T20:11:26Z",
+        "updated_at":   "2011-01-08T20:11:26Z",
         "redeemed_at":  null,
         "effective_at": null,
         "expires_at":   null
       }
 
+
 ## Example
 
 {: .shell}
-    curl --digest -u arthur@dent.com:towel \
-         -H "Accept: application/json" \
+    curl -H "Accept: application/json" \
          -H "Content-Type: application/json" \
          "https://my.cl.ly/gift_cards/ABC123"
