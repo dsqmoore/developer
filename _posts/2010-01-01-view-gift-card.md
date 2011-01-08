@@ -13,7 +13,7 @@ Get the details of an unredeemed gift card.
 
 - Requires [authentication](/usage/#authentication)
 - HTTP Method: GET
-- URL: https://my.cl.ly/redeem/**_gift card code_** _(e.g., https://my.cl.ly/redeem/ABC123)_
+- URL: https://my.cl.ly/gift_cards/**_gift card code_** _(e.g., https://my.cl.ly/gift\_cards/ABC123)_
 
 ## Response
 
@@ -25,7 +25,7 @@ Get the details of an unredeemed gift card.
         "code":         "ABC123",
         "plan":         'pro',
         "months":       12,
-        "href":         "https://my.cl.ly/redeem/ABC123",
+        "href":         "https://my.cl.ly/gift_cards/ABC123",
         "created_at":   "2011-01-07T14:23:08Z",
         "updated_at":   "2011-01-07T14:23:08Z",
         "redeemed_at":  null,
@@ -39,4 +39,4 @@ Get the details of an unredeemed gift card.
     curl --digest -u arthur@dent.com:towel \
          -H "Accept: application/json" \
          -H "Content-Type: application/json" \
-         "https://my.cl.ly/redeem/ABC123"
+         "https://my.cl.ly/gift_cards/ABC123"

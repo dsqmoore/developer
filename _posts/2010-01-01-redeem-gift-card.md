@@ -13,7 +13,7 @@ Apply a gift card to an account.
 
 - Requires [authentication](/usage/#authentication)
 - HTTP Method: PUT
-- URL: Value of `href` on a gift card. _(e.g., https://my.cl.ly/redeem/ABC123)_
+- URL: Value of `href` on a gift card. _(e.g., https://my.cl.ly/gift\_cards/ABC123)_
 
 
 ## Response
@@ -26,7 +26,7 @@ Apply a gift card to an account.
         "code":         "ABC123",
         "plan":         'pro',
         "months":       12,
-        "href":         "https://my.cl.ly/redeem/ABC123",
+        "href":         "https://my.cl.ly/gift_cards/ABC123",
         "created_at":   "2011-01-07T14:23:08Z",
         "updated_at":   "2011-01-07T14:23:08Z",
         "redeemed_at":  "2011-01-07T14:23:08Z",
@@ -42,4 +42,4 @@ Apply a gift card to an account.
          -H "Accept: application/json" \
          -H "Content-Type: application/json" \
          -X PUT \
-         "https://my.cloudapp.local/redeem/38E07C624DD6DD9E"
+         "https://my.cl.ly/gift_cards/38E07C624DD6DD9E"
