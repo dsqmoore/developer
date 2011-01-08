@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" dir="ltr" lang="en">
   <head>
-    <title>CloudApp Developer - View Item</title>
+    <title>CloudApp Developer - View Gift Card Details</title>
 
     <meta charset="utf-8">
 
@@ -257,7 +257,7 @@
                 
               
                 
-                  <option value="/view-gift-card" >View Gift Card Details</option>
+                  <option value="/view-gift-card" selected>View Gift Card Details</option>
                 
               
                 
@@ -337,7 +337,7 @@
                 
               
                 
-                  <option value="/view-item" selected>View Item</option>
+                  <option value="/view-item" >View Item</option>
                 
               
             </optgroup>
@@ -347,16 +347,18 @@
 
       <div class="row">
         <section class="col col_8 wikistyle">
-          <h1 id='view_item'>View Item</h1>
+          <h1 id='view_gift_card_details'>View Gift Card Details</h1>
 
-<p>Get metadata about a cl.ly URL like name, type, or view count.</p>
+<p>Get the details of an unredeemed gift card.</p>
 
 <h2 id='request'>Request</h2>
 
 <ul>
+<li>Requires <a href='/usage/#authentication'>authentication</a></li>
+
 <li>HTTP Method: GET</li>
 
-<li>URL: Value of <code>url</code> on an item. <em>(e.g., http://cl.ly/2wr4)</em></li>
+<li>URL: https://my.cl.ly/redeem/<strong><em>gift card code</em></strong> <em>(e.g., https://my.cl.ly/redeem/ABC123)</em></li>
 </ul>
 
 <h2 id='response'>Response</h2>
@@ -370,26 +372,26 @@
 <p>Body:</p>
 
 <pre><code>{
-  &quot;href&quot;:         &quot;http://my.cl.ly/items/1912559&quot;,
-  &quot;name&quot;:         &quot;CloudApp Logo.png&quot;,
-  &quot;private&quot;:      false,
-  &quot;url&quot;:          &quot;http://cl.ly/2wr4&quot;,
-  &quot;content_url&quot;:  &quot;http://cl.ly/2wr4/CloudApp_Logo.png&quot;,
-  &quot;item_type&quot;:    &quot;image&quot;,
-  &quot;view_counter&quot;: 42,
-  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/image.png&quot;,
-  &quot;remote_url&quot;:   &quot;http://f.cl.ly/items/7c7aea1395c3db0aee18/CloudApp%20Logo.png&quot;,
-  &quot;redirect_url&quot;: null,
-  &quot;created_at&quot;:   &quot;2010-10-23T19:50:13Z&quot;,
-  &quot;updated_at&quot;:   &quot;2010-10-23T19:50:38Z&quot;,
-  &quot;deleted_at&quot;:   null
+  &quot;id&quot;:           1,
+  &quot;code&quot;:         &quot;ABC123&quot;,
+  &quot;plan&quot;:         &#39;pro&#39;,
+  &quot;months&quot;:       12,
+  &quot;href&quot;:         &quot;https://my.cl.ly/redeem/ABC123&quot;,
+  &quot;created_at&quot;:   &quot;2011-01-07T14:23:08Z&quot;,
+  &quot;updated_at&quot;:   &quot;2011-01-07T14:23:08Z&quot;,
+  &quot;redeemed_at&quot;:  null,
+  &quot;effective_at&quot;: null,
+  &quot;expires_at&quot;:   null
 }</code></pre>
 </li>
 </ul>
 
 <h2 id='example'>Example</h2>
 
-<pre class='shell'><code>curl -H &quot;Accept: application/json&quot; http://cl.ly/2wr4</code></pre>
+<pre class='shell'><code>curl --digest -u arthur@dent.com:towel \
+     -H &quot;Accept: application/json&quot; \
+     -H &quot;Content-Type: application/json&quot; \
+     &quot;https://my.cl.ly/redeem/ABC123&quot;</code></pre>
         </section>
 
         <aside class="col col_4" id="sidebar">
@@ -639,7 +641,7 @@
                 
                   
                     
-                      <li><a href="/view-gift-card" id="account">View Gift Card Details</a></li>
+                      <li>View Gift Card Details</li>
                     
                   
                 
@@ -743,7 +745,7 @@
                 
                   
                     
-                      <li>View Item</li>
+                      <li><a href="/view-item" id="items">View Item</a></li>
                     
                   
                 
