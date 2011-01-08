@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" dir="ltr" lang="en">
   <head>
-    <title>CloudApp Developer - C#</title>
+    <title>CloudApp Developer - Redeem Gift Card</title>
 
     <meta charset="utf-8">
 
@@ -125,7 +125,7 @@
                 
               
                 
-                  <option value="/c-sharp-wrapper" selected>C#</option>
+                  <option value="/c-sharp-wrapper" >C#</option>
                 
               
                 
@@ -237,7 +237,7 @@
                 
               
                 
-                  <option value="/redeem-gift-card" >Redeem Gift Card</option>
+                  <option value="/redeem-gift-card" selected>Redeem Gift Card</option>
                 
               
                 
@@ -357,15 +357,52 @@
 
       <div class="row">
         <section class="col col_8 wikistyle">
-          <h1 id='c_wrapper'>C# Wrapper</h1>
+          <h1 id='redeem_gift_card'>Redeem Gift Card</h1>
+
+<p>Apply a gift card to an account.</p>
+
+<h2 id='request'>Request</h2>
 
 <ul>
-<li>Author: <strong>Richard Wang</strong></li>
+<li>Requires <a href='/usage/#authentication'>authentication</a></li>
 
-<li>Git Repository: <a href='https://github.com/a2h/CloudAppSharp'>CloudAppSharp</a></li>
+<li>HTTP Method: PUT</li>
 
-<li>Git Clone URL: <code>git://github.com/a2h/CloudAppSharp.git</code></li>
+<li>URL: Value of <code>href</code> on a gift card. <em>(e.g., https://my.cl.ly/redeem/ABC123)</em></li>
 </ul>
+
+<h2 id='response'>Response</h2>
+
+<ul>
+<li>
+<p>Status: 200 OK</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>{
+  &quot;id&quot;:           1,
+  &quot;code&quot;:         &quot;ABC123&quot;,
+  &quot;plan&quot;:         &#39;pro&#39;,
+  &quot;months&quot;:       12,
+  &quot;href&quot;:         &quot;https://my.cl.ly/redeem/ABC123&quot;,
+  &quot;created_at&quot;:   &quot;2011-01-07T14:23:08Z&quot;,
+  &quot;updated_at&quot;:   &quot;2011-01-07T14:23:08Z&quot;,
+  &quot;redeemed_at&quot;:  &quot;2011-01-07T14:23:08Z&quot;,
+  &quot;effective_at&quot;: &quot;2011-01-07T14:23:08Z&quot;,
+  &quot;expires_at&quot;:   &quot;2011-01-07T14:23:08Z&quot;
+}</code></pre>
+</li>
+</ul>
+
+<h2 id='example'>Example</h2>
+
+<pre class='shell'><code>curl -v --digest -u arthur@dent.com:towel \
+     -H &quot;Accept: application/json&quot; \
+     -H &quot;Content-Type: application/json&quot; \
+     -X PUT \
+     &quot;https://my.cloudapp.local/redeem/38E07C624DD6DD9E&quot;</code></pre>
         </section>
 
         <aside class="col col_4" id="sidebar">
@@ -449,7 +486,7 @@
                 
                   
                     
-                      <li>C#</li>
+                      <li><a href="/c-sharp-wrapper" id="wrapper">C#</a></li>
                     
                   
                 
@@ -587,7 +624,7 @@
                 
                   
                     
-                      <li><a href="/redeem-gift-card" id="account">Redeem Gift Card</a></li>
+                      <li>Redeem Gift Card</li>
                     
                   
                 
