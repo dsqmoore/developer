@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" dir="ltr" lang="en">
   <head>
-    <title>CloudApp Developer - Python</title>
+    <title>CloudApp Developer - Bookmark Multiple Links</title>
 
     <meta charset="utf-8">
 
@@ -29,19 +29,6 @@
           window.location = $(this).val();
         });
       });
-    </script>
-
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-13203564-3']);
-      _gaq.push(['_setDomainName', '.getcloudapp.com']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
     </script>
   </head>
 
@@ -174,7 +161,7 @@
                 
               
                 
-                  <option value="/python-wrapper" selected>Python</option>
+                  <option value="/python-wrapper" >Python</option>
                 
               
                 
@@ -288,7 +275,7 @@
                 
               
                 
-                  <option value="/bookmark-multiple-links" >Bookmark Multiple Links</option>
+                  <option value="/bookmark-multiple-links" selected>Bookmark Multiple Links</option>
                 
               
                 
@@ -430,14 +417,165 @@
 
       <div class="row">
         <section class="col col_8 wikistyle">
-          <h1 id='python_wrapper'>Python Wrapper</h1>
+          <h1 id='bookmark_multiple_links'>Bookmark Multiple Links</h1>
+
+<p>Create multiple bookmarks in a single request.</p>
+
+<h2 id='request'>Request</h2>
 
 <ul>
-<li>Author: <strong>Luis Nell</strong></li>
+<li>
+<p>Requires <a href='/usage/#authentication'>authentication</a></p>
+</li>
 
-<li>Git Repository: <a href='https://github.com/originell/pycloudapp'>pycloudapp</a></li>
+<li>
+<p>HTTP Method: POST</p>
+</li>
 
-<li>Git Clone URL: <code>git://github.com/originell/pycloudapp.git</code></li>
+<li>
+<p>URL: http://my.cl.ly/items</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>{
+  &quot;items&quot;: [{
+    &quot;name&quot;:         &quot;Authur Dent&quot;,
+    &quot;redirect_url&quot;: &quot;http://en.wikipedia.org/wiki/Arthur_Dent&quot;
+  }, {
+    &quot;name&quot;:         &quot;Ford Prefect&quot;,
+    &quot;redirect_url&quot;: &quot;http://en.wikipedia.org/wiki/Ford_Prefect_(character)&quot;
+  }, {
+    &quot;name&quot;:         &quot;Zaphod Beeblebrox&quot;,
+    &quot;redirect_url&quot;: &quot;http://en.wikipedia.org/wiki/Zaphod_Beeblebrox&quot;
+  }]
+}</code></pre>
+</li>
+</ul>
+
+<h2 id='response'>Response</h2>
+
+<p>Returns an array containing each item created.</p>
+
+<ul>
+<li>
+<p>Status: 200 OK</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>[{
+  &quot;href&quot;:         &quot;http://my.cl.ly/items/2571666&quot;,
+  &quot;name&quot;:         &quot;Authur Dent&quot;,
+  &quot;private&quot;:      true,
+  &quot;url&quot;:          &quot;http://cl.ly/0W2l1e421F3W17011z0M&quot;,
+  &quot;content_url&quot;:  &quot;http://cl.ly/0W2l1e421F3W17011z0M&quot;,
+  &quot;item_type&quot;:    &quot;bookmark&quot;,
+  &quot;view_counter&quot;: 0,
+  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/bookmark.png&quot;,
+  &quot;remote_url&quot;:   null,
+  &quot;redirect_url&quot;: &quot;http://en.wikipedia.org/wiki/Arthur_Dent&quot;,
+  &quot;created_at&quot;:   &quot;2010-12-15T14:21:55Z&quot;,
+  &quot;updated_at&quot;:   &quot;2010-12-15T14:21:55Z&quot;,
+  &quot;deleted_at&quot;:   null,
+}, {
+  &quot;href&quot;:         &quot;http://my.cl.ly/items/2571696&quot;,
+  &quot;name&quot;:         &quot;Ford Prefect&quot;,
+  &quot;private&quot;:      true,
+  &quot;url&quot;:          &quot;http://cl.ly/1f0t1k1X3a3B053b0w0U&quot;,
+  &quot;content_url&quot;:  &quot;http://cl.ly/1f0t1k1X3a3B053b0w0U&quot;,
+  &quot;item_type&quot;:    &quot;bookmark&quot;,
+  &quot;view_counter&quot;: 0,
+  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/bookmark.png&quot;,
+  &quot;remote_url&quot;:   null,
+  &quot;redirect_url&quot;: &quot;http://en.wikipedia.org/wiki/Ford_Prefect_(character)&quot;,
+  &quot;created_at&quot;:   &quot;2010-12-15T14:21:55Z&quot;,
+  &quot;updated_at&quot;:   &quot;2010-12-15T14:21:55Z&quot;,
+  &quot;deleted_at&quot;:   null
+}, {
+  &quot;href&quot;:         &quot;http://my.cl.ly/items/2571715&quot;,
+  &quot;name&quot;:         &quot;Zaphod Beeblebrox&quot;,
+  &quot;private&quot;:      true,
+  &quot;url&quot;:          &quot;http://cl.ly/153K342u2Q2l1n0u340K&quot;,
+  &quot;content_url&quot;:  &quot;http://cl.ly/153K342u2Q2l1n0u340K&quot;,
+  &quot;item_type&quot;:    &quot;bookmark&quot;,
+  &quot;view_counter&quot;: 0,
+  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/bookmark.png&quot;,
+  &quot;remote_url&quot;:   null,
+  &quot;redirect_url&quot;: &quot;http://en.wikipedia.org/wiki/Zaphod_Beeblebrox&quot;,
+  &quot;created_at&quot;:   &quot;2010-12-15T14:21:55Z&quot;,
+  &quot;updated_at&quot;:   &quot;2010-12-15T14:21:55Z&quot;,
+  &quot;deleted_at&quot;:   null
+}]</code></pre>
+</li>
+</ul>
+
+<h2 id='example'>Example</h2>
+
+<pre class='shell'><code>curl --digest -u test@example.com:pass \
+     -H &quot;Accept: application/json&quot; \
+     -H &quot;Content-Type: application/json&quot; \
+     -d \
+       &#39;{
+          &quot;items&quot;: [{
+            &quot;name&quot;:         &quot;Authur Dent&quot;,
+            &quot;redirect_url&quot;: &quot;http://en.wikipedia.org/wiki/Arthur_Dent&quot;
+          }, {
+            &quot;name&quot;:         &quot;Ford Prefect&quot;,
+            &quot;redirect_url&quot;: &quot;http://en.wikipedia.org/wiki/Ford_Prefect_(character)&quot;
+          }, {
+            &quot;name&quot;:         &quot;Zaphod Beeblebrox&quot;,
+            &quot;redirect_url&quot;: &quot;http://en.wikipedia.org/wiki/Zaphod_Beeblebrox&quot;
+          }]
+       }&#39; \
+     &quot;http://my.cl.ly/items&quot;</code></pre>
+
+<h2 id='errors'>Errors</h2>
+
+<p>If a bookmark is unable to be created, its place in the array will be an array of error messages.</p>
+
+<ul>
+<li>
+<p>Status: 422 Unprocessable Entity</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>[{
+  &quot;href&quot;:         &quot;http://my.cl.ly/items/2571666&quot;,
+  &quot;name&quot;:         &quot;Authur Dent&quot;,
+  &quot;private&quot;:      true,
+  &quot;url&quot;:          &quot;http://cl.ly/0W2l1e421F3W17011z0M&quot;,
+  &quot;content_url&quot;:  &quot;http://cl.ly/0W2l1e421F3W17011z0M&quot;,
+  &quot;item_type&quot;:    &quot;bookmark&quot;,
+  &quot;view_counter&quot;: 0,
+  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/bookmark.png&quot;,
+  &quot;remote_url&quot;:   null,
+  &quot;redirect_url&quot;: &quot;http://en.wikipedia.org/wiki/Arthur_Dent&quot;,
+  &quot;created_at&quot;:   &quot;2010-12-15T14:21:55Z&quot;,
+  &quot;updated_at&quot;:   &quot;2010-12-15T14:21:55Z&quot;,
+  &quot;deleted_at&quot;:   null,
+}, [
+  &quot;URL can&#39;t be blank&quot;
+], {
+  &quot;href&quot;:         &quot;http://my.cl.ly/items/2571715&quot;,
+  &quot;name&quot;:         &quot;Zaphod Beeblebrox&quot;,
+  &quot;private&quot;:      true,
+  &quot;url&quot;:          &quot;http://cl.ly/153K342u2Q2l1n0u340K&quot;,
+  &quot;content_url&quot;:  &quot;http://cl.ly/153K342u2Q2l1n0u340K&quot;,
+  &quot;item_type&quot;:    &quot;bookmark&quot;,
+  &quot;view_counter&quot;: 0,
+  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/bookmark.png&quot;,
+  &quot;remote_url&quot;:   null,
+  &quot;redirect_url&quot;: &quot;http://en.wikipedia.org/wiki/Zaphod_Beeblebrox&quot;,
+  &quot;created_at&quot;:   &quot;2010-12-15T14:21:55Z&quot;,
+  &quot;updated_at&quot;:   &quot;2010-12-15T14:21:55Z&quot;,
+  &quot;deleted_at&quot;:   null
+}]</code></pre>
+</li>
 </ul>
         </section>
 
@@ -568,7 +706,7 @@
                 
                   
                     
-                      <li>Python</li>
+                      <li><a href="/python-wrapper" id="wrapper">Python</a></li>
                     
                   
                 
@@ -712,7 +850,7 @@
                 
                   
                     
-                      <li><a href="/bookmark-multiple-links" id="items">Bookmark Multiple Links</a></li>
+                      <li>Bookmark Multiple Links</li>
                     
                   
                 

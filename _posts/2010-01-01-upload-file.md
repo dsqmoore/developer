@@ -44,7 +44,7 @@ According to [Amazon's documentation](http://developer.amazonwebservices.com/con
 
 ## Response
 
-- Status: 303 See Other *(Follow the redirect using CloudApp [authentication](/usage/#authentication)(/authentication/).)*
+- Status: 303 See Other *(Follow the redirect using CloudApp [authentication](/usage/#authentication).)*
 
 ## Request
 
