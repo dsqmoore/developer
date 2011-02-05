@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" dir="ltr" lang="en">
   <head>
-    <title>CloudApp Developer - Change Default Security</title>
+    <title>CloudApp Developer - Raindrops</title>
 
     <meta charset="utf-8">
 
@@ -218,7 +218,7 @@
                 
               
                 
-                  <option value="/change-default-security" selected>Change Default Security</option>
+                  <option value="/change-default-security" >Change Default Security</option>
                 
               
                 
@@ -470,7 +470,7 @@
                 
               
                 
-                  <option value="/raindrops" >Raindrops</option>
+                  <option value="/raindrops" selected>Raindrops</option>
                 
               
                 
@@ -504,74 +504,85 @@
 
       <div class="row">
         <section class="col col_8 wikistyle">
-          <h1 id='change_default_security'>Change Default Security</h1>
+          <h1 id='raindrops'>Raindrops</h1>
 
-<p>Change the security of newly created items to either private (long links) or public (short links). Privacy can be set on a per-item basis after creation.</p>
+<p>Raindrops are an essential part of the CloudApp ecosystem: they enable ways for the user to work with an application that may not fully work with the pasteboard. They are essentially plug ins that hook into CloudApp and allow you to respond to the raindrop hotkey being triggered, in addition to being able to initiate file uploads.</p>
 
-<h2 id='request'>Request</h2>
+<h2 id='how_can_raindrops_be_used'>How can Raindrops be used?</h2>
 
-<ul>
-<li>
-<p>Requires <a href='/usage/#authentication'>authentication</a></p>
-</li>
+<p>To give you an idea about how raindrops can be used, and what functionality they can provide, two first-party raindrops can be examined. The Photoshop raindrop will allow the frontmost document in Photoshop to be uploaded to CloudApp when the raindrop hotkey is pressed. Adobe applications do not write to the system pasteboard until the application becomes inactive. Therefore, copying a section of a document and hitting the clipboard hotkey will lead to unexpected results. A raindrop, therefore, would make a lot of sense. Another place where a raindrop would be useful is with auto-uploading of screenshots. Our Screenshot raindrop will watch the user’s screen shot folder for new files, check them to see if they are screenshots, and then upload them if so.</p>
 
-<li>
-<p>HTTP Method: PUT</p>
-</li>
+<p>Raindrops, by default, are only running (since as of 1.5, they are a separate process) while their target application is running. However, if <em>downpour</em> is enabled, the raindrop will be running at all times. This is useful for raindrops like auto-uploading of screenshots that needs to be constantly running.</p>
 
-<li>
-<p>URL: http://my.cl.ly/account</p>
-</li>
+<h2 id='great_now_how_do_i_make_one'>Great! Now how do I make one?</h2>
 
-<li>
-<p>Body:</p>
+<p>Raindrops are Cocoa bundles. You can create one by going to <em>File &gt; New Project</em> in Xcode.</p>
 
-<pre><code>{
-  &quot;user&quot;: {
-    &quot;private_items&quot;: false
-  }
-}</code></pre>
-</li>
-</ul>
+<p>Make sure the Framework is Cocoa. Name it however you wish, and then the project will be created.</p>
 
-<h2 id='response'>Response</h2>
+<p>Next, create a new file, subclass of NSObject. Add CLRaindropProtocol.h and CLRaindropHelperProtocol.h to your project, under Classes.</p>
 
-<ul>
-<li>
-<p>Status: 200 OK</p>
-</li>
+<p>Now go into Info.plist and set the value of the Principal Class key to TestRaindrop, or whatever you named your class.</p>
 
-<li>
-<p>Body:</p>
+<h1 id='import_clraindropprotocolh_in_testraindroph_or_whatever_you_named_your'>import “CLRaindropProtocol.h” in TestRaindrop.h (or whatever you named your</h1>
 
-<pre><code>{
-  &quot;id&quot;:               1,
-  &quot;email&quot;:            &quot;arthur@dent.com&quot;,
-  &quot;domain&quot;:           null,
-  &quot;domain_home_page&quot;: null,
-  &quot;private_items&quot;:    false,
-  &quot;subscribed&quot;:       false,
-  &quot;alpha&quot;:            false,
-  &quot;created_at&quot;:       &quot;2010-12-10T17:07:01Z&quot;,
-  &quot;updated_at&quot;:       &quot;2010-12-10T20:33:38Z&quot;,
-  &quot;activated_at&quot;:     &quot;2010-12-10T17:12:51Z&quot;
-}</code></pre>
-</li>
-</ul>
+<p>class) and declare that TestRaindrop implements CLRaindropProtocol.</p>
 
-<h2 id='example'>Example</h2>
+<p>Now, in TestRaindrop.m (again, whatever you named your class), you have a few options.</p>
 
-<pre class='shell'><code>curl --digest -u arthur@dent.com:towel \
-     -H &quot;Accept: application/json&quot; \
-     -H &quot;Content-Type: application/json&quot; \
-     -d \
-       &#39;{
-          &quot;user&quot;: {
-            &quot;private_items&quot;: false
-          }
-        }&#39; \
-     -X PUT \
-     &quot;http://my.cl.ly/account&quot;</code></pre>
+<p>First off, if you plan to be able to trigger uploads on your own (without being first triggered by the raindrop hotkey), you need to implement:</p>
+
+<pre><code>- (id)initWithHelper:(id &lt;CLRaindropHelperProtocol&gt;)helper;</code></pre>
+
+<p>Keep a reference of the helper for later.</p>
+
+<p>If you want to be able to give upload info to Cloud, you need to implement:</p>
+
+<pre><code>- (NSString *)pasteboardNameForTriggeredRaindrop;</code></pre>
+
+<p>What is all this pasteboard name stuff?</p>
+
+<p>Cloud 1.5 has a new focus on the pasteboard. We have found that it is a great way to transfer data, and handle it in a way the user expects. As a result, all upload data input into Cloud will be handled using pasteboard.</p>
+
+<p>Whenever you pass upload data to us, it’ll be in the form of a pasteboard name. In the context of what most people will want to do, it’ll be:</p>
+
+<p>NSPasteboard <em>pasteboard = <span>NSPasteboard pasteboardWithUniqueName</span>; //Write pasteboard items here</em></p>
+
+<p>return <span>pasteboard name</span>;</p>
+
+<p>or&#8230;..</p>
+
+<p><span>self.helperObject handlePasteboardWithName:<span>pasteboard name</span></span>;</p>
+
+<p>NSPasteboard <em>pasteboard = <span>NSPasteboard pasteboardWithUniqueName</span>; //Write pasteboard items here</em></p>
+
+<p>return <span>pasteboard name</span>;</p>
+
+<p>or&#8230;..</p>
+
+<p><span>self.helperObject handlePasteboardWithName:<span>pasteboard name</span></span>;</p>
+
+<h2 id='raindrop_metadata'>Raindrop Metadata</h2>
+
+<p>Every raindrop bundle <strong>must</strong> have a Raindrop.plist file in their Resources folder.</p>
+
+<p>Available Keys:</p>
+
+<p>Key: CLRaindropCreator Value: The creator of the raindrop. Currently this data is not displayed in the UI, but it may be in the future.</p>
+
+<p>Key: CLRaindropName Type: String Value: The name of the raindrop. This will be displayed in the Preferences window and used in other places throughout the UI.</p>
+
+<p>Key: CLRaindropDescription Type: String Value: A brief description of the raindrop, and we mean brief. This will be cut off in the Preferences UI if too long, in an attempt to have developers keep it short and sweet.</p>
+
+<p>Key: CLRaindropURL Type: String Value: This is a URL that would be opened if they want more information about the raindrop or its developer. Currently this is not used in the UI, but may be used in the future.</p>
+
+<p>Key: CLRaindropTargetBundleID Type: String Value: If this raindrop should respond to the raindrop hotkey, this <em>must</em> be in Raindrop.plist. This is the bundle identifier of the application for whom you want to be triggered for. For example, if you want to have the raindrop be triggered when Finder is in front, this value would be “com.apple.Finder” without quotes.</p>
+
+<p>Key: CLRaindropDownpourEnabled Type: Boolean Value: If your raindrop needs to be running at all times (instead of only while the target application is open), this should be YES.</p>
+
+<h2 id='great_do_you_have_a_central_repository_of_raindrops'>Great! Do you have a central repository of raindrops?</h2>
+
+<p>Yes! We will be filling this section in with more information as we are able to share it.</p>
         </section>
 
         <aside class="col col_4" id="sidebar">
@@ -753,7 +764,7 @@
                 
                   
                     
-                      <li>Change Default Security</li>
+                      <li><a href="/change-default-security" id="account">Change Default Security</a></li>
                     
                   
                 
@@ -1057,7 +1068,7 @@
                 
                   
                     
-                      <li><a href="/raindrops" id="mac">Raindrops</a></li>
+                      <li>Raindrops</li>
                     
                   
                 
