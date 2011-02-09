@@ -85,7 +85,7 @@ Returns an array containing each item created.
 ## Example
 
 {: .shell}
-    curl --digest -u test@example.com:pass \
+    curl --digest -u arthur@dent.com:towel \
          -H "Accept: application/json" \
          -H "Content-Type: application/json" \
          -d \
