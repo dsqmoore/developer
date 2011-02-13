@@ -18,7 +18,7 @@ Great applications are already using the CloudApp API. Here are some popular exa
 * [Cloud2go](http://cloud2goapp.com/) -- a powerful iPhone client to access CloudApp on the go
 * [Cloudette](http://cloudetteapp.com/) -- a free CloudApp iPhone client
 * [Doxie](http://www.getdoxie.com/) -- scan directly into the cloud
-* [Twitterrific](http://twitterrific.om/) -- a gorgeous Twitter client with CloudApp integration
+* [Twitterrific](http://twitterrific.com/) -- a gorgeous Twitter client with CloudApp integration
 * [Weet](http://weetapp.com/) -- another Twitter client with CloudApp integration
 
 ## Getting Help
