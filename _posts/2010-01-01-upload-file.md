@@ -67,6 +67,7 @@ According to [Amazon's documentation](http://developer.amazonwebservices.com/con
         "icon":         "http://my.cl.ly/images/item_types/image.png",
         "remote_url":   "http://f.cl.ly/items/3d7ba41682802c301150/Screen shot 2010-04-01 at 12.00.00 AM.png",
         "redirect_url": null,
+        "tags":         [ ],
         "created_at":   "2010-04-01T12:00:00Z",
         "updated_at":   "2010-04-01T12:00:00Z"
       }

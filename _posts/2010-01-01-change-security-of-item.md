@@ -37,6 +37,7 @@ Modify an item with a private URL to have a public URL or vice versa.
         "icon":         "http://my.cl.ly/images/item_types/bookmark.png",
         "remote_url":   null,
         "redirect_url": "http://getcloudapp.com",
+        "tags":         [ 'cloudapp' ],
         "created_at":   "2010-10-23T21:15:21Z",
         "updated_at":   "2010-10-23T21:17:04Z",
         "deleted_at":   null

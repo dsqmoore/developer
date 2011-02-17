@@ -37,6 +37,7 @@ Change the name of an item.
         "icon":         "http://my.cl.ly/images/item_types/bookmark.png",
         "remote_url":   null,
         "redirect_url": "http://getcloudapp.com",
+        "tags":         [ ],
         "created_at":   "2010-10-23T21:15:21Z",
         "updated_at":   "2010-10-24T01:38:28Z",
         "deleted_at":   null

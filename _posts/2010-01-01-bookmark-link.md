@@ -40,6 +40,7 @@ Create a bookmark to a URL.
         "icon":         "http://my.cl.ly/images/item_types/bookmark.png",
         "remote_url":   null,
         "redirect_url": "http://getcloudapp.com",
+        "tags":         [ ],
         "created_at":   "2010-10-23T19:50:24Z",
         "updated_at":   "2010-10-23T19:50:39Z",
         "deleted_at":   null
