@@ -71,23 +71,21 @@ all upload data input into Cloud will be handled using pasteboard.
 Whenever you pass upload data to us, it’ll be in the form of a pasteboard name.
 In the context of what most people will want to do, it’ll be:
 
-NSPasteboard *pasteboard = [NSPasteboard pasteboardWithUniqueName]; //Write
-pasteboard items here
+    NSPasteboard *pasteboard = [NSPasteboard pasteboardWithUniqueName]; //Write pasteboard items here
 
-return [pasteboard name];
-
-or.....
-
-[self.helperObject handlePasteboardWithName:[pasteboard name]];
-
-NSPasteboard *pasteboard = [NSPasteboard pasteboardWithUniqueName]; //Write
-pasteboard items here
-
-return [pasteboard name];
+    return [pasteboard name];
 
 or.....
 
-[self.helperObject handlePasteboardWithName:[pasteboard name]];
+    [self.helperObject handlePasteboardWithName:[pasteboard name]];
+
+    NSPasteboard *pasteboard = [NSPasteboard pasteboardWithUniqueName]; //Write pasteboard items here
+
+    return [pasteboard name];
+
+or.....
+
+    [self.helperObject handlePasteboardWithName:[pasteboard name]];
 
 ## Raindrop Metadata
 

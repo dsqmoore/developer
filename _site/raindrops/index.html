@@ -546,21 +546,21 @@
 
 <p>Whenever you pass upload data to us, it’ll be in the form of a pasteboard name. In the context of what most people will want to do, it’ll be:</p>
 
-<p>NSPasteboard <em>pasteboard = <span>NSPasteboard pasteboardWithUniqueName</span>; //Write pasteboard items here</em></p>
+<pre><code>NSPasteboard *pasteboard = [NSPasteboard pasteboardWithUniqueName]; //Write pasteboard items here
 
-<p>return <span>pasteboard name</span>;</p>
-
-<p>or&#8230;..</p>
-
-<p><span>self.helperObject handlePasteboardWithName:<span>pasteboard name</span></span>;</p>
-
-<p>NSPasteboard <em>pasteboard = <span>NSPasteboard pasteboardWithUniqueName</span>; //Write pasteboard items here</em></p>
-
-<p>return <span>pasteboard name</span>;</p>
+return [pasteboard name];</code></pre>
 
 <p>or&#8230;..</p>
 
-<p><span>self.helperObject handlePasteboardWithName:<span>pasteboard name</span></span>;</p>
+<pre><code>[self.helperObject handlePasteboardWithName:[pasteboard name]];
+
+NSPasteboard *pasteboard = [NSPasteboard pasteboardWithUniqueName]; //Write pasteboard items here
+
+return [pasteboard name];</code></pre>
+
+<p>or&#8230;..</p>
+
+<pre><code>[self.helperObject handlePasteboardWithName:[pasteboard name]];</code></pre>
 
 <h2 id='raindrop_metadata'>Raindrop Metadata</h2>
 
