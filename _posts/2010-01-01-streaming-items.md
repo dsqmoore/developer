@@ -45,11 +45,11 @@ it would look something like:
     Pusher.channel_auth_endpoint  = account.socket.auth_url;
 
 
-## Configure Pusher
+## Subscribe and Listen
 
-Now for the fun part! Subscribe to the items channel and listen for one of more
-of the events `"create"`, `"update"`, or `"delete"` which will be dispatched as
-items are, you guessed it, created, updated, or deleted.
+Now let's get down to business. Subscribe to the items channel and listen for
+one of more of the events `"create"`, `"update"`, or `"delete"` which will be
+dispatched as items are, you guessed it, created, updated, or deleted.
 
     var itemsChannel = new Pusher(account.socket.api_key)
                              .subscribe(account.socket.channels.items)

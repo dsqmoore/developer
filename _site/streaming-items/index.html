@@ -547,9 +547,9 @@
 Pusher.channel_auth_transport = &#39;jsonp&#39;;
 Pusher.channel_auth_endpoint  = account.socket.auth_url;</code></pre>
 
-<h2 id='configure_pusher'>Configure Pusher</h2>
+<h2 id='subscribe_and_listen'>Subscribe and Listen</h2>
 
-<p>Now for the fun part! Subscribe to the items channel and listen for one of more of the events <code>&quot;create&quot;</code>, <code>&quot;update&quot;</code>, or <code>&quot;delete&quot;</code> which will be dispatched as items are, you guessed it, created, updated, or deleted.</p>
+<p>Now let&#8217;s get down to business. Subscribe to the items channel and listen for one of more of the events <code>&quot;create&quot;</code>, <code>&quot;update&quot;</code>, or <code>&quot;delete&quot;</code> which will be dispatched as items are, you guessed it, created, updated, or deleted.</p>
 
 <pre><code>var itemsChannel = new Pusher(account.socket.api_key)
                          .subscribe(account.socket.channels.items)
