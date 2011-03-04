@@ -520,7 +520,77 @@
         <section class="col col_8 wikistyle">
           <h1 id='recover_deleted_item'>Recover Deleted Item</h1>
 
-<p>Documentation coming soon.</p>
+<p>Recover an item in the trash.</p>
+
+<h2 id='request'>Request</h2>
+
+<ul>
+<li>
+<p>Requires <a href='/usage/#authentication'>authentication</a></p>
+</li>
+
+<li>
+<p>HTTP Method: PUT</p>
+</li>
+
+<li>
+<p>URL: Value of item&#8217;s <code>href</code> attribute. <em>(e.g., http://my.cl.ly/items/1912565)</em></p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>{
+  &quot;deleted&quot;: true,
+  &quot;item&quot;: {
+    &quot;deleted_at&quot;: null
+  }
+}</code></pre>
+</li>
+</ul>
+
+<h2 id='response'>Response</h2>
+
+<ul>
+<li>
+<p>Status: 200 OK</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>{
+  &quot;href&quot;:         &quot;http://my.cl.ly/items/1912565&quot;,
+  &quot;name&quot;:         &quot;CloudApp&quot;,
+  &quot;private&quot;:      false,
+  &quot;url&quot;:          &quot;http://cl.ly/2wt6&quot;,
+  &quot;content_url&quot;:  &quot;http://cl.ly/2wt6/content&quot;,
+  &quot;item_type&quot;:    &quot;bookmark&quot;,
+  &quot;view_counter&quot;: 0,
+  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/bookmark.png&quot;,
+  &quot;remote_url&quot;:   null,
+  &quot;redirect_url&quot;: &quot;http://getcloudapp.com&quot;,
+  &quot;created_at&quot;:   &quot;2010-10-23T21:15:21Z&quot;,
+  &quot;updated_at&quot;:   &quot;2010-10-23T21:17:04Z&quot;,
+  &quot;deleted_at&quot;:   null
+}</code></pre>
+</li>
+</ul>
+
+<h2 id='example'>Example</h2>
+
+<pre class='shell'><code>curl --digest -u arthur@dent.com:towel \
+     -H &quot;Accept: application/json&quot; \
+     -H &quot;Content-Type: application/json&quot; \
+     -d \
+       &#39;{
+          &quot;deleted&quot;: true,
+          &quot;item&quot;: {
+            &quot;deleted_at&quot;: null
+          }
+        }&#39; \
+     -X PUT \
+     &quot;http://my.cl.ly/items/1912565&quot;</code></pre>
         </section>
 
         <aside class="col col_4" id="sidebar">
