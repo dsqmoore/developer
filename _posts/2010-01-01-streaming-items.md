@@ -24,7 +24,7 @@ excerpt:
 
     {
       "socket": {
-        "auth_url": "http://my.cloudapp.local/pusher/auth",
+        "auth_url": "http://my.cl.ly/pusher/auth",
         "api_key":  "36b8e92a50487f79cbb3",
         "app_id":   "4072",
         "channels": {
