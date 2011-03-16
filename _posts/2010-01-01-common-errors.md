@@ -1,7 +1,7 @@
 ---
 layout: master
 title: Common Errors
-categories: account
+categories: basics
 ---
 
 # Common Errors
