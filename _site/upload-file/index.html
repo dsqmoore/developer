@@ -621,39 +621,14 @@
 <h3 id='response'>Response</h3>
 
 <ul>
-<li>Status: 303 See Other <em>(Follow the redirect using CloudApp <a href='/usage/#authentication'>authentication</a>.)</em></li>
-</ul>
-
-<p>The result is data about the newly created file. Your HTTP library should follow this redirect for you automatically. If it does not, jump to the next step.</p>
-
-<ul>
-<li>
-<p>Status: 200 OK</p>
-</li>
-
-<li>
-<p>Body:</p>
-
-<pre><code>{
-  &quot;href&quot;:         &quot;http://my.cl.ly/items/3&quot;,
-  &quot;name&quot;:         &quot;Screen shot 2010-04-01 at 12.00.00 AM.png&quot;,
-  &quot;private&quot;:      false,
-  &quot;url&quot;:          &quot;http://cl.ly/2wr4&quot;,
-  &quot;content_url&quot;:  &quot;http://cl.ly/2wr4/content&quot;,
-  &quot;item_type&quot;:    &quot;image&quot;,
-  &quot;view_counter&quot;: 0,
-  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/image.png&quot;,
-  &quot;remote_url&quot;:   &quot;http://f.cl.ly/items/3d7ba41682802c301150/Screen shot 2010-04-01 at 12.00.00 AM.png&quot;,
-  &quot;redirect_url&quot;: null,
-  &quot;created_at&quot;:   &quot;2010-04-01T12:00:00Z&quot;,
-  &quot;updated_at&quot;:   &quot;2010-04-01T12:00:00Z&quot;
-}</code></pre>
-</li>
+<li>Status: 303 See Other</li>
 </ul>
 
 <h2 id='follow_redirect'>Follow Redirect</h2>
 
-<p>Your HTTP library should handle this step transparently for you. In the unfortunate case that it does not, make the following request to complete the upload process.</p>
+<p>Finally, ping CloudApp and receive the details of the newly uploaded file.</p>
+
+<p><strong>Note:</strong> Your HTTP library should handle this step transparently for you. In the unfortunate case that it does not, make the following request to complete the upload process.</p>
 
 <h3 id='request'>Request</h3>
 

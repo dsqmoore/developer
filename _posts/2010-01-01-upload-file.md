@@ -93,35 +93,16 @@ Send the file to be uploaded as the parameter named `file`.
 
 ### Response
 
-- Status: 303 See Other *(Follow the redirect using CloudApp [authentication](/usage/#authentication).)*
-
-The result is data about the newly created file. Your HTTP library should follow
-this redirect for you automatically. If it does not, jump to the next step.
-
-- Status: 200 OK
-- Body:
-
-      {
-        "href":         "http://my.cl.ly/items/3",
-        "name":         "Screen shot 2010-04-01 at 12.00.00 AM.png",
-        "private":      false,
-        "url":          "http://cl.ly/2wr4",
-        "content_url":  "http://cl.ly/2wr4/content",
-        "item_type":    "image",
-        "view_counter": 0,
-        "icon":         "http://my.cl.ly/images/item_types/image.png",
-        "remote_url":   "http://f.cl.ly/items/3d7ba41682802c301150/Screen shot 2010-04-01 at 12.00.00 AM.png",
-        "redirect_url": null,
-        "created_at":   "2010-04-01T12:00:00Z",
-        "updated_at":   "2010-04-01T12:00:00Z"
-      }
+- Status: 303 See Other
 
 
 ## Follow Redirect
 
-Your HTTP library should handle this step transparently for you. In the
-unfortunate case that it does not, make the following request to complete the
-upload process.
+Finally, ping CloudApp and receive the details of the newly uploaded file.
+
+**Note:** Your HTTP library should handle this step transparently for you. In
+the unfortunate case that it does not, make the following request to complete
+the upload process.
 
 ### Request
 
