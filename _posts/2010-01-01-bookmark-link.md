@@ -64,7 +64,8 @@ Create a bookmark to a URL.
 
 ## Errors
 
-An array of error messages.
+There may be one or more errors preventing the bookmark from being created. If
+that's the case, the following response will be returned:
 
 - Status: 422 Unprocessable Entity
 - Body:
