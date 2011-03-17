@@ -534,9 +534,17 @@
         <section class="col col_8 wikistyle">
           <h1 id='upload_file'>Upload File</h1>
 
-<p>Files are uploaded directly to <a href='http://aws.amazon.com/s3/'>S3</a> to be as fast as possible. You&#8217;ll need to request a few parameters from CloudApp and send them along with the file.</p>
+<p>Files are uploaded directly to <a href='http://aws.amazon.com/s3/'>S3</a> to be as fast as possible. The process involves making an initial request to CloudApp retrieving a few parameters, passing them along with the file itself to S3, following the redirect response back to CloudApp, and finally receiving the details of the newly created item.</p>
 
-<h2 id='request'>Request</h2>
+<p>This process may seem complex at first. Not to worry. There are some great tools out there like <a href='http://charlesproxy.com/'>Charles</a> to make your life a lot easier. Don&#8217;t go it alone!</p>
+
+<h2 id='request_to_upload'>Request to Upload</h2>
+
+<p>Request to upload a file to CloudApp. If the authenticated account is able to upload a file, the response will be some metadata that must be passed to S3 in order to upload a file. Along with the S3 data may be an upload size limitation. It&#8217;s encouraged that you compare the size of the file being uploaded to make sure it&#8217;s smaller than than the maximum allowed size. Otherwise, the file will be fully uploaded only to be rejected for being too large.</p>
+
+<p><strong>Note:</strong> Both <code>uploads_remaining</code> and <code>max_upload_size</code> are optional attributes and may not exist in every request. For example, a reseponse using an account with a CloudApp Pro plan will omit the <code>uploads_remaining</code> attribute since Pro has unlimited uploads.</p>
+
+<h3 id='request'>Request</h3>
 
 <ul>
 <li>Requires <a href='/usage/#authentication'>authentication</a></li>
@@ -546,7 +554,7 @@
 <li>URL: http://my.cl.ly/items/new</li>
 </ul>
 
-<h2 id='response'>Response</h2>
+<h3 id='response'>Response</h3>
 
 <ul>
 <li>
@@ -557,7 +565,9 @@
 <p>Body:</p>
 
 <pre><code>{
-  &quot;url&quot;: &quot;http://f.cl.ly&quot;,
+  &quot;uploads_remaining&quot;: 10,
+  &quot;max_upload_size&quot;:   26214400,
+  &quot;url&quot;:               &quot;http://f.cl.ly&quot;,
   &quot;params&quot;: {
     &quot;AWSAccessKeyId&quot;:          &quot;AKIAIDPUZISHSBEOFS6Q&quot;,
     &quot;key&quot;:                     &quot;items/qL/${filename}&quot;,
@@ -570,11 +580,33 @@
 </li>
 </ul>
 
-<p>Use this response to construct the upload. Each item in <code>params</code> becomes a separate parameter you&#8217;ll need to post to <code>url</code>. Send the file as the parameter <code>file</code>.</p>
+<h3 id='errors'>Errors</h3>
 
-<p>According to <a href='http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1434'>Amazon&#8217;s documentation</a>, any parameter after <code>file</code> is ignored. Make sure <code>file</code> is the last parameter or the upload will be rejected.</p>
+<p>If the account is using a CloudApp Free plan, there is a maximum daily file upload limit. If that limit has been met, the request will be successful but the <code>params</code> attribute will be missing, <code>uploads_remaining</code> will be 0, and <code>message</code> will be a friendly explanation of the error.</p>
 
-<h2 id='request'>Request</h2>
+<ul>
+<li>
+<p>Status: 200 OK</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>{
+  &quot;uploads_remaining&quot;: 10,
+  &quot;max_upload_size&quot;:   26214400,
+  &quot;messagee&quot;:          &quot;You&#39;ve met the daily upload limit of the Free plan. Upgrade to Pro and upload as much as you want!&quot;
+}</code></pre>
+</li>
+</ul>
+
+<h2 id='upload_file_to_s3'>Upload File to S3</h2>
+
+<p>Use the response from the previous step to construct the file upload request. Each item in <code>params</code> becomes a separate parameter you&#8217;ll need to post to <code>url</code>. Send the file to be uploaded as the parameter named <code>file</code>.</p>
+
+<p><strong>Note:</strong> According to <a href='http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1434'>Amazon&#8217;s documentation</a>, any parameter after <code>file</code> is ignored. Make sure <code>file</code> is last or the upload will be rejected.</p>
+
+<h3 id='request'>Request</h3>
 
 <ul>
 <li>HTTP Method: POST</li>
@@ -586,21 +618,54 @@
 <li>Post the file data as the parameter <code>file</code>.</li>
 </ul>
 
-<h2 id='response'>Response</h2>
+<h3 id='response'>Response</h3>
 
 <ul>
 <li>Status: 303 See Other <em>(Follow the redirect using CloudApp <a href='/usage/#authentication'>authentication</a>.)</em></li>
 </ul>
 
-<h2 id='request'>Request</h2>
+<p>The result is data about the newly created file. Your HTTP library should follow this redirect for you automatically. If it does not, jump to the next step.</p>
 
 <ul>
+<li>
+<p>Status: 200 OK</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>{
+  &quot;href&quot;:         &quot;http://my.cl.ly/items/3&quot;,
+  &quot;name&quot;:         &quot;Screen shot 2010-04-01 at 12.00.00 AM.png&quot;,
+  &quot;private&quot;:      false,
+  &quot;url&quot;:          &quot;http://cl.ly/2wr4&quot;,
+  &quot;content_url&quot;:  &quot;http://cl.ly/2wr4/content&quot;,
+  &quot;item_type&quot;:    &quot;image&quot;,
+  &quot;view_counter&quot;: 0,
+  &quot;icon&quot;:         &quot;http://my.cl.ly/images/item_types/image.png&quot;,
+  &quot;remote_url&quot;:   &quot;http://f.cl.ly/items/3d7ba41682802c301150/Screen shot 2010-04-01 at 12.00.00 AM.png&quot;,
+  &quot;redirect_url&quot;: null,
+  &quot;created_at&quot;:   &quot;2010-04-01T12:00:00Z&quot;,
+  &quot;updated_at&quot;:   &quot;2010-04-01T12:00:00Z&quot;
+}</code></pre>
+</li>
+</ul>
+
+<h2 id='follow_redirect'>Follow Redirect</h2>
+
+<p>Your HTTP library should handle this step transparently for you. In the unfortunate case that it does not, make the following request to complete the upload process.</p>
+
+<h3 id='request'>Request</h3>
+
+<ul>
+<li>Requires <a href='/usage/#authentication'>authentication</a></li>
+
 <li>HTTP Method: GET</li>
 
 <li>URL: Value of <code>Location</code> header from previous response. <em>(e.g., http://my.cl.ly/items/s3)</em></li>
 </ul>
 
-<h2 id='response'>Response</h2>
+<h3 id='response'>Response</h3>
 
 <ul>
 <li>

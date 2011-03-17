@@ -6,21 +6,46 @@ categories: items
 
 # Upload File
 
-Files are uploaded directly to [S3](http://aws.amazon.com/s3/) to be as fast as possible. You'll need to request a few parameters from CloudApp and send them along with the file.
+Files are uploaded directly to [S3](http://aws.amazon.com/s3/) to be as fast as
+possible. The process involves making an initial request to CloudApp retrieving
+a few parameters, passing them along with the file itself to S3, following the
+redirect response back to CloudApp, and finally receiving the details of the
+newly created item.
 
-## Request
+This process may seem complex at first. Not to worry. There are some great tools
+out there like [Charles](http://charlesproxy.com/) to make your life a lot
+easier. Don't go it alone!
+
+
+## Request to Upload
+
+Request to upload a file to CloudApp. If the authenticated account is able to
+upload a file, the response will be some metadata that must be passed to S3 in
+order to upload a file. Along with the S3 data may be an upload size limitation.
+It's encouraged that you compare the size of the file being uploaded to make
+sure it's smaller than than the maximum allowed size. Otherwise, the file will
+be fully uploaded only to be rejected for being too large.
+
+**Note:** Both `uploads_remaining` and `max_upload_size` are optional attributes
+and may not exist in every request. For example, a reseponse using an account
+with a CloudApp Pro plan will omit the `uploads_remaining` attribute since Pro
+has unlimited uploads.
+
+### Request
 
 - Requires [authentication](/usage/#authentication)
 - HTTP Method: GET
 - URL: http://my.cl.ly/items/new
 
-## Response
+### Response
 
 - Status: 200 OK
 - Body:
 
       {
-        "url": "http://f.cl.ly",
+        "uploads_remaining": 10,
+        "max_upload_size":   26214400,
+        "url":               "http://f.cl.ly",
         "params": {
           "AWSAccessKeyId":          "AKIAIDPUZISHSBEOFS6Q",
           "key":                     "items/qL/${filename}",
@@ -31,27 +56,80 @@ Files are uploaded directly to [S3](http://aws.amazon.com/s3/) to be as fast as 
         }
       }
 
-Use this response to construct the upload. Each item in `params` becomes a separate parameter you'll need to post to `url`. Send the file as the parameter `file`.
+### Errors
 
-According to [Amazon's documentation](http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1434), any parameter after `file` is ignored. Make sure `file` is the last parameter or the upload will be rejected.
+If the account is using a CloudApp Free plan, there is a maximum daily file
+upload limit. If that limit has been met, the request will be successful but the
+`params` attribute will be missing, `uploads_remaining` will be 0, and `message`
+will be a friendly explanation of the error.
 
-## Request
+- Status: 200 OK
+- Body:
+
+      {
+        "uploads_remaining": 10,
+        "max_upload_size":   26214400,
+        "messagee":          "You've met the daily upload limit of the Free plan. Upgrade to Pro and upload as much as you want!"
+      }
+
+
+## Upload File to S3
+
+Use the response from the previous step to construct the file upload request.
+Each item in `params` becomes a separate parameter you'll need to post to `url`.
+Send the file to be uploaded as the parameter named `file`.
+
+**Note:** According to [Amazon's documentation][s3-docs], any parameter after
+`file` is ignored. Make sure `file` is last or the upload will be rejected.
+
+[s3-docs]: http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1434
+
+### Request
 
 - HTTP Method: POST
 - URL: Value of `url` in response. _(e.g., http://f.cl.ly)_
 - Post each key and value from `params` as a separate parameter.
 - Post the file data as the parameter `file`.
 
-## Response
+### Response
 
 - Status: 303 See Other *(Follow the redirect using CloudApp [authentication](/usage/#authentication).)*
 
-## Request
+The result is data about the newly created file. Your HTTP library should follow
+this redirect for you automatically. If it does not, jump to the next step.
 
+- Status: 200 OK
+- Body:
+
+      {
+        "href":         "http://my.cl.ly/items/3",
+        "name":         "Screen shot 2010-04-01 at 12.00.00 AM.png",
+        "private":      false,
+        "url":          "http://cl.ly/2wr4",
+        "content_url":  "http://cl.ly/2wr4/content",
+        "item_type":    "image",
+        "view_counter": 0,
+        "icon":         "http://my.cl.ly/images/item_types/image.png",
+        "remote_url":   "http://f.cl.ly/items/3d7ba41682802c301150/Screen shot 2010-04-01 at 12.00.00 AM.png",
+        "redirect_url": null,
+        "created_at":   "2010-04-01T12:00:00Z",
+        "updated_at":   "2010-04-01T12:00:00Z"
+      }
+
+
+## Follow Redirect
+
+Your HTTP library should handle this step transparently for you. In the
+unfortunate case that it does not, make the following request to complete the
+upload process.
+
+### Request
+
+- Requires [authentication](/usage/#authentication)
 - HTTP Method: GET
 - URL: Value of `Location` header from previous response. _(e.g., http://my.cl.ly/items/s3)_
 
-## Response
+### Response
 
 - Status: 200 OK
 - Body:
