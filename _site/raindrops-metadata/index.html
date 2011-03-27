@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" dir="ltr" lang="en">
   <head>
-    <title>CloudApp Developer - Change Email</title>
+    <title>CloudApp Developer - Raindrops Metadata</title>
 
     <meta charset="utf-8">
 
@@ -236,7 +236,7 @@
                 
               
                 
-                  <option value="/change-email" selected>Change Email</option>
+                  <option value="/change-email" >Change Email</option>
                 
               
                 
@@ -510,7 +510,7 @@
                 
               
                 
-                  <option value="/raindrops-metadata" >Raindrops Metadata</option>
+                  <option value="/raindrops-metadata" selected>Raindrops Metadata</option>
                 
               
                 
@@ -546,76 +546,89 @@
 
       <div class="row">
         <section class="col col_8 wikistyle">
-          <h1 id='change_email'>Change Email</h1>
+          <h1 id='raindrops_metadata'>Raindrops Metadata</h1>
 
-<p>Change the email address for an account.</p>
+<p>Every Raindrop bundle <strong>must</strong> have a <code>Raindrop.plist</code> file in their Resources folder and <strong>must</strong> define all required keys. The following document lists all available keys.</p>
 
-<h2 id='request'>Request</h2>
+<h2 id='general_keys'>General Keys</h2>
 
-<ul>
-<li>
-<p>Requires <a href='/usage/#authentication'>authentication</a> and current password</p>
-</li>
-
-<li>
-<p>HTTP Method: PUT</p>
-</li>
-
-<li>
-<p>URL: http://my.cl.ly/account</p>
-</li>
-
-<li>
-<p>Body:</p>
-
-<pre><code>{
-  &quot;user&quot;: {
-    &quot;email&quot;:            &quot;ford@prefect.com&quot;,
-    &quot;current_password&quot;: &quot;towel&quot;,
-  }
-}</code></pre>
-</li>
-</ul>
-
-<h2 id='response'>Response</h2>
+<h3 id='clraindropcreator'>CLRaindropCreator</h3>
 
 <ul>
-<li>
-<p>Status: 200 OK</p>
-</li>
+<li><strong>Type:</strong> String</li>
 
-<li>
-<p>Body:</p>
+<li><strong>Value:</strong> The creator of the Raindrop</li>
 
-<pre><code>{
-  &quot;id&quot;:               1,
-  &quot;email&quot;:            &quot;ford@prefect.com&quot;,
-  &quot;domain&quot;:           null,
-  &quot;domain_home_page&quot;: null,
-  &quot;private_items&quot;:    true,
-  &quot;subscribed&quot;:       false,
-  &quot;alpha&quot;:            false,
-  &quot;created_at&quot;:       &quot;2010-12-10T17:07:01Z&quot;,
-  &quot;updated_at&quot;:       &quot;2010-12-10T20:33:38Z&quot;,
-  &quot;activated_at&quot;:     &quot;2010-12-10T17:12:51Z&quot;
-}</code></pre>
-</li>
+<li><strong>Note:</strong> <em>Optional</em>. Currently this data is not displayed in the UI, but it may be in the future.</li>
 </ul>
 
-<h2 id='example'>Example</h2>
+<h3 id='clraindropname'>CLRaindropName</h3>
 
-<pre class='shell'><code>curl --digest -u arthur@dent.com:towel \
-     -H &quot;Accept: application/json&quot; \
-     -H &quot;Content-Type: application/json&quot; \
-     -d \
-       &#39;{
-          &quot;user&quot;: {
-            &quot;email&quot;:            &quot;ford@prefect.com&quot;,
-            &quot;current_password&quot;: &quot;towel&quot;
-          }
-        }&#39; \
-     -X PUT \
-     &quot;http://my.cl.ly/account&quot;</code></pre>
+<ul>
+<li><strong>Type:</strong> String</li>
+
+<li><strong>Value:</strong> The name of the Raindrop</li>
+
+<li><strong>Note:</strong> <em>Required</em>. This will be displayed in the Preferences window and used in other places throughout the UI.</li>
+</ul>
+
+<h3 id='clraindropdescription'>CLRaindropDescription</h3>
+
+<ul>
+<li><strong>Type:</strong> String</li>
+
+<li><strong>Value:</strong> A brief description of the raindrop, and we mean brief</li>
+
+<li><strong>Note:</strong> <em>Required</em>. This will be cut off in the Preferences UI if too long, in an attempt to have developers keep it short and sweet.</li>
+</ul>
+
+<h3 id='clraindropurl'>CLRaindropURL</h3>
+
+<ul>
+<li><strong>Type:</strong> String</li>
+
+<li><strong>Value:</strong> An URL that provides further information about the raindrop or its developer</li>
+
+<li><strong>Note:</strong> <em>Optional</em>. Currently this is not used in the UI, but may be used in the future.</li>
+</ul>
+
+<h2 id='nondownpour_keys'>Non-downpour Keys</h2>
+
+<p>The following keys are only required for non-downpour Raindrops.</p>
+
+<h3 id='clraindroptargetbundleid'>CLRaindropTargetBundleID</h3>
+
+<ul>
+<li><strong>Type:</strong> String</li>
+
+<li><strong>Value:</strong> The bundle identifier of the application for whom you want to be triggered for</li>
+
+<li><strong>Note:</strong> <em>Required</em>. For example, if you want to have the raindrop be triggered when Finder is in front, this value would be <code>com.apple.Finder</code></li>
+</ul>
+
+<h2 id='downpour_keys'>Downpour Keys</h2>
+
+<p>The following keys are only required for downpour Raindrops.</p>
+
+<h3 id='clraindropdownpourenabled'>CLRaindropDownpourEnabled</h3>
+
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+
+<li><strong>Value:</strong> The indicator that your Raindrop uses downpour</li>
+
+<li><strong>Note:</strong> <em>Required</em>.</li>
+</ul>
+
+<h3 id='clraindropdownpouractiondescription'>CLRaindropDownpourActionDescription</h3>
+
+<ul>
+<li><strong>Type:</strong> String</li>
+
+<li><strong>Value:</strong> A very brief description what the downpour action of your raindrop does</li>
+
+<li><strong>Note:</strong> <em>Required</em>. This will be presented in the dropdown UI to let the user enable or disable downpour raindrops quickly.</li>
+</ul>
         </section>
 
         <aside class="col col_4" id="sidebar">
@@ -819,7 +832,7 @@
                 
                   
                     
-                      <li>Change Email</li>
+                      <li><a href="/change-email" id="account">Change Email</a></li>
                     
                   
                 
@@ -1147,7 +1160,7 @@
                 
                   
                     
-                      <li><a href="/raindrops-metadata" id="mac">Raindrops Metadata</a></li>
+                      <li>Raindrops Metadata</li>
                     
                   
                 

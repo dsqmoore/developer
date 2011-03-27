@@ -126,6 +126,8 @@
                 
               
                 
+              
+                
                   <option value="/usage" >Usage</option>
                 
               
@@ -198,6 +200,8 @@
                 
               
                 
+              
+                
                   <option value="/ruby-wrapper" >Ruby</option>
                 
               
@@ -249,6 +253,8 @@
               
                 
                   <option value="/forgot-password" >Forgot Password</option>
+                
+              
                 
               
                 
@@ -352,6 +358,8 @@
                 
               
                 
+              
+                
                   <option value="/recover-deleted-item" >Recover Deleted Item</option>
                 
               
@@ -390,6 +398,8 @@
             </optgroup>
           
             <optgroup label="Gift cards">
+              
+                
               
                 
               
@@ -500,6 +510,10 @@
                 
               
                 
+                  <option value="/raindrops-metadata" >Raindrops Metadata</option>
+                
+              
+                
               
                 
               
@@ -534,83 +548,124 @@
         <section class="col col_8 wikistyle">
           <h1 id='raindrops'>Raindrops</h1>
 
-<p>Raindrops are an essential part of the CloudApp ecosystem: they enable ways for the user to work with an application that may not fully work with the pasteboard. They are essentially plug ins that hook into CloudApp and allow you to respond to the raindrop hotkey being triggered, in addition to being able to initiate file uploads.</p>
+<p>Raindrops are an essential part of the CloudApp ecosystem: they enable ways for the user to work with an application that may not fully work with the pasteboard. They are essentially plug ins that hook into CloudApp and allow you to respond to the Raindrop hotkey being triggered, in addition to being able to initiate file uploads.</p>
 
 <h2 id='how_can_raindrops_be_used'>How can Raindrops be used?</h2>
 
-<p>To give you an idea about how raindrops can be used, and what functionality they can provide, two first-party raindrops can be examined. The Photoshop raindrop will allow the frontmost document in Photoshop to be uploaded to CloudApp when the raindrop hotkey is pressed. Adobe applications do not write to the system pasteboard until the application becomes inactive. Therefore, copying a section of a document and hitting the clipboard hotkey will lead to unexpected results. A raindrop, therefore, would make a lot of sense. Another place where a raindrop would be useful is with auto-uploading of screenshots. Our Screenshot raindrop will watch the user’s screen shot folder for new files, check them to see if they are screenshots, and then upload them if so.</p>
+<p>To give you an idea about how Raindrops can be used, and what functionality they can provide, two first-party Raindrops can be examined. The <a href='https://github.com/cloudapp/raindrops/tree/master/Photoshop'>Photoshop Raindrop</a> will allow the frontmost document in Photoshop to be uploaded to CloudApp when the Raindrop hotkey is pressed. Adobe applications do not write to the system pasteboard until the application becomes inactive. Therefore, copying a section of a document and hitting the clipboard hotkey will lead to unexpected results. A Raindrop, therefore, would make a lot of sense. Another place where a Raindrop would be useful is with auto-uploading of screenshots. Our <a href='https://github.com/cloudapp/raindrops/tree/master/Screenshots'>Screenshot Raindrop</a> will watch the user’s screen shot folder for new files, check them to see if they are screenshots, and then upload them if so.</p>
 
-<p>Raindrops, by default, are only running (since as of 1.5, they are a separate process) while their target application is running. However, if <em>downpour</em> is enabled, the raindrop will be running at all times. This is useful for raindrops like auto-uploading of screenshots that needs to be constantly running.</p>
+<h2 id='great_now_how_do_i_get_started'>Great! Now how do I get started?</h2>
 
-<h2 id='great_now_how_do_i_make_one'>Great! Now how do I make one?</h2>
+<p>Raindrops are Cocoa bundles. You can create one by going to <em>File &gt; New &gt; New Project…</em> in Xcode and selecting the <em>Bundle</em> template from the <em>Framework &amp; Library</em> group. Make sure that your bundle uses the Cocoa framework.</p>
 
-<p>Raindrops are Cocoa bundles. You can create one by going to <em>File &gt; New Project</em> in Xcode.</p>
+<p>Next, create a new file, subclass of <code>NSObject</code>. Add <code>CLRaindropProtocol.h</code> and <code>CLRaindropHelperProtocol.h</code> to your project, under Classes. <a href='https://github.com/cloudapp/raindrops'>You can find both files on github</a>. The class you just created must implement <code>CLRaindropProtocol</code>.</p>
 
-<p>Make sure the Framework is Cocoa. Name it however you wish, and then the project will be created.</p>
+<p>Now go into <code>Info.plist</code> and set the value of the <code>Principal Class</code> key to <code>MyClass</code>, or whatever you named the class you created in the previous step. Edit the build settings of your project to use <code>raindrop</code> as the <code>Wrapper Extension</code>.</p>
 
-<p>Next, create a new file, subclass of NSObject. Add CLRaindropProtocol.h and CLRaindropHelperProtocol.h to your project, under Classes.</p>
+<p>Last but not least, add an empty Property List <code>Raindrop.plist</code> file to your project. Every Raindrop must define <a href='/raindrops-metadata/'>Raindrop-specific metadata</a>.</p>
 
-<p>Now go into Info.plist and set the value of the Principal Class key to TestRaindrop, or whatever you named your class.</p>
+<p>You now have everything in place and properly configured to build your Raindrop. Hooray!</p>
 
-<h1 id='import_clraindropprotocolh_in_testraindroph_or_whatever_you_named_your'>import “CLRaindropProtocol.h” in TestRaindrop.h (or whatever you named your</h1>
+<h2 id='two_different_kinds_of_raindrops'>Two Different Kinds of Raindrops</h2>
 
-<p>class) and declare that TestRaindrop implements CLRaindropProtocol.</p>
+<p>We already talked about two Raindrops, Photoshop and Screenshots, remember? Well, it turns out that those two Raindrops represent two different kinds of Raindrops. The Photoshop one uploads content as soon as the user <strong>triggers</strong> it using the hotkey. The Screenshot Raindrop, on the other hand, does upload <strong>without being triggered</strong> by the hotkey as soon as it detects a new screenshot. As the latter one is constantly working in the background, we decided to label all Raindrops of that kind as <em>downpour</em>. Fancy, eh?</p>
 
-<p>Now, in TestRaindrop.m (again, whatever you named your class), you have a few options.</p>
+<p>Obviously, the way you implement those two Raindrops differs. But never fear! We’ll walk you through.</p>
 
-<p>First off, if you plan to be able to trigger uploads on your own (without being first triggered by the raindrop hotkey), you need to implement:</p>
+<h3 id='nondownpour_raindrops'>Non-downpour Raindrops</h3>
 
-<pre><code>- (id)initWithHelper:(id &lt;CLRaindropHelperProtocol&gt;)helper;</code></pre>
+<p>Non-downpour Raindrops are fairly simple to implement. The <code>CLRaindopProtocol</code> protocol defines the <code>pasteboardNameForTriggeredRaindrop</code> method which gets called as soon as the user triggers your Raindrop. Your job is it to create a new <code>NSPasteboard</code> object, add content to it and return its name. Here’s a quick example:</p>
 
-<p>Keep a reference of the helper for later.</p>
+<pre><code>@implementation MyClass
 
-<p>If you want to be able to give upload info to Cloud, you need to implement:</p>
+- (NSString *)pasteboardNameForTriggeredRaindrop
+{
+    // Assuming that doSomething returns the path to a file
+    NSString *path = [self doSomething];
+    NSURL *fileURL = [NSURL fileURLWithPath:path];
+    
+    // Create pasteboard with unique name
+    NSPasteboard *pasteboard = [NSPasteboard pasteboardWithUniqueName];
+    
+    // Add an item
+    NSPasteboardItem *item = [[NSPasteboardItem alloc] init];
+    [item setString:[fileURL absoluteString] forType:(NSString *)kUTTypeFileURL];
+    [pasteboard writeObjects:[NSArray arrayWithObject:item]];
+    [item release];
+    
+    // Return the pasteboard name
+    return [pasteboard name];
+}
 
-<pre><code>- (NSString *)pasteboardNameForTriggeredRaindrop;</code></pre>
+@end</code></pre>
 
-<p>What is all this pasteboard name stuff?</p>
+<p>Non-downpour Raindrops always have a target bundle identifier, which you <strong>must</strong> define using <a href='/raindrops-metadata'>Raindrop metadata</a>. CloudApp uses this bundle identifier to determine which Raindrop to invoke if the user hits the hotkey. For example, if the user triggers a Raindrop while Finder is the active application, it triggers the Raindrop that defines <code>com.apple.Finder</code> as its target bundle identifier. CloudApp also takes care of launching end terminating your Raindrop if the target application of your Raindrop launches or terminates.</p>
 
-<p>Cloud 1.5 has a new focus on the pasteboard. We have found that it is a great way to transfer data, and handle it in a way the user expects. As a result, all upload data input into Cloud will be handled using pasteboard.</p>
+<h3 id='downpour_raindrops'>Downpour Raindrops</h3>
 
-<p>Whenever you pass upload data to us, it’ll be in the form of a pasteboard name. In the context of what most people will want to do, it’ll be:</p>
+<p>Implementing a downpour Raindrop requires a bit more work but still, CloudApp is doing nearly all the heavy lifting for you. In contrast to non-downpour Raindrops, you are now responsible to trigger an upload. You therefore need some kind of contact person who you can tell <em>“Hey there, I have something to upload for you!”</em>. That’s where the <code>initWithHelper:</code> method comes in handy. The <code>helper</code> object implements <code>CLRaindropHelperProtocol</code> and responds to <code>handlePasteboardWithName:</code>. You can call this method at any given time to trigger an upload. As you probably already figured, it is therefore a good idea to keep a reference to the <code>helper</code> object for later.</p>
 
-<pre><code>NSPasteboard *pasteboard = [NSPasteboard pasteboardWithUniqueName]; //Write pasteboard items here
+<p>The rest of the implementation is almost similar to the non-downpour one. Once your Raindrop decides to upload something, it creates a new <code>NSPasteboard</code> object, adds content and tells the helper the name of that pasteboard. Again, here’s a quick example:</p>
 
-return [pasteboard name];</code></pre>
+<pre><code>@implementation MyClass
 
-<p>or&#8230;..</p>
+- (id)initWithHelper:(id &lt;CLRaindropHelperProtocol&gt;)helper
+{
+    if ((self = [super init])) {
+        // Assuming that the MyClass @interface defines an _helper instance variable
+        _helper = [helper retain];
+    }
+    return self;
+}
 
-<pre><code>[self.helperObject handlePasteboardWithName:[pasteboard name]];
+- (void)eventCallback:(NSString *)path
+{
+    // Something happend and you detected that this is of interest for your raindrop
+    // Assuming that your raindrop passes the path of an existing file in
+    NSURL *fileURL = [NSURL fileURLWithPath:path];
+    
+    // Create pasteboard with unique name
+    NSPasteboard *pasteboard = [NSPasteboard pasteboardWithUniqueName];
+    
+    // Add an item
+    NSPasteboardItem *item = [[NSPasteboardItem alloc] init];
+    [item setString:[fileURL absoluteString] forType:(NSString *)kUTTypeFileURL];
+    [pasteboard writeObjects:[NSArray arrayWithObject:item]];
+    [item release];
+    
+    // Trigger upload
+    [_helper handlePasteboardWithName:[pasteboard name]];
+}
 
-NSPasteboard *pasteboard = [NSPasteboard pasteboardWithUniqueName]; //Write pasteboard items here
+- (void)dealloc
+{
+    [_helper release];
+    [super dealloc];
+}
 
-return [pasteboard name];</code></pre>
+@end</code></pre>
 
-<p>or&#8230;..</p>
+<p>You <strong>must</strong> explicitly declare a Raindrop as downpour and describe what the downpour action does using <a href='/raindrops-metadata'>Raindrop metadata</a>.</p>
 
-<pre><code>[self.helperObject handlePasteboardWithName:[pasteboard name]];</code></pre>
+<h2 id='supported_pasteboard_content'>Supported Pasteboard Content</h2>
 
-<h2 id='raindrop_metadata'>Raindrop Metadata</h2>
+<p>As you’ve seen, Raindrops make heavy use of <code>NSPasteboard</code> to exchange content with CloudApp. The following section lists all content types that are currently supported by CloudApp.</p>
 
-<p>Every raindrop bundle <strong>must</strong> have a Raindrop.plist file in their Resources folder.</p>
+<ul>
+<li>One or more items that conform to <code>kUTTypeFileURL</code> and reference an existing file for file uploads</li>
 
-<p>Available Keys:</p>
+<li>Exactly one item that conforms to <code>kUTTypeImage</code> and contains image data for an image file upload</li>
 
-<p>Key: CLRaindropCreator Value: The creator of the raindrop. Currently this data is not displayed in the UI, but it may be in the future.</p>
+<li>Exactly one item that conforms to <code>kUTTypeURL</code> and contains an URL for a bookmark</li>
 
-<p>Key: CLRaindropName Type: String Value: The name of the raindrop. This will be displayed in the Preferences window and used in other places throughout the UI.</p>
+<li>Exactly one item that conforms to <code>kUTTypeText</code> and contains text for a text file upload</li>
+</ul>
 
-<p>Key: CLRaindropDescription Type: String Value: A brief description of the raindrop, and we mean brief. This will be cut off in the Preferences UI if too long, in an attempt to have developers keep it short and sweet.</p>
+<p>If the pasteboard item references an existing file (which is the case for <code>kUTTypeFileURL</code>), CloudApp uses the filename to name the upload. If the item contains only content data (which is the case for everything else), you’ll have to pass along a filename using <code>@&quot;public.url-name&quot;</code> as the pasteboard item type.</p>
 
-<p>Key: CLRaindropURL Type: String Value: This is a URL that would be opened if they want more information about the raindrop or its developer. Currently this is not used in the UI, but may be used in the future.</p>
+<h2 id='more_examples'>More Examples</h2>
 
-<p>Key: CLRaindropTargetBundleID Type: String Value: If this raindrop should respond to the raindrop hotkey, this <em>must</em> be in Raindrop.plist. This is the bundle identifier of the application for whom you want to be triggered for. For example, if you want to have the raindrop be triggered when Finder is in front, this value would be “com.apple.Finder” without quotes.</p>
-
-<p>Key: CLRaindropDownpourEnabled Type: Boolean Value: If your raindrop needs to be running at all times (instead of only while the target application is open), this should be YES.</p>
-
-<h2 id='great_do_you_have_a_central_repository_of_raindrops'>Great! Do you have a central repository of raindrops?</h2>
-
-<p>Yes! We will be filling this section in with more information as we are able to share it.</p>
+<p>We’ve open-sourced all our <a href='https://github.com/cloudapp/raindrops'>Raindrops on github</a>. Go ahead and use them to get an idea how a complete Raindrop implementation looks like!</p>
         </section>
 
         <aside class="col col_4" id="sidebar">
@@ -638,6 +693,8 @@ return [pasteboard name];</code></pre>
                     
                       <li><a href="/common-errors" id="basics">Common Errors</a></li>
                     
+                  
+                
                   
                 
                   
@@ -767,6 +824,8 @@ return [pasteboard name];</code></pre>
                   
                 
                   
+                
+                  
                     
                       <li><a href="/ruby-wrapper" id="wrapper">Ruby</a></li>
                     
@@ -832,6 +891,8 @@ return [pasteboard name];</code></pre>
                     
                       <li><a href="/forgot-password" id="account">Forgot Password</a></li>
                     
+                  
+                
                   
                 
                   
@@ -959,6 +1020,8 @@ return [pasteboard name];</code></pre>
                   
                 
                   
+                
+                  
                     
                       <li><a href="/recover-deleted-item" id="items">Recover Deleted Item</a></li>
                     
@@ -1011,6 +1074,8 @@ return [pasteboard name];</code></pre>
               <h3>Gift cards</h3>
 
               <ul>
+                
+                  
                 
                   
                 
@@ -1127,6 +1192,12 @@ return [pasteboard name];</code></pre>
                   
                     
                       <li>Raindrops</li>
+                    
+                  
+                
+                  
+                    
+                      <li><a href="/raindrops-metadata" id="mac">Raindrops Metadata</a></li>
                     
                   
                 

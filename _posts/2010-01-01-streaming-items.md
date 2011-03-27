@@ -58,7 +58,7 @@ dispatched as items are, you guessed it, created, updated, or deleted.
     itemsChannel.bind('update', function(data) { });
     itemsChannel.bind('delete', function(data) { });
 
-The `data` passed to the above callback handlers is idential to the
+The `data` passed to the above callback handlers is identical to the
 [list items API][list-items].
 
     {
