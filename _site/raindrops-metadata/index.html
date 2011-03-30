@@ -548,7 +548,7 @@
         <section class="col col_8 wikistyle">
           <h1 id='raindrops_metadata'>Raindrops Metadata</h1>
 
-<p>Every Raindrop bundle <strong>must</strong> have a <code>Raindrop.plist</code> file in their Resources folder and <strong>must</strong> define all required keys. The following document lists all available keys.</p>
+<p>Every Raindrop bundle <strong>must</strong> have a <code>Raindrop.plist</code> file in their Resources folder and <strong>must</strong> define all required keys. The following is all available keys.</p>
 
 <h2 id='general_keys'>General Keys</h2>
 
@@ -587,7 +587,7 @@
 <ul>
 <li><strong>Type:</strong> String</li>
 
-<li><strong>Value:</strong> An URL that provides further information about the raindrop or its developer</li>
+<li><strong>Value:</strong> A URL that provides further information about the raindrop or its developer</li>
 
 <li><strong>Note:</strong> <em>Optional</em>. Currently this is not used in the UI, but may be used in the future.</li>
 </ul>
@@ -601,7 +601,7 @@
 <ul>
 <li><strong>Type:</strong> String</li>
 
-<li><strong>Value:</strong> The bundle identifier of the application for whom you want to be triggered for</li>
+<li><strong>Value:</strong> The bundle identifier of the application for whom you want to be triggered when it is frontmost.</li>
 
 <li><strong>Note:</strong> <em>Required</em>. For example, if you want to have the raindrop be triggered when Finder is in front, this value would be <code>com.apple.Finder</code></li>
 </ul>
@@ -615,7 +615,7 @@
 <ul>
 <li><strong>Type:</strong> Boolean</li>
 
-<li><strong>Value:</strong> The indicator that your Raindrop uses downpour</li>
+<li><strong>Value:</strong> Indicates that your Raindrop uses downpour</li>
 
 <li><strong>Note:</strong> <em>Required</em>.</li>
 </ul>
