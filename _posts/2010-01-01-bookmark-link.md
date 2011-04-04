@@ -19,7 +19,7 @@ Create a bookmark to a URL.
       {
         "item": {
           "name":         "CloudApp",
-          "redirect_url": "http://cloudapp.com"
+          "redirect_url": "http://getcloudapp.com"
         }
       }
 
@@ -56,7 +56,7 @@ Create a bookmark to a URL.
            '{
              "item": {
                 "name":         "CloudApp",
-                "redirect_url": "http://cloudapp.com"
+                "redirect_url": "http://getcloudapp.com"
              }
            }' \
          "http://my.cl.ly/items"
