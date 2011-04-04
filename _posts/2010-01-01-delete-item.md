@@ -24,7 +24,7 @@ Send an item to the trash.
         "name":         "CloudApp",
         "private":      false,
         "url":          "http://cl.ly/2wt6",
-        "content_url":  "http://cl.ly/2wt6/content",
+        "content_url":  "http://cl.ly/2wt6",
         "item_type":    "bookmark",
         "view_counter": 0,
         "icon":         "http://my.cl.ly/images/item_types/bookmark.png",

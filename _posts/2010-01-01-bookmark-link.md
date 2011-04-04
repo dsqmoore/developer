@@ -30,14 +30,14 @@ Create a bookmark to a URL.
 - Body:
 
       {
-        "href":         "http://my.cl.ly/items/1912565",
+        "href":         "http://my.cl.ly/items/4257111",
         "name":         "CloudApp",
         "private":      true,
-        "url":          "http://cl.ly/4febbfdfb185c63d5e14",
-        "content_url":  "http://cl.ly/4febbfdfb185c63d5e14/content",
+        "url":          "http://cl.ly/3f3z1a303l2W1I2h2e3a",
+        "content_url":  "http://cl.ly/3f3z1a303l2W1I2h2e3a",
         "item_type":    "bookmark",
         "view_counter": 0,
-        "icon":         "http://my.cl.ly/images/item_types/bookmark.png",
+        "icon":         "http://my.cl.ly/images/new/item-types/bookmark.png",
         "remote_url":   null,
         "redirect_url": "http://getcloudapp.com",
         "created_at":   "2010-10-23T19:50:24Z",

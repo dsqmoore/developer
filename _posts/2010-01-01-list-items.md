@@ -60,19 +60,20 @@ If you're lucky, the HTTP library you use will take care of this for you.
         "updated_at":   "2010-10-23T19:50:39Z",
         "deleted_at":   null
       }, {
-        "href":         "http://my.cl.ly/items/1912559",
-        "name":         "CloudApp Logo.png",
-        "private":      false,
-        "url":          "http://cl.ly/2wr4",
-        "content_url":  "http://cl.ly/2wr4/content",
-        "item_type":    "image",
-        "view_counter": 2,
-        "icon":         "http://my.cl.ly/images/item_types/image.png",
-        "remote_url":   "http://f.cl.ly/items/7c7aea1395c3db0aee18/CloudApp%20Logo.png",
-        "redirect_url": null,
-        "created_at":   "2010-10-23T19:50:13Z",
-        "updated_at":   "2010-10-23T19:50:38Z",
-        "deleted_at":   null
+        "href":          "http://my.cl.ly/items/1912559",
+        "name":          "CloudApp Logo.png",
+        "private":       false,
+        "url":           "http://cl.ly/2wr4",
+        "content_url":   "http://cl.ly/2wr4/CloudApp_Logo.png",
+        "item_type":     "image",
+        "view_counter":  85,
+        "icon":          "http://my.cl.ly/images/new/item-types/image.png",
+        "remote_url":    "http://f.cl.ly/items/7c7aea1395c3db0aee18/CloudApp%20Logo.png",
+        "thumbnail_url": "http://thumbs.cl.ly/2wr4",
+        "redirect_url":  null,
+        "created_at":    "2010-10-23T19:50:13Z",
+        "updated_at":    "2011-04-04T00:33:57Z",
+        "deleted_at":    null
       }]
 
 ## Example

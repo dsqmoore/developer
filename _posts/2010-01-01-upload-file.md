@@ -116,16 +116,18 @@ the upload process.
 - Body:
 
       {
-        "href":         "http://my.cl.ly/items/3",
-        "name":         "Screen shot 2010-04-01 at 12.00.00 AM.png",
-        "private":      false,
-        "url":          "http://cl.ly/2wr4",
-        "content_url":  "http://cl.ly/2wr4/content",
-        "item_type":    "image",
-        "view_counter": 0,
-        "icon":         "http://my.cl.ly/images/item_types/image.png",
-        "remote_url":   "http://f.cl.ly/items/3d7ba41682802c301150/Screen shot 2010-04-01 at 12.00.00 AM.png",
-        "redirect_url": null,
-        "created_at":   "2010-04-01T12:00:00Z",
-        "updated_at":   "2010-04-01T12:00:00Z"
+        "href":          "http://my.cl.ly/items/1912559",
+        "name":          "CloudApp Logo.png",
+        "private":       false,
+        "url":           "http://cl.ly/2wr4",
+        "content_url":   "http://cl.ly/2wr4/CloudApp_Logo.png",
+        "item_type":     "image",
+        "view_counter":  0,
+        "icon":          "http://my.cl.ly/images/new/item-types/image.png",
+        "remote_url":    "http://f.cl.ly/items/7c7aea1395c3db0aee18/CloudApp%20Logo.png",
+        "thumbnail_url": "http://thumbs.cl.ly/2wr4",
+        "redirect_url":  null,
+        "created_at":    "2010-10-23T19:50:13Z",
+        "updated_at":    "2010-10-23T19:50:13Z",
+        "deleted_at":    null
       }
