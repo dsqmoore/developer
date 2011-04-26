@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" dir="ltr" lang="en">
   <head>
-    <title>CloudApp Developer - Redeem Gift Card</title>
+    <title>CloudApp Developer - Upload File With Specific Privacy</title>
 
     <meta charset="utf-8">
 
@@ -390,7 +390,7 @@
                 
               
                 
-                  <option value="/upload-file-with-specific-privacy" >Upload File With Specific Privacy</option>
+                  <option value="/upload-file-with-specific-privacy" selected>Upload File With Specific Privacy</option>
                 
               
                 
@@ -450,7 +450,7 @@
                 
               
                 
-                  <option value="/redeem-gift-card" selected>Redeem Gift Card</option>
+                  <option value="/redeem-gift-card" >Redeem Gift Card</option>
                 
               
                 
@@ -560,18 +560,20 @@
 
       <div class="row">
         <section class="col col_8 wikistyle">
-          <h1 id='redeem_gift_card'>Redeem Gift Card</h1>
+          <h1 id='upload_file_with_specific_privacy'>Upload File With Specific Privacy</h1>
 
-<p>Apply a gift card to an account.</p>
+<p>An uploaded file&#8217;s privacy is set to the <a href='/change-default-security'>owner&#8217;s default privacy setting</a>. If the file to be uploaded should be either public or private, this can be overridden when requesting the parameters to upload a file.</p>
+
+<p>This is simply the first step in the process to upload a file. See the article <a href='/upload-file'>Upload File</a> for full details.</p>
 
 <h2 id='request'>Request</h2>
 
 <ul>
 <li>Requires <a href='/usage/#authentication'>authentication</a></li>
 
-<li>HTTP Method: PUT</li>
+<li>HTTP Method: GET</li>
 
-<li>URL: https://my.cl.ly/gift_cards/<strong><em>gift card code</em></strong> <em>(e.g., https://my.cl.ly/gift_cards/ABC123)</em></li>
+<li>URL: <code>http://my.cl.ly/items/new?item[private]=false</code></li>
 </ul>
 
 <h2 id='response'>Response</h2>
@@ -585,27 +587,31 @@
 <p>Body:</p>
 
 <pre><code>{
-  &quot;id&quot;:           1,
-  &quot;code&quot;:         &quot;ABC123&quot;,
-  &quot;plan&quot;:         &quot;pro&quot;,
-  &quot;months&quot;:       12,
-  &quot;href&quot;:         &quot;https://my.cl.ly/gift_cards/ABC123&quot;,
-  &quot;created_at&quot;:   &quot;2011-01-08T20:11:26Z&quot;,
-  &quot;updated_at&quot;:   &quot;2011-01-08T21:26:26Z&quot;,
-  &quot;redeemed_at&quot;:  &quot;2011-01-08T21:26:26Z&quot;,
-  &quot;effective_at&quot;: &quot;2011-01-10&quot;,
-  &quot;expires_at&quot;:   &quot;2012-01-10&quot;
+  &quot;uploads_remaining&quot;: 10,
+  &quot;max_upload_size&quot;:   26214400,
+  &quot;url&quot;:               &quot;http://f.cl.ly&quot;,
+  &quot;params&quot;: {
+    &quot;AWSAccessKeyId&quot;:          &quot;AKIAIDPUZISHSBEOFS6Q&quot;,
+    &quot;key&quot;:                     &quot;items/qL/${filename}&quot;,
+    &quot;acl&quot;:                     &quot;public-read&quot;,
+    &quot;success_action_redirect&quot;: &quot;http://my.cl.ly/items/s3?item\[private\]=false&quot;,
+    &quot;signature&quot;:               &quot;2vRWmaSy46WGs0MDUdLHAqjSL8k=&quot;,
+    &quot;policy&quot;:                  &quot;eyJleHBpcmF0aW9uIjoiMjAxMC0wNC0wMVQwMDowMDowMFoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJsaW5lYnJlYWstdGVzdCJ9LHsiYWNsIjoicHVibGljLXJlYWQifSx7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjoiaHR0cDovL215LmNsb3VkYXBwLmxvY2FsL3VwbG9hZHMvczMifSxbInN0YXJ0cy13aXRoIiwiJGtleSIsInVwbG9hZHMvcUwvIl1dfQ==&quot;
+  }
 }</code></pre>
 </li>
 </ul>
+
+<h2 id='errors'>Errors</h2>
+
+<p>If the account is using a CloudApp Free plan, there is a maximum daily file upload limit. If that limit has been met, the request will be successful but the <code>params</code> attribute will be missing, <code>uploads_remaining</code> will be 0, and <code>message</code> will be a friendly explanation of the error.</p>
 
 <h2 id='example'>Example</h2>
 
 <pre class='shell'><code>curl --digest -u arthur@dent.com:towel \
      -H &quot;Accept: application/json&quot; \
      -H &quot;Content-Type: application/json&quot; \
-     -X PUT \
-     &quot;https://my.cl.ly/gift_cards/ABC123&quot;</code></pre>
+     &quot;http://my.cl.ly/items/new?item[private]=false&quot;</code></pre>
         </section>
 
         <aside class="col col_4" id="sidebar">
@@ -1001,7 +1007,7 @@
                 
                   
                     
-                      <li><a href="/upload-file-with-specific-privacy" id="items">Upload File With Specific Privacy</a></li>
+                      <li>Upload File With Specific Privacy</li>
                     
                   
                 
@@ -1069,7 +1075,7 @@
                 
                   
                     
-                      <li>Redeem Gift Card</li>
+                      <li><a href="/redeem-gift-card" id="gift_cards">Redeem Gift Card</a></li>
                     
                   
                 
