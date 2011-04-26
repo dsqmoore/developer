@@ -35,7 +35,7 @@ This is simply the first step in the process to upload a file. See the article
           "AWSAccessKeyId":          "AKIAIDPUZISHSBEOFS6Q",
           "key":                     "items/qL/${filename}",
           "acl":                     "public-read",
-          "success_action_redirect": "http://my.cl.ly/items/s3?item\[private\]=false",
+          "success_action_redirect": "http://my.cl.ly/items/s3?item[private]=false",
           "signature":               "2vRWmaSy46WGs0MDUdLHAqjSL8k=",
           "policy":                  "eyJleHBpcmF0aW9uIjoiMjAxMC0wNC0wMVQwMDowMDowMFoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJsaW5lYnJlYWstdGVzdCJ9LHsiYWNsIjoicHVibGljLXJlYWQifSx7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjoiaHR0cDovL215LmNsb3VkYXBwLmxvY2FsL3VwbG9hZHMvczMifSxbInN0YXJ0cy13aXRoIiwiJGtleSIsInVwbG9hZHMvcUwvIl1dfQ=="
         }
