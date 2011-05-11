@@ -30,16 +30,17 @@ Change the password for an account.
 - Body:
 
       {
-        "id":               1,
-        "email":            "arthur@dent.com",
-        "domain":           null,
-        "domain_home_page": null,
-        "private_items":    true,
-        "subscribed":       false,
-        "alpha":            false,
-        "created_at":       "2010-12-10T17:07:01Z",
-        "updated_at":       "2010-12-10T20:33:38Z",
-        "activated_at":     "2010-12-10T17:12:51Z"
+        "id":                      1,
+        "email":                   "arthur@dent.com",
+        "domain":                  null,
+        "domain_home_page":        null,
+        "private_items":           true,
+        "subscribed":              false,
+        "subscription_expires_at": null,
+        "alpha":                   false,
+        "created_at":              "2010-12-10T17:07:01Z",
+        "updated_at":              "2010-12-10T20:33:38Z",
+        "activated_at":            "2010-12-10T17:12:51Z"
       }
 
 
