@@ -23,7 +23,7 @@ Retrieve a list of product identifiers available via iOS In App Purchases.
       [ "com.linebreak.CloudAppPro.1month",
         "com.linebreak.CloudAppPro.3months",
         "com.linebreak.CloudAppPro.6months",
-        "com.linebreak.CloudAppPro.12months" ]
+        "com.linebreak.CloudAppPro.1year" ]
 
 
 ## Example
