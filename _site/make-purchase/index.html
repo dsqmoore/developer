@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" dir="ltr" lang="en">
   <head>
-    <title>CloudApp Developer - Redeem Gift Card</title>
+    <title>CloudApp Developer - Make Purchase</title>
 
     <meta charset="utf-8">
 
@@ -470,7 +470,7 @@
                 
               
                 
-                  <option value="/redeem-gift-card" selected>Redeem Gift Card</option>
+                  <option value="/redeem-gift-card" >Redeem Gift Card</option>
                 
               
                 
@@ -612,7 +612,7 @@
                 
               
                 
-                  <option value="/make-purchase" >Make Purchase</option>
+                  <option value="/make-purchase" selected>Make Purchase</option>
                 
               
                 
@@ -662,52 +662,65 @@
 
       <div class="row">
         <section class="col col_8 wikistyle">
-          <h1 id='redeem_gift_card'>Redeem Gift Card</h1>
+          <h1 id='make_purchase'>Make Purchase</h1>
 
-<p>Apply a gift card to an account.</p>
+<p>Send a Base64 encoded receipt from Apple to complete the purchase.</p>
 
 <h2 id='request'>Request</h2>
 
 <ul>
-<li>Requires <a href='/usage/#authentication'>authentication</a></li>
-
-<li>HTTP Method: PUT</li>
-
-<li>URL: https://my.cl.ly/gift_cards/<strong><em>gift card code</em></strong> <em>(e.g., https://my.cl.ly/gift_cards/ABC123)</em></li>
-</ul>
-
-<h2 id='response'>Response</h2>
-
-<ul>
 <li>
-<p>Status: 200 OK</p>
+<p>HTTP Method: POST</p>
+</li>
+
+<li>
+<p>URL: http://my.cl.ly/purchases</p>
 </li>
 
 <li>
 <p>Body:</p>
 
 <pre><code>{
-  &quot;id&quot;:           1,
-  &quot;code&quot;:         &quot;ABC123&quot;,
-  &quot;plan&quot;:         &quot;pro&quot;,
-  &quot;months&quot;:       12,
-  &quot;href&quot;:         &quot;https://my.cl.ly/gift_cards/ABC123&quot;,
-  &quot;created_at&quot;:   &quot;2011-01-08T20:11:26Z&quot;,
-  &quot;updated_at&quot;:   &quot;2011-01-08T21:26:26Z&quot;,
-  &quot;redeemed_at&quot;:  &quot;2011-01-08T21:26:26Z&quot;,
-  &quot;effective_at&quot;: &quot;2011-01-10&quot;,
-  &quot;expires_at&quot;:   &quot;2012-01-10&quot;
+  &quot;receipt-data&quot; : &quot;ewogICJzaWduYXR1cmUiID0gIkFn...&quot;
+}</code></pre>
+</li>
+</ul>
+
+<h2 id='response'>Response</h2>
+
+<ul>
+<li>
+<p>Status: 201 Created</p>
+</li>
+
+<li>
+<p>Body:</p>
+
+<pre><code>{
+  &quot;id&quot;:                      1,
+  &quot;email&quot;:                   &quot;arthur@dent.com&quot;,
+  &quot;domain&quot;:                  null,
+  &quot;domain_home_page&quot;:        null,
+  &quot;private_items&quot;:           true,
+  &quot;subscribed&quot;:              false,
+  &quot;subscription_expires_at&quot;: &quot;2012-05-21&quot;,
+  &quot;alpha&quot;:                   false,
+  &quot;created_at&quot;:              &quot;2010-12-10T17:07:01Z&quot;,
+  &quot;updated_at&quot;:              &quot;2010-12-10T17:07:01Z&quot;,
+  &quot;activated_at&quot;:            null
 }</code></pre>
 </li>
 </ul>
 
 <h2 id='example'>Example</h2>
 
-<pre class='shell'><code>curl --digest -u arthur@dent.com:towel \
-     -H &quot;Accept: application/json&quot; \
+<pre class='shell'><code>curl -H &quot;Accept: application/json&quot; \
      -H &quot;Content-Type: application/json&quot; \
-     -X PUT \
-     &quot;https://my.cl.ly/gift_cards/ABC123&quot;</code></pre>
+     -d \
+        &#39;{
+          &quot;receipt-data&quot; : &quot;ewogICJzaWduYXR1cmUiID0gIkFn...&quot;
+        }&#39; \
+     http://my.cl.ly/purchases</code></pre>
         </section>
 
         <aside class="col col_4" id="sidebar">
@@ -1191,7 +1204,7 @@
                 
                   
                     
-                      <li>Redeem Gift Card</li>
+                      <li><a href="/redeem-gift-card" id="gift_cards">Redeem Gift Card</a></li>
                     
                   
                 
@@ -1351,7 +1364,7 @@
                 
                   
                     
-                      <li><a href="/make-purchase" id="purchases">Make Purchase</a></li>
+                      <li>Make Purchase</li>
                     
                   
                 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" dir="ltr" lang="en">
   <head>
-    <title>CloudApp Developer - Redeem Gift Card</title>
+    <title>CloudApp Developer - List Purchases</title>
 
     <meta charset="utf-8">
 
@@ -470,7 +470,7 @@
                 
               
                 
-                  <option value="/redeem-gift-card" selected>Redeem Gift Card</option>
+                  <option value="/redeem-gift-card" >Redeem Gift Card</option>
                 
               
                 
@@ -608,7 +608,7 @@
                 
               
                 
-                  <option value="/list-purchases" >List Purchases</option>
+                  <option value="/list-purchases" selected>List Purchases</option>
                 
               
                 
@@ -662,18 +662,16 @@
 
       <div class="row">
         <section class="col col_8 wikistyle">
-          <h1 id='redeem_gift_card'>Redeem Gift Card</h1>
+          <h1 id='list_purchases'>List Purchases</h1>
 
-<p>Apply a gift card to an account.</p>
+<p>Retrieve a list of product identifiers available via iOS In App Purchases.</p>
 
 <h2 id='request'>Request</h2>
 
 <ul>
-<li>Requires <a href='/usage/#authentication'>authentication</a></li>
+<li>HTTP Method: GET</li>
 
-<li>HTTP Method: PUT</li>
-
-<li>URL: https://my.cl.ly/gift_cards/<strong><em>gift card code</em></strong> <em>(e.g., https://my.cl.ly/gift_cards/ABC123)</em></li>
+<li>URL: http://my.cl.ly/products</li>
 </ul>
 
 <h2 id='response'>Response</h2>
@@ -686,28 +684,17 @@
 <li>
 <p>Body:</p>
 
-<pre><code>{
-  &quot;id&quot;:           1,
-  &quot;code&quot;:         &quot;ABC123&quot;,
-  &quot;plan&quot;:         &quot;pro&quot;,
-  &quot;months&quot;:       12,
-  &quot;href&quot;:         &quot;https://my.cl.ly/gift_cards/ABC123&quot;,
-  &quot;created_at&quot;:   &quot;2011-01-08T20:11:26Z&quot;,
-  &quot;updated_at&quot;:   &quot;2011-01-08T21:26:26Z&quot;,
-  &quot;redeemed_at&quot;:  &quot;2011-01-08T21:26:26Z&quot;,
-  &quot;effective_at&quot;: &quot;2011-01-10&quot;,
-  &quot;expires_at&quot;:   &quot;2012-01-10&quot;
-}</code></pre>
+<pre><code>[ &quot;com.linebreak.CloudAppPro.1month&quot;,
+  &quot;com.linebreak.CloudAppPro.3months&quot;,
+  &quot;com.linebreak.CloudAppPro.6months&quot;,
+  &quot;com.linebreak.CloudAppPro.1year&quot; ]</code></pre>
 </li>
 </ul>
 
 <h2 id='example'>Example</h2>
 
-<pre class='shell'><code>curl --digest -u arthur@dent.com:towel \
-     -H &quot;Accept: application/json&quot; \
-     -H &quot;Content-Type: application/json&quot; \
-     -X PUT \
-     &quot;https://my.cl.ly/gift_cards/ABC123&quot;</code></pre>
+<pre class='shell'><code>curl -H &quot;Accept: application/json&quot; \
+     &quot;http://my.cl.ly/products&quot;</code></pre>
         </section>
 
         <aside class="col col_4" id="sidebar">
@@ -1191,7 +1178,7 @@
                 
                   
                     
-                      <li>Redeem Gift Card</li>
+                      <li><a href="/redeem-gift-card" id="gift_cards">Redeem Gift Card</a></li>
                     
                   
                 
@@ -1345,7 +1332,7 @@
                 
                   
                     
-                      <li><a href="/list-purchases" id="purchases">List Purchases</a></li>
+                      <li>List Purchases</li>
                     
                   
                 
