@@ -49,4 +49,4 @@ Send a Base64 encoded receipt from Apple to complete the purchase.
             '{
               "receipt-data" : "ewogICJzaWduYXR1cmUiID0gIkFn..."
             }' \
-         http://my.cloudapp.local/purchases
+         http://my.cl.ly/purchases

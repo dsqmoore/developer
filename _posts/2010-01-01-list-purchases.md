@@ -30,4 +30,4 @@ Retrieve a list of product identifiers available via iOS In App Purchases.
 
 {: .shell}
     curl -H "Accept: application/json" \
-         "http://my.cloudapp.local/products"
+         "http://my.cl.ly/products"
