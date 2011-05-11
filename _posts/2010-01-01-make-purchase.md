@@ -31,7 +31,7 @@ Send a Base64 encoded receipt from Apple to complete the purchase.
         "domain":                  null,
         "domain_home_page":        null,
         "private_items":           true,
-        "subscribed":              false,
+        "subscribed":              true,
         "subscription_expires_at": "2012-05-21",
         "alpha":                   false,
         "created_at":              "2010-12-10T17:07:01Z",
