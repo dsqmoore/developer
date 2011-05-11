@@ -12,7 +12,7 @@ Retrieve a list of product identifiers available via iOS In App Purchases.
 ## Request
 
 - HTTP Method: GET
-- URL: http://my.cl.ly/products
+- URL: http://my.cl.ly/purchases
 
 
 ## Response
@@ -30,4 +30,4 @@ Retrieve a list of product identifiers available via iOS In App Purchases.
 
 {: .shell}
     curl -H "Accept: application/json" \
-         "http://my.cl.ly/products"
+         "http://my.cl.ly/purchases"
