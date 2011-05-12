@@ -1,10 +1,10 @@
 ---
 layout: master
-title: Make Purchase
+title: Validate Purchase
 categories: purchases
 ---
 
-# Make Purchase
+# Validate Purchase
 
 Send a Base64 encoded receipt from Apple to complete the purchase.
 
@@ -43,7 +43,8 @@ Send a Base64 encoded receipt from Apple to complete the purchase.
 ## Example
 
 {: .shell}
-    curl -H "Accept: application/json" \
+    curl --digest -u arthur@dent.com:towel \
+         -H "Accept: application/json" \
          -H "Content-Type: application/json" \
          -d \
             '{

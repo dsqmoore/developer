@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" dir="ltr" lang="en">
   <head>
-    <title>CloudApp Developer - Make Purchase</title>
+    <title>CloudApp Developer - Validate Purchase</title>
 
     <meta charset="utf-8">
 
@@ -132,9 +132,9 @@
                 
               
                 
-              
-                
                   <option value="/usage" >Usage</option>
+                
+              
                 
               
                 
@@ -182,8 +182,6 @@
                 
               
                 
-              
-                
                   <option value="/objective-c-wrapper" >Objective-C</option>
                 
               
@@ -213,6 +211,8 @@
               
                 
                   <option value="/ruby-wrapper" >Ruby</option>
+                
+              
                 
               
                 
@@ -290,8 +290,6 @@
                 
               
                 
-              
-                
                   <option value="/register" >Register</option>
                 
               
@@ -301,6 +299,8 @@
               
                 
                   <option value="/set-custom-domain" >Set Custom Domain</option>
+                
+              
                 
               
                 
@@ -380,8 +380,6 @@
                 
               
                 
-              
-                
                   <option value="/recover-deleted-item" >Recover Deleted Item</option>
                 
               
@@ -418,14 +416,14 @@
                 
               
                 
+              
+                
                   <option value="/view-item" >View Item</option>
                 
               
             </optgroup>
           
             <optgroup label="Gift cards">
-              
-                
               
                 
               
@@ -494,6 +492,8 @@
                 
               
                 
+              
+                
                   <option value="/view-gift-card" >View Gift Card Details</option>
                 
               
@@ -502,8 +502,6 @@
             </optgroup>
           
             <optgroup label="Mac">
-              
-                
               
                 
               
@@ -577,6 +575,8 @@
               
                 
               
+                
+              
             </optgroup>
           
             <optgroup label="Purchases">
@@ -612,8 +612,6 @@
                 
               
                 
-                  <option value="/make-purchase" selected>Make Purchase</option>
-                
               
                 
               
@@ -645,6 +643,8 @@
               
                 
               
+                
+                  <option value="/validate-purchase" selected>Validate Purchase</option>
                 
               
                 
@@ -662,7 +662,7 @@
 
       <div class="row">
         <section class="col col_8 wikistyle">
-          <h1 id='make_purchase'>Make Purchase</h1>
+          <h1 id='validate_purchase'>Validate Purchase</h1>
 
 <p>Send a Base64 encoded receipt from Apple to complete the purchase.</p>
 
@@ -714,7 +714,8 @@
 
 <h2 id='example'>Example</h2>
 
-<pre class='shell'><code>curl -H &quot;Accept: application/json&quot; \
+<pre class='shell'><code>curl --digest -u arthur@dent.com:towel \
+     -H &quot;Accept: application/json&quot; \
      -H &quot;Content-Type: application/json&quot; \
      -d \
         &#39;{
@@ -793,11 +794,11 @@
                   
                 
                   
-                
-                  
                     
                       <li><a href="/usage" id="basics">Usage</a></li>
                     
+                  
+                
                   
                 
                   
@@ -853,8 +854,6 @@
                   
                 
                   
-                
-                  
                     
                       <li><a href="/objective-c-wrapper" id="wrapper">Objective-C</a></li>
                     
@@ -894,6 +893,8 @@
                     
                       <li><a href="/ruby-wrapper" id="wrapper">Ruby</a></li>
                     
+                  
+                
                   
                 
                   
@@ -983,8 +984,6 @@
                   
                 
                   
-                
-                  
                     
                       <li><a href="/register" id="account">Register</a></li>
                     
@@ -998,6 +997,8 @@
                     
                       <li><a href="/set-custom-domain" id="account">Set Custom Domain</a></li>
                     
+                  
+                
                   
                 
                   
@@ -1097,8 +1098,6 @@
                   
                 
                   
-                
-                  
                     
                       <li><a href="/recover-deleted-item" id="items">Recover Deleted Item</a></li>
                     
@@ -1145,6 +1144,8 @@
                   
                 
                   
+                
+                  
                     
                       <li><a href="/view-item" id="items">View Item</a></li>
                     
@@ -1157,8 +1158,6 @@
               <h3>Gift cards</h3>
 
               <ul>
-                
-                  
                 
                   
                 
@@ -1229,6 +1228,8 @@
                   
                 
                   
+                
+                  
                     
                       <li><a href="/view-gift-card" id="gift_cards">View Gift Card Details</a></li>
                     
@@ -1243,8 +1244,6 @@
               <h3>Mac</h3>
 
               <ul>
-                
-                  
                 
                   
                 
@@ -1322,6 +1321,8 @@
                 
                   
                 
+                  
+                
               </ul>
             </section>
           
@@ -1363,41 +1364,41 @@
                   
                 
                   
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
                     
-                      <li>Make Purchase</li>
+                      <li>Validate Purchase</li>
                     
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
                   
                 
                   
