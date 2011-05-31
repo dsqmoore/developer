@@ -119,6 +119,7 @@ the upload process.
         "href":          "http://my.cl.ly/items/1912559",
         "name":          "CloudApp Logo.png",
         "private":       false,
+        "subscribed":    false,
         "url":           "http://cl.ly/2wr4",
         "content_url":   "http://cl.ly/2wr4/CloudApp_Logo.png",
         "item_type":     "image",

@@ -30,6 +30,7 @@ Change the name of an item.
         "href":         "http://my.cl.ly/items/1912565",
         "name":         "Betelgeuse",
         "private":      false,
+        "subscribed":   false,
         "url":          "http://cl.ly/2wt6",
         "content_url":  "http://cl.ly/2wt6/content",
         "item_type":    "bookmark",

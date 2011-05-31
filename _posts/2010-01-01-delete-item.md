@@ -23,6 +23,7 @@ Send an item to the trash.
         "href":         "http://my.cl.ly/items/1912565",
         "name":         "CloudApp",
         "private":      false,
+        "subscribed":   false,
         "url":          "http://cl.ly/2wt6",
         "content_url":  "http://cl.ly/2wt6",
         "item_type":    "bookmark",

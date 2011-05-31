@@ -65,6 +65,7 @@ The `data` passed to the above callback handlers is identical to the
       "href":         "http://my.cl.ly/items/4257111",
       "name":         "CloudApp",
       "private":      true,
+      "subscribed":   false,
       "url":          "http://cl.ly/3f3z1a303l2W1I2h2e3a",
       "content_url":  "http://cl.ly/3f3z1a303l2W1I2h2e3a",
       "item_type":    "bookmark",
