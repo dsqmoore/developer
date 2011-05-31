@@ -13,7 +13,7 @@ GEM
     liquid (2.2.0)
     maruku (0.6.0)
       syntax (>= 1.0.0)
-    rack (1.2.2)
+    rack (1.3.0)
     rack-jekyll (0.3.5)
       jekyll
       rack
