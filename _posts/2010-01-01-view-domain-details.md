@@ -12,7 +12,7 @@ Get details about a given domain used by a CloudApp user.
 ## Request
 
 - HTTP Method: GET
-- URL: http://my.cl.ly/domains/**domain** _(e.g., http://my.cl.ly/domains/dent.com)_
+- URL: http://api.cld.me/domains/**domain** _(e.g., http://api.cld.me/domains/dent.com)_
 
 ## Response
 
@@ -25,4 +25,4 @@ Get details about a given domain used by a CloudApp user.
 ## Example
 
 {: .shell}
-    curl -H "Accept: application/json" http://my.cl.ly/domains/dent.com
+    curl -H "Accept: application/json" http://api.cld.me/domains/dent.com
