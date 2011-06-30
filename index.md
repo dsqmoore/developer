@@ -15,10 +15,11 @@ There is a good chance most of the work is already cut out for you. A variety of
 Great applications are already using the CloudApp API. Here are some popular examples:
 
 {: .index}
-* [BlueNube](https://twitter.com/#!/BlueNubeApp) -- CloudApp client for iPad
+* [BlueNube](http://bluenubeapp.com/) -- CloudApp client for iPad
 * [Cloud2go](http://cloud2goapp.com/) -- powerful iPhone client to access CloudApp on the go
 * [Cloudette](http://cloudetteapp.com/) -- free CloudApp iPhone client
 * [Doxie](http://www.getdoxie.com/) -- scan directly into the cloud
+* [Stratus](http://www.getstratusapp.com/) -- beautiful iPhone and iPad client
 * [Tweetbot](http://tapbots.com/software/tweetbot/) -- full-featured iPhone Twitter client with a lot of personality and CloudApp integration
 * [Twitterrific](http://twitterrific.com/) -- gorgeous Twitter client with CloudApp integration for Mac and iOS
 * [Weet](http://weetapp.com/) -- Twitter client with CloudApp integration for Mac and iOS
