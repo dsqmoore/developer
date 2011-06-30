@@ -18,6 +18,7 @@ Great applications are already using the CloudApp API. Here are some popular exa
 * [BlueNube](http://bluenubeapp.com/) -- CloudApp client for iPad
 * [Cloud2go](http://cloud2goapp.com/) -- powerful iPhone client to access CloudApp on the go
 * [Cloudette](http://cloudetteapp.com/) -- free CloudApp iPhone client
+* [DropBook](http://itunes.apple.com/us/app/dropbook/id408384997?mt=12) -- share to Facebook using CloudApp
 * [Doxie](http://www.getdoxie.com/) -- scan directly into the cloud
 * [Stratus](http://www.getstratusapp.com/) -- beautiful iPhone and iPad client
 * [Tweetbot](http://tapbots.com/software/tweetbot/) -- full-featured iPhone Twitter client with a lot of personality and CloudApp integration
