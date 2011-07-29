@@ -25,7 +25,7 @@ If you're lucky, the HTTP library you use will take care of this for you.
   - `per_page=5`: Number of items per page.
   - `type=image`: Filter items by type (image, bookmark, text, archive, audio, video, or unknown).
   - `deleted=true`: Show trashed items.
-  - `source=MyApp`: Filter items by all or part of the User-Agent.
+  - `source=MyApp`: [Filter items by all or part of the User-Agent.](/list-items-by-source)
 
 ## Response
 

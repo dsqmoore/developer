@@ -6,9 +6,8 @@ categories: items
 
 # List Items by Source
 
-Page through all your items uploaded using a given client. This is a specific
-example of the [List Items](/list-items) endpoint. All of the recommendations
-mentioned there also apply here.
+Page through all of your items created using a specific application. See
+[List Items](/list-items) for recommendations using this endpoint.
 
 ## Filtering Details
 
