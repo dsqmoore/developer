@@ -49,6 +49,7 @@ Returns an array containing each item created.
         "icon":         "http://my.cl.ly/images/item_types/bookmark.png",
         "remote_url":   null,
         "redirect_url": "http://en.wikipedia.org/wiki/Arthur_Dent",
+        "source":       "Cloud/1.5.1 CFNetwork/520.0.13 Darwin/11.0.0 (x86_64) (MacBookPro5%2C5)",
         "created_at":   "2010-12-15T14:21:55Z",
         "updated_at":   "2010-12-15T14:21:55Z",
         "deleted_at":   null,
@@ -64,6 +65,7 @@ Returns an array containing each item created.
         "icon":         "http://my.cl.ly/images/item_types/bookmark.png",
         "remote_url":   null,
         "redirect_url": "http://en.wikipedia.org/wiki/Ford_Prefect_(character)",
+        "source":       "Cloud/1.5.1 CFNetwork/520.0.13 Darwin/11.0.0 (x86_64) (MacBookPro5%2C5)",
         "created_at":   "2010-12-15T14:21:55Z",
         "updated_at":   "2010-12-15T14:21:55Z",
         "deleted_at":   null
@@ -79,6 +81,7 @@ Returns an array containing each item created.
         "icon":         "http://my.cl.ly/images/item_types/bookmark.png",
         "remote_url":   null,
         "redirect_url": "http://en.wikipedia.org/wiki/Zaphod_Beeblebrox",
+        "source":       "Cloud/1.5.1 CFNetwork/520.0.13 Darwin/11.0.0 (x86_64) (MacBookPro5%2C5)",
         "created_at":   "2010-12-15T14:21:55Z",
         "updated_at":   "2010-12-15T14:21:55Z",
         "deleted_at":   null
@@ -126,6 +129,7 @@ If a bookmark is unable to be created, its place in the array will be an array o
         "icon":         "http://my.cl.ly/images/item_types/bookmark.png",
         "remote_url":   null,
         "redirect_url": "http://en.wikipedia.org/wiki/Arthur_Dent",
+        "source":       "Cloud/1.5.1 CFNetwork/520.0.13 Darwin/11.0.0 (x86_64) (MacBookPro5%2C5)",
         "created_at":   "2010-12-15T14:21:55Z",
         "updated_at":   "2010-12-15T14:21:55Z",
         "deleted_at":   null,
@@ -143,6 +147,7 @@ If a bookmark is unable to be created, its place in the array will be an array o
         "icon":         "http://my.cl.ly/images/item_types/bookmark.png",
         "remote_url":   null,
         "redirect_url": "http://en.wikipedia.org/wiki/Zaphod_Beeblebrox",
+        "source":       "Cloud/1.5.1 CFNetwork/520.0.13 Darwin/11.0.0 (x86_64) (MacBookPro5%2C5)",
         "created_at":   "2010-12-15T14:21:55Z",
         "updated_at":   "2010-12-15T14:21:55Z",
         "deleted_at":   null

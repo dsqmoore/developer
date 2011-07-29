@@ -1,31 +1,30 @@
 ---
 layout: master
-title: List Items
+title: List Items by Source
 categories: items
 ---
 
-# List Items
+# List Items by Source
 
-Page through your items. For the best performance, make sure your requests:
+Page through all your items uploaded using a given client. This is a specific
+example of the [List Items](/list-items) endpoint. All of the recommendations
+mentioned there also apply here.
 
-- Read and set [cookies](http://en.wikipedia.org/wiki/HTTP_cookie).
-- Read the [Etag](http://en.wikipedia.org/wiki/HTTP_ETag) header on the responses to set the [If-None-Match](http://en.wikipedia.org/wiki/HTTP_ETag) header on
-  future requests.
-- Read the [Last-Modified](http://en.wikipedia.org/wiki/List_of_HTTP_headers) header on responses to set the [If-Modified-Since](http://en.wikipedia.org/wiki/List_of_HTTP_headers) header on future requests.
+## Filtering Details
 
-If you're lucky, the HTTP library you use will take care of this for you.
+An item's `source` attribute is set to the User-Agent used to create the item.
+The `source` parameter value is matched case insensitively against the word
+boundaries of an item's `source` attribute. For example, if the User-Agent used
+to create an item was `CloudApp/1.0.3`, it would be found by searching for
+`CloudApp` but not `Cloud`. The User-Agent `Mozilla/5.0 Safari/534.48.3` could
+be matched with `Mozilla`, `Safari/534`, or the like.
 
 ## Request
 
 - Requires [authentication](/usage/#authentication)
 - HTTP Method: GET
-- URL: http://my.cl.ly/items
-- Optional paramters:
-  - `page=1`: Page number starting at 1.
-  - `per_page=5`: Number of items per page.
-  - `type=image`: Filter items by type (image, bookmark, text, archive, audio, video, or unknown).
-  - `deleted=true`: Show trashed items.
-  - `source=MyApp`: Filter items by all or part of the User-Agent.
+- URL: http://my.cl.ly/items?source=*Cloud*
+
 
 ## Response
 
@@ -88,4 +87,4 @@ If you're lucky, the HTTP library you use will take care of this for you.
 {: .shell}
     curl --digest -u arthur@dent.com:towel \
          -H "Accept: application/json" \
-         "http://my.cl.ly/items?page=1&per_page=5"
+         "http://my.cl.dev/items?page=1&per_page=5&source=Cloud"

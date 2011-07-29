@@ -128,6 +128,7 @@ the upload process.
         "remote_url":    "http://f.cl.ly/items/7c7aea1395c3db0aee18/CloudApp%20Logo.png",
         "thumbnail_url": "http://thumbs.cl.ly/2wr4",
         "redirect_url":  null,
+        "source":        "Cloud/1.5.1 CFNetwork/520.0.13 Darwin/11.0.0 (x86_64) (MacBookPro5%2C5)",
         "created_at":    "2010-10-23T19:50:13Z",
         "updated_at":    "2010-10-23T19:50:13Z",
         "deleted_at":    null

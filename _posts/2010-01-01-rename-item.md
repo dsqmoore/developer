@@ -38,6 +38,7 @@ Change the name of an item.
         "icon":         "http://my.cl.ly/images/item_types/bookmark.png",
         "remote_url":   null,
         "redirect_url": "http://getcloudapp.com",
+        "source":       "Cloud/1.5.1 CFNetwork/520.0.13 Darwin/11.0.0 (x86_64) (MacBookPro5%2C5)",
         "created_at":   "2010-10-23T21:15:21Z",
         "updated_at":   "2010-10-24T01:38:28Z",
         "deleted_at":   null

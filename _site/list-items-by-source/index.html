@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" dir="ltr" lang="en">
   <head>
-    <title>CloudApp Developer - Common Errors</title>
+    <title>CloudApp Developer - List Items by Source</title>
 
     <meta charset="utf-8">
 
@@ -86,7 +86,7 @@
                 
               
                 
-                  <option value="/common-errors" selected>Common Errors</option>
+                  <option value="/common-errors" >Common Errors</option>
                 
               
                 
@@ -366,7 +366,7 @@
                 
               
                 
-                  <option value="/list-items-by-source" >List Items by Source</option>
+                  <option value="/list-items-by-source" selected>List Items by Source</option>
                 
               
                 
@@ -588,25 +588,92 @@
 
       <div class="row">
         <section class="col col_8 wikistyle">
-          <h1 id='common_errors'>Common Errors</h1>
+          <h1 id='list_items_by_source'>List Items by Source</h1>
 
-<p>There are several errors that may be returned by any CloudApp API endpoint. These are their stories.</p>
+<p>Page through all your items uploaded using a given client. This is a specific example of the <a href='/list-items'>List Items</a> endpoint. All of the recommendations mentioned there also apply here.</p>
 
-<h2 id='unactivated_account'>Unactivated Account</h2>
+<h2 id='filtering_details'>Filtering Details</h2>
 
-<p>After registering, an account must be activated by clicking a link that was emailed. If the account is used prior to activation, authenticated requests will return the following response:</p>
+<p>An item&#8217;s <code>source</code> attribute is set to the User-Agent used to create the item. The <code>source</code> parameter value is matched case insensitively against the word boundaries of an item&#8217;s <code>source</code> attribute. For example, if the User-Agent used to create an item was <code>CloudApp/1.0.3</code>, it would be found by searching for <code>CloudApp</code> but not <code>Cloud</code>. The User-Agent <code>Mozilla/5.0 Safari/534.48.3</code> could be matched with <code>Mozilla</code>, <code>Safari/534</code>, or the like.</p>
+
+<h2 id='request'>Request</h2>
+
+<ul>
+<li>Requires <a href='/usage/#authentication'>authentication</a></li>
+
+<li>HTTP Method: GET</li>
+
+<li>URL: http://my.cl.ly/items?source=<em>Cloud</em></li>
+</ul>
+
+<h2 id='response'>Response</h2>
 
 <ul>
 <li>
-<p>Status: 409 Conflict</p>
+<p>Status: 200 OK</p>
 </li>
 
 <li>
 <p>Body:</p>
 
-<pre><code>[ &quot;Your account hasn&#39;t been activated. Please check your email and activate your account.&quot; ]</code></pre>
+<pre><code>[{
+  &quot;href&quot;:          &quot;http://my.cl.ly/items/1912729&quot;,
+  &quot;name&quot;:          &quot;My CloudApp&quot;,
+  &quot;private&quot;:       true,
+  &quot;subscribed&quot;:    false,
+  &quot;url&quot;:           &quot;http://cl.ly/40b6ab341aca432a34ee&quot;,
+  &quot;content_url&quot;:   &quot;http://cl.ly/40b6ab341aca432a34ee/content&quot;,
+  &quot;item_type&quot;:     &quot;bookmark&quot;,
+  &quot;view_counter&quot;:  0,
+  &quot;icon&quot;:          &quot;http://my.cl.ly/images/item_types/bookmark.png&quot;,
+  &quot;remote_url&quot;:    null,
+  &quot;redirect_url&quot;:  &quot;http://my.cl.ly&quot;,
+  &quot;source&quot;:        &quot;Cloud/1.5.1 CFNetwork/520.0.13 Darwin/11.0.0 (x86_64) (MacBookPro5%2C5)&quot;,
+  &quot;created_at&quot;:    &quot;2010-10-23T20:10:37Z&quot;,
+  &quot;updated_at&quot;:    &quot;2010-10-23T20:10:41Z&quot;,
+  &quot;deleted_at&quot;:    null
+}, {
+  &quot;href&quot;:          &quot;http://my.cl.ly/items/1912565&quot;,
+  &quot;name&quot;:          &quot;CloudApp&quot;,
+  &quot;private&quot;:       false,
+  &quot;subscribed&quot;:    false,
+  &quot;url&quot;:           &quot;http://cl.ly/2wt6&quot;,
+  &quot;content_url&quot;:   &quot;http://cl.ly/2wt6/content&quot;,
+  &quot;item_type&quot;:     &quot;bookmark&quot;,
+  &quot;view_counter&quot;:  2,
+  &quot;icon&quot;:          &quot;http://my.cl.ly/images/item_types/bookmark.png&quot;,
+  &quot;remote_url&quot;:    null,
+  &quot;redirect_url&quot;:  &quot;http://getcloudapp.com&quot;,
+  &quot;source&quot;:        &quot;Cloud/1.5.1 CFNetwork/520.0.13 Darwin/11.0.0 (x86_64) (MacBookPro5%2C5)&quot;,
+  &quot;created_at&quot;:    &quot;2010-10-23T19:50:24Z&quot;,
+  &quot;updated_at&quot;:    &quot;2010-10-23T19:50:39Z&quot;,
+  &quot;deleted_at&quot;:    null
+}, {
+  &quot;href&quot;:          &quot;http://my.cl.ly/items/1912559&quot;,
+  &quot;name&quot;:          &quot;CloudApp Logo.png&quot;,
+  &quot;private&quot;:       false,
+  &quot;subscribed&quot;:    false,
+  &quot;url&quot;:           &quot;http://cl.ly/2wr4&quot;,
+  &quot;content_url&quot;:   &quot;http://cl.ly/2wr4/CloudApp_Logo.png&quot;,
+  &quot;item_type&quot;:     &quot;image&quot;,
+  &quot;view_counter&quot;:  85,
+  &quot;icon&quot;:          &quot;http://my.cl.ly/images/new/item-types/image.png&quot;,
+  &quot;remote_url&quot;:    &quot;http://f.cl.ly/items/7c7aea1395c3db0aee18/CloudApp%20Logo.png&quot;,
+  &quot;thumbnail_url&quot;: &quot;http://thumbs.cl.ly/2wr4&quot;,
+  &quot;redirect_url&quot;:  null,
+  &quot;source&quot;:        &quot;Cloud/1.5.1 CFNetwork/520.0.13 Darwin/11.0.0 (x86_64) (MacBookPro5%2C5)&quot;,
+  &quot;created_at&quot;:    &quot;2010-10-23T19:50:13Z&quot;,
+  &quot;updated_at&quot;:    &quot;2011-04-04T00:33:57Z&quot;,
+  &quot;deleted_at&quot;:    null
+}]</code></pre>
 </li>
 </ul>
+
+<h2 id='example'>Example</h2>
+
+<pre class='shell'><code>curl --digest -u arthur@dent.com:towel \
+     -H &quot;Accept: application/json&quot; \
+     &quot;http://my.cl.dev/items?page=1&amp;per_page=5&amp;source=Cloud&quot;</code></pre>
         </section>
 
         <aside class="col col_4" id="sidebar">
@@ -632,7 +699,7 @@
                 
                   
                     
-                      <li>Common Errors</li>
+                      <li><a href="/common-errors" id="basics">Common Errors</a></li>
                     
                   
                 
@@ -970,7 +1037,7 @@
                 
                   
                     
-                      <li><a href="/list-items-by-source" id="items">List Items by Source</a></li>
+                      <li>List Items by Source</li>
                     
                   
                 
