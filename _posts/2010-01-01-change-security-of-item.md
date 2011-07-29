@@ -1,6 +1,6 @@
 ---
 layout: master
-title: Change Security Of Item
+title: Change Security of Item
 categories: items
 ---
 
