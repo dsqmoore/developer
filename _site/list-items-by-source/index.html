@@ -590,11 +590,11 @@
         <section class="col col_8 wikistyle">
           <h1 id='list_items_by_source'>List Items by Source</h1>
 
-<p>Page through all of your items created using a specific application. See <a href='/list-items'>List Items</a> for recommendations using this endpoint.</p>
+<p>Page through all of your items created using a specific application. An item&#8217;s <code>source</code> is set to the <a href='http://en.wikipedia.org/wiki/User_agent'>User-Agent</a> used when it was created. Use the <code>source</code> parameter when <a href='/list-items'>listing items</a> to show only those created by a specific application. See <a href='/list-items'>List Items</a> for recommendations using this endpoint.</p>
 
-<h2 id='filtering_details'>Filtering Details</h2>
+<h2 id='example'>Example</h2>
 
-<p>An item&#8217;s <code>source</code> attribute is set to the User-Agent used to create the item. The <code>source</code> parameter value is matched case insensitively against the word boundaries of an item&#8217;s <code>source</code> attribute. For example, if the User-Agent used to create an item was <code>CloudApp/1.0.3</code>, it would be found by searching for <code>CloudApp</code> but not <code>Cloud</code>. The User-Agent <code>Mozilla/5.0 Safari/534.48.3</code> could be matched with <code>Mozilla</code>, <code>Safari/534</code>, or the like.</p>
+<p>The CloudApp Mac app uses the User-Agent <code>Cloud/1.5.1</code> so all items it creates will have that User-Agent as their <code>source</code>. To list only the items created using the Mac app, use the parameter <code>source=Cloud</code>. Get fancy and list only the items created using a specific version of with <code>source=Cloud/1.5.1</code>. Remember querystring parameters must be <a href='http://en.wikipedia.org/wiki/Percent-encoding'>URL encoded</a> but most HTTP libraries will handle this for you.</p>
 
 <h2 id='request'>Request</h2>
 

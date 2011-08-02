@@ -6,17 +6,26 @@ categories: items
 
 # List Items by Source
 
-Page through all of your items created using a specific application. See
-[List Items](/list-items) for recommendations using this endpoint.
+Page through all of your items created using a specific application. An item's
+`source` is set to the [User-Agent][] used when it was created. Use the `source`
+parameter when [listing items](/list-items) to show only those created by a
+specific application. See [List Items](/list-items) for recommendations using
+this endpoint.
 
-## Filtering Details
+[User-Agent]: http://en.wikipedia.org/wiki/User_agent
 
-An item's `source` attribute is set to the User-Agent used to create the item.
-The `source` parameter value is matched case insensitively against the word
-boundaries of an item's `source` attribute. For example, if the User-Agent used
-to create an item was `CloudApp/1.0.3`, it would be found by searching for
-`CloudApp` but not `Cloud`. The User-Agent `Mozilla/5.0 Safari/534.48.3` could
-be matched with `Mozilla`, `Safari/534`, or the like.
+
+## Example
+
+The CloudApp Mac app uses the User-Agent `Cloud/1.5.1` so all items it creates
+will have that User-Agent as their `source`. To list only the items created
+using the Mac app, use the parameter `source=Cloud`. Get fancy and list only the
+items created using a specific version of with `source=Cloud/1.5.1`. Remember
+querystring parameters must be [URL encoded][url-encoded] but most HTTP
+libraries will handle this for you.
+
+[url-encoded]: http://en.wikipedia.org/wiki/Percent-encoding
+
 
 ## Request
 
