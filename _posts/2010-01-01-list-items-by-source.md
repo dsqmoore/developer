@@ -95,4 +95,4 @@ libraries will handle this for you.
 {: .shell}
     curl --digest -u arthur@dent.com:towel \
          -H "Accept: application/json" \
-         "http://my.cl.dev/items?page=1&per_page=5&source=Cloud"
+         "http://my.cl.ly/items?page=1&per_page=5&source=Cloud"
