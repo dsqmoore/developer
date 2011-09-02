@@ -20,6 +20,7 @@ Great applications are already using the CloudApp API. Here are some popular exa
 * [Cloudette](http://cloudetteapp.com/) -- free CloudApp iPhone client
 * [DropBook](http://itunes.apple.com/us/app/dropbook/id408384997?mt=12) -- share to Facebook using CloudApp
 * [Doxie](http://www.getdoxie.com/) -- scan directly into the cloud
+* [FluffyApp](http://fluffyapp.com/) -- CloudApp client for Windows
 * [OsiriX](http://software.kanteron.com/cloudapp/) -- plugin for OsiriX
 * [py-cloudapp](https://github.com/abhinandh/py-cloudapp) -- PyQt based, drag and drop uploader that runs on Ubuntu
 * [Stratus](http://www.getstratusapp.com/) -- beautiful iPhone and iPad client
