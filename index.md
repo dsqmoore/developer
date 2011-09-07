@@ -23,6 +23,7 @@ Great applications are already using the CloudApp API. Here are some popular exa
 * [FluffyApp](http://fluffyapp.com/) -- CloudApp client for Windows
 * [OsiriX](http://software.kanteron.com/cloudapp/) -- plugin for OsiriX
 * [py-cloudapp](https://github.com/abhinandh/py-cloudapp) -- PyQt based, drag and drop uploader that runs on Ubuntu
+* [Screeny](http://www.screenyapp.com/) -- screen recording app with CloudApp integration for Mac
 * [Stratus](http://www.getstratusapp.com/) -- beautiful iPhone and iPad client
 * [Tweetbot](http://tapbots.com/software/tweetbot/) -- full-featured iPhone Twitter client with a lot of personality and CloudApp integration
 * [Twitterrific](http://twitterrific.com/) -- gorgeous Twitter client with CloudApp integration for Mac and iOS
