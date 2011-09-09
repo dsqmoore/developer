@@ -61,9 +61,9 @@ because Pro has unlimited uploads and there is no further upgrade path.
 
 If the account is using a CloudApp Free plan, there is a maximum daily file
 upload limit. If that limit has been met, the request will be successful but the
-`params` attribute will be missing, `uploads_remaining` will be 0, and `message`
-will be a friendly explanation of the error. See the `payment` link for a URL
-where the user may upgrade their account to share more files.
+`params` attribute will be missing, `uploads_remaining` will be 0. See the
+`payment` link for a URL where the user may upgrade their account to share more
+files.
 
 - Status: 200 OK
 - Link: `<http://store.getcloudapp.com/cart?arthur%40dent.com>; rel="payment"`
@@ -72,7 +72,7 @@ where the user may upgrade their account to share more files.
       {
         "uploads_remaining": 10,
         "max_upload_size":   26214400,
-        "messagee":          "You've met the daily upload limit of the Free plan. Upgrade to Pro and upload as much as you want!"
+        "url":               "http://f.cl.ly"
       }
 
 
