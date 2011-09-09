@@ -26,10 +26,10 @@ It's encouraged that you compare the size of the file being uploaded to make
 sure it's smaller than than the maximum allowed size. Otherwise, the file will
 be fully uploaded only to be rejected for being too large.
 
-**Note:** Both `uploads_remaining` and `max_upload_size` are optional attributes
-and may not exist in every request. For example, a reseponse using an account
-with a CloudApp Pro plan will omit the `uploads_remaining` attribute since Pro
-has unlimited uploads.
+**Note:** The `payment` link as well as `uploads_remaining` and `max_upload_size`
+attributes are optional. For example, a response using an account with a
+CloudApp Pro plan will omit the `uploads_remaining` attribute and `payment` link
+because Pro has unlimited uploads and there is no further upgrade path.
 
 ### Request
 
@@ -40,6 +40,7 @@ has unlimited uploads.
 ### Response
 
 - Status: 200 OK
+- Link: `<http://store.getcloudapp.com/cart?arthur%40dent.com>; rel="payment"`
 - Body:
 
       {
@@ -61,9 +62,11 @@ has unlimited uploads.
 If the account is using a CloudApp Free plan, there is a maximum daily file
 upload limit. If that limit has been met, the request will be successful but the
 `params` attribute will be missing, `uploads_remaining` will be 0, and `message`
-will be a friendly explanation of the error.
+will be a friendly explanation of the error. See the `payment` link for a URL
+where the user may upgrade their account to share more files.
 
 - Status: 200 OK
+- Link: `<http://store.getcloudapp.com/cart?arthur%40dent.com>; rel="payment"`
 - Body:
 
       {
