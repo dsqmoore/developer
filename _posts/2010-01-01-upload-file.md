@@ -50,7 +50,7 @@ uploads and there are no further upgrade paths. If a plan omits the
           "pro": {
             "href":            "http://store.getcloudapp.com/cart?arthur%40dent.com",
             "name":            "Pro",
-            "max_upload_size": 262144000,
+            "max_upload_size": 262144000
           },
         },
         "url":               "http://f.cl.ly",
@@ -99,7 +99,7 @@ details will be listed in `plans`.
           "pro": {
             "href":            "http://store.getcloudapp.com/cart?arthur%40dent.com",
             "name":            "Pro",
-            "max_upload_size": 262144000,
+            "max_upload_size": 262144000
           },
         },
         "url":               "http://f.cl.ly"
