@@ -26,10 +26,11 @@ It's encouraged that you compare the size of the file being uploaded to make
 sure it's smaller than than the maximum allowed size. Otherwise, the file will
 be fully uploaded only to be rejected for being too large.
 
-**Note:** The `payment` link as well as `uploads_remaining` and `max_upload_size`
-attributes are optional. For example, a response using an account with a
-CloudApp Pro plan will omit the `uploads_remaining` attribute and `payment` link
-because Pro has unlimited uploads and there is no further upgrade path.
+**Note:** The `uploads_remaining`, `max_upload_size`, and `plans` attributes are
+optional. For example, a response using an account with a CloudApp Pro plan will
+omit the `uploads_remaining` and `plans` attributes because Pro has unlimited
+uploads and there are no further upgrade paths. If a plan omits the
+`max_upload_size` attribute, it has no restriction on file size.
 
 ### Request
 
@@ -37,15 +38,39 @@ because Pro has unlimited uploads and there is no further upgrade path.
 - HTTP Method: GET
 - URL: http://my.cl.ly/items/new
 
-### Response
+### Response With Free Plan
 
 - Status: 200 OK
-- Link: `<http://store.getcloudapp.com/cart?arthur%40dent.com>; rel="payment"`
 - Body:
 
       {
         "uploads_remaining": 10,
         "max_upload_size":   26214400,
+        "plans": {
+          "pro": {
+            "href":            "http://store.getcloudapp.com/cart?arthur%40dent.com",
+            "name":            "Pro",
+            "max_upload_size": 262144000,
+          },
+        },
+        "url":               "http://f.cl.ly",
+        "params": {
+          "AWSAccessKeyId":          "AKIAIDPUZISHSBEOFS6Q",
+          "key":                     "items/qL/${filename}",
+          "acl":                     "public-read",
+          "success_action_redirect": "http://my.cl.ly/items/s3",
+          "signature":               "2vRWmaSy46WGs0MDUdLHAqjSL8k=",
+          "policy":                  "eyJleHBpcmF0aW9uIjoiMjAxMC0wNC0wMVQwMDowMDowMFoiLCJjb25kaXRpb25zIjpbeyJidWNrZXQiOiJsaW5lYnJlYWstdGVzdCJ9LHsiYWNsIjoicHVibGljLXJlYWQifSx7InN1Y2Nlc3NfYWN0aW9uX3JlZGlyZWN0IjoiaHR0cDovL215LmNsb3VkYXBwLmxvY2FsL3VwbG9hZHMvczMifSxbInN0YXJ0cy13aXRoIiwiJGtleSIsInVwbG9hZHMvcUwvIl1dfQ=="
+        }
+      }
+
+### Response With Pro Plan
+
+- Status: 200 OK
+- Body:
+
+      {
+        "max_upload_size":   262144000,
         "url":               "http://f.cl.ly",
         "params": {
           "AWSAccessKeyId":          "AKIAIDPUZISHSBEOFS6Q",
@@ -59,19 +84,24 @@ because Pro has unlimited uploads and there is no further upgrade path.
 
 ### Errors
 
-If the account is using a CloudApp Free plan, there is a maximum daily file
-upload limit. If that limit has been met, the request will be successful but the
-`params` attribute will be missing, `uploads_remaining` will be 0. See the
-`payment` link for a URL where the user may upgrade their account to share more
-files.
+If the account is using a CloudApp Free plan, there is a maximum daily upload
+limit. If that limit has been met, the `params` attribute will be missing, and
+`uploads_remaining` will be 0. If there are upgrade paths available, their
+details will be listed in `plans`.
 
 - Status: 200 OK
-- Link: `<http://store.getcloudapp.com/cart?arthur%40dent.com>; rel="payment"`
 - Body:
 
       {
-        "uploads_remaining": 10,
+        "uploads_remaining": 0,
         "max_upload_size":   26214400,
+        "plans": {
+          "pro": {
+            "href":            "http://store.getcloudapp.com/cart?arthur%40dent.com",
+            "name":            "Pro",
+            "max_upload_size": 262144000,
+          },
+        },
         "url":               "http://f.cl.ly"
       }
 
