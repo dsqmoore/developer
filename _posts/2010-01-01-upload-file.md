@@ -26,11 +26,10 @@ It's encouraged that you compare the size of the file being uploaded to make
 sure it's smaller than than the maximum allowed size. Otherwise, the file will
 be fully uploaded only to be rejected for being too large.
 
-**Note:** The `uploads_remaining`, `max_upload_size`, and `plans` attributes are
-optional. For example, a response using an account with a CloudApp Pro plan will
-omit the `uploads_remaining` and `plans` attributes because Pro has unlimited
-uploads and there are no further upgrade paths. If a plan omits the
-`max_upload_size` attribute, it has no restriction on file size.
+**Note:** The `uploads_remaining` and `max_upload_size` attributes as well as
+`payment` link are optional. For example, a response using an account with a
+CloudApp Pro plan will omit both `uploads_remaining` and `payment` because Pro
+has unlimited uploads and there are no further upgrade paths.
 
 ### Request
 
@@ -41,18 +40,12 @@ uploads and there are no further upgrade paths. If a plan omits the
 ### Response With Free Plan
 
 - Status: 200 OK
+- Link: `<http://store.getcloudapp.com/cart?email=arthur%40dent.com>; rel="payment"`
 - Body:
 
       {
         "uploads_remaining": 10,
         "max_upload_size":   26214400,
-        "plans": {
-          "pro": {
-            "href":            "http://store.getcloudapp.com/cart?arthur%40dent.com",
-            "name":            "Pro",
-            "max_upload_size": 262144000
-          },
-        },
         "url":               "http://f.cl.ly",
         "params": {
           "AWSAccessKeyId":          "AKIAIDPUZISHSBEOFS6Q",
@@ -86,22 +79,16 @@ uploads and there are no further upgrade paths. If a plan omits the
 
 If the account is using a CloudApp Free plan, there is a maximum daily upload
 limit. If that limit has been met, the `params` attribute will be missing, and
-`uploads_remaining` will be 0. If there are upgrade paths available, their
-details will be listed in `plans`.
+`uploads_remaining` will be 0. If there is an upgrade path available, a
+`payment` link will be present.
 
 - Status: 200 OK
+- Link: `<http://store.getcloudapp.com/cart?email=arthur%40dent.com>; rel="payment"`
 - Body:
 
       {
         "uploads_remaining": 0,
         "max_upload_size":   26214400,
-        "plans": {
-          "pro": {
-            "href":            "http://store.getcloudapp.com/cart?arthur%40dent.com",
-            "name":            "Pro",
-            "max_upload_size": 262144000
-          },
-        },
         "url":               "http://f.cl.ly"
       }
 

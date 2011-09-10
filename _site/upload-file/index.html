@@ -598,7 +598,7 @@
 
 <p>Request to upload a file to CloudApp. If the authenticated account is able to upload a file, the response will be some metadata that must be passed to S3 in order to upload a file. Along with the S3 data may be an upload size limitation. It&#8217;s encouraged that you compare the size of the file being uploaded to make sure it&#8217;s smaller than than the maximum allowed size. Otherwise, the file will be fully uploaded only to be rejected for being too large.</p>
 
-<p><strong>Note:</strong> The <code>uploads_remaining</code>, <code>max_upload_size</code>, and <code>plans</code> attributes are optional. For example, a response using an account with a CloudApp Pro plan will omit the <code>uploads_remaining</code> and <code>plans</code> attributes because Pro has unlimited uploads and there are no further upgrade paths. If a plan omits the <code>max_upload_size</code> attribute, it has no restriction on file size.</p>
+<p><strong>Note:</strong> The <code>uploads_remaining</code> and <code>max_upload_size</code> attributes as well as <code>payment</code> link are optional. For example, a response using an account with a CloudApp Pro plan will omit both <code>uploads_remaining</code> and <code>payment</code> because Pro has unlimited uploads and there are no further upgrade paths.</p>
 
 <h3 id='request'>Request</h3>
 
@@ -618,18 +618,15 @@
 </li>
 
 <li>
+<p>Link: <code>&lt;http://store.getcloudapp.com/cart?email=arthur%40dent.com&gt;; rel=&quot;payment&quot;</code></p>
+</li>
+
+<li>
 <p>Body:</p>
 
 <pre><code>{
   &quot;uploads_remaining&quot;: 10,
   &quot;max_upload_size&quot;:   26214400,
-  &quot;plans&quot;: {
-    &quot;pro&quot;: {
-      &quot;href&quot;:            &quot;http://store.getcloudapp.com/cart?arthur%40dent.com&quot;,
-      &quot;name&quot;:            &quot;Pro&quot;,
-      &quot;max_upload_size&quot;: 262144000
-    },
-  },
   &quot;url&quot;:               &quot;http://f.cl.ly&quot;,
   &quot;params&quot;: {
     &quot;AWSAccessKeyId&quot;:          &quot;AKIAIDPUZISHSBEOFS6Q&quot;,
@@ -670,11 +667,15 @@
 
 <h3 id='errors'>Errors</h3>
 
-<p>If the account is using a CloudApp Free plan, there is a maximum daily upload limit. If that limit has been met, the <code>params</code> attribute will be missing, and <code>uploads_remaining</code> will be 0. If there are upgrade paths available, their details will be listed in <code>plans</code>.</p>
+<p>If the account is using a CloudApp Free plan, there is a maximum daily upload limit. If that limit has been met, the <code>params</code> attribute will be missing, and <code>uploads_remaining</code> will be 0. If there is an upgrade path available, a <code>payment</code> link will be present.</p>
 
 <ul>
 <li>
 <p>Status: 200 OK</p>
+</li>
+
+<li>
+<p>Link: <code>&lt;http://store.getcloudapp.com/cart?email=arthur%40dent.com&gt;; rel=&quot;payment&quot;</code></p>
 </li>
 
 <li>
@@ -683,13 +684,6 @@
 <pre><code>{
   &quot;uploads_remaining&quot;: 0,
   &quot;max_upload_size&quot;:   26214400,
-  &quot;plans&quot;: {
-    &quot;pro&quot;: {
-      &quot;href&quot;:            &quot;http://store.getcloudapp.com/cart?arthur%40dent.com&quot;,
-      &quot;name&quot;:            &quot;Pro&quot;,
-      &quot;max_upload_size&quot;: 262144000
-    },
-  },
   &quot;url&quot;:               &quot;http://f.cl.ly&quot;
 }</code></pre>
 </li>
