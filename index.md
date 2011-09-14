@@ -8,7 +8,7 @@ Welcome to the CloudApp developer docs. Here you can find everything you need to
 
 ## Getting Started
 
-There is a good chance most of the work is already cut out for you. A variety of third-party client libraries are available to interface with the CloudApp REST API. We recommend checking out the available API wrappers.
+There is a good chance most of the work is already cut out for you. A variety of third-party client libraries are available to interface with the CloudApp API. We recommend checking out the available API wrappers.
 
 ## Real World Examples
 
@@ -32,7 +32,7 @@ Great applications are already using the CloudApp API. Here are some popular exa
 
 ## Getting Help
 
-The CloudApp API follows standard REST guidelines and implementation should be pretty straight forward. Should you have questions we recommend:
+We've done our best to write the CloudApp API documentation to make integrating with it as simple as possible. Should you have questions we recommend:
 
 {: .index}
 * [Asking your question](http://stackoverflow.com/) on Stackoverflow (experienced developers will be able to help)
