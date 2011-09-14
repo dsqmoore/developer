@@ -594,7 +594,11 @@
 
 <h2 id='unactivated_account'>Unactivated Account</h2>
 
-<p>After registering, an account must be activated by clicking a link that was emailed. If the account is used prior to activation, authenticated requests will return the following response:</p>
+<p>Using CloudApp requires an activated account. Upon registering for an account, a link is emailed that must be clicked to confirm ownership of the email address. Nothing particularly surprising.</p>
+
+<p>One difference from other systems is CloudApp offers an activation grace period. An unactivated account may be used before the activation restriction is put into effect. This allows someone to register for an account using the Mac or web apps and use it immediately without having to bounce back and forth between CloudApp and their inbox.</p>
+
+<p>After the activation restriction takes effect, authenticated requests for an unactivated account will return the following response:</p>
 
 <ul>
 <li>
