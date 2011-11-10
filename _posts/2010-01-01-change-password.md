@@ -39,7 +39,7 @@ Change the password for an account.
         "alpha":            false,
         "created_at":       "2010-12-10T17:07:01Z",
         "updated_at":       "2010-12-10T20:33:38Z",
-        "activated_at":     "2010-12-10T17:12:51Z"
+        "activated_at":     "2010-12-10T17:07:01Z"
       }
 
 
