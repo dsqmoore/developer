@@ -141,7 +141,7 @@ the upload process.
         "private":       false,
         "subscribed":    false,
         "url":           "http://cl.ly/2wr4",
-        "content_url":   "http://cl.ly/2wr4/CloudApp_Logo.png",
+        "content_url":   "http://cl.ly/2wr4/CloudApp%20Logo.png",
         "item_type":     "image",
         "view_counter":  0,
         "icon":          "http://my.cl.ly/images/new/item-types/image.png",

@@ -32,7 +32,7 @@ Change the name of an item.
         "private":      false,
         "subscribed":   false,
         "url":          "http://cl.ly/2wt6",
-        "content_url":  "http://cl.ly/2wt6/content",
+        "content_url":  "http://cl.ly/2wt6",
         "item_type":    "bookmark",
         "view_counter": 0,
         "icon":         "http://my.cl.ly/images/item_types/bookmark.png",
