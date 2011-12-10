@@ -35,9 +35,8 @@ Great applications are already using the CloudApp API. Here are some popular exa
 We've done our best to write the CloudApp API documentation to make integrating with it as simple as possible. Should you have questions we recommend:
 
 {: .index}
-* [Asking your question](http://stackoverflow.com/) on Stackoverflow (experienced developers will be able to help)
-* [Browsing through the developer discussions](http://support.getcloudapp.com/discussions/developersapi/) in our support forum
-* [Starting a new discussion](http://support.getcloudapp.com/discussions/developersapi/#new_topic_form) if you can't find what you are looking for
+* [Ask your question on Stackoverflow](http://stackoverflow.com) and experienced developers can help.
+* [Start a new discussion](http://support.getcloudapp.com) on our support forums.
 
 ## Contribute
 
