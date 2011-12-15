@@ -21,6 +21,7 @@ Great applications are already using the CloudApp API. Here are some popular exa
 * [DropBook](http://itunes.apple.com/us/app/dropbook/id408384997?mt=12) -- share to Facebook using CloudApp
 * [Doxie](http://www.getdoxie.com/) -- scan directly into the cloud
 * [FluffyApp](http://fluffyapp.com/) -- CloudApp client for Windows
+* [Komocloud](http://itunes.apple.com/us/app/komocloud/id487186645?mt=8) -- CloudApp client for iPhone
 * [OsiriX](http://software.kanteron.com/cloudapp/) -- plugin for OsiriX
 * [py-cloudapp](https://github.com/abhinandh/py-cloudapp) -- PyQt based, drag and drop uploader that runs on Ubuntu
 * [Receipts](http://www.tidalpool.ca/receipts/index.html) -- a simple way to share receipts with CloudApp
