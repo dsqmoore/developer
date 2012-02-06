@@ -4,7 +4,7 @@ title: Objective-C
 categories: wrapper
 ---
 
-# Objetive-C Wrapper
+# Objective-C Wrapper
 
 - Author: **Nick Paulson**
 - Git Repository: [objective-c](https://github.com/cloudapp/objective-c)
