@@ -19,6 +19,7 @@ Great applications are already using the CloudApp API. Here are some popular exa
 * [Cloud2go](http://cloud2goapp.com/) -- powerful iPhone client to access CloudApp on the go
 * [Cloudette](http://cloudetteapp.com/) -- free CloudApp iPhone client
 * [DropBook](http://itunes.apple.com/us/app/dropbook/id408384997?mt=12) -- share to Facebook using CloudApp
+* [DropCloud](http://itunes.apple.com/app/dropcloud-for-cloudapp/id493848413?mt=8) -- full-featured CloudApp iOS app
 * [Doxie](http://www.getdoxie.com/) -- scan directly into the cloud
 * [FluffyApp](http://fluffyapp.com/) -- CloudApp client for Windows
 * [Komocloud](http://itunes.apple.com/us/app/komocloud/id487186645?mt=8) -- CloudApp client for iPhone
