@@ -2,4 +2,3 @@ exclude: [ Gemfile, Gemfile.lock, Procfile ]
 safe: true
 pygments: true
 permalink: /:title
-markdown: redcarpet
