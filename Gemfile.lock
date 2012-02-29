@@ -23,5 +23,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  liquid (= 2.2.0)
+  liquid
   rack-jekyll

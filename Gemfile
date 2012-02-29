@@ -1,4 +1,4 @@
 source :gemcutter
 
-gem 'liquid', '2.2.0'
+gem 'liquid'
 gem 'rack-jekyll'
