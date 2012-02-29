@@ -1,5 +1,5 @@
 ---
-layout: master
+layout: deprecated
 title: Stream Items
 categories: items
 ---

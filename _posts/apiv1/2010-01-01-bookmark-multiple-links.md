@@ -1,5 +1,5 @@
 ---
-layout: master
+layout: deprecated
 title: Bookmark Multiple Links
 categories: items
 ---

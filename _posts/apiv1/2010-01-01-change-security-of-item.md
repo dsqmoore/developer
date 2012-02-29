@@ -1,5 +1,5 @@
 ---
-layout: master
+layout: deprecated
 title: Change Security of Item
 categories: items
 ---

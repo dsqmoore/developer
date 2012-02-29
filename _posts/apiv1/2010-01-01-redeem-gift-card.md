@@ -1,5 +1,5 @@
 ---
-layout: master
+layout: deprecated
 title: Redeem Gift Card
 categories: gift_cards
 ---

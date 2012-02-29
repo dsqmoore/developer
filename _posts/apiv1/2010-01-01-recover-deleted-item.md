@@ -1,5 +1,5 @@
 ---
-layout: master
+layout: deprecated
 title: Recover Deleted Item
 categories: items
 ---

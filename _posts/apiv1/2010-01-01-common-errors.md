@@ -1,5 +1,5 @@
 ---
-layout: master
+layout: deprecated
 title: Common Errors
 categories: basics
 ---

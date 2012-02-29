@@ -1,5 +1,5 @@
 ---
-layout: master
+layout: deprecated
 title: Upload File With Specific Privacy
 categories: items
 ---

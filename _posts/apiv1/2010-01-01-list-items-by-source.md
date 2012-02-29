@@ -1,5 +1,5 @@
 ---
-layout: master
+layout: deprecated
 title: List Items by Source
 categories: items
 ---

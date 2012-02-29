@@ -1,5 +1,5 @@
 ---
-layout: master
+layout: deprecated
 title: Empty Trash
 categories: items
 ---

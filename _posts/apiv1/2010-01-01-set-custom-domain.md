@@ -1,5 +1,5 @@
 ---
-layout: master
+layout: deprecated
 title: Set Custom Domain
 categories: account
 ---

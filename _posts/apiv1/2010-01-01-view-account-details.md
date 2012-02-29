@@ -1,5 +1,5 @@
 ---
-layout: master
+layout: deprecated
 title: View Account Details
 categories: account
 ---

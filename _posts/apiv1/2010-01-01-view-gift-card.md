@@ -1,5 +1,5 @@
 ---
-layout: master
+layout: deprecated
 title: View Gift Card Details
 categories: gift_cards
 ---
