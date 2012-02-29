@@ -1,5 +1,5 @@
 source :gemcutter
 
-gem 'jekyll'
+gem 'jekyll', git: 'https://github.com/mojombo/jekyll.git'
 gem 'liquid'
 gem 'redcarpet'
