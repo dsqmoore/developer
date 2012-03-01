@@ -1,6 +1,4 @@
-exclude:
-  - config.ru
-  - Gemfile
-  - Gemfile.lock
-  - README.md
+exclude: [ Gemfile, Gemfile.lock, Procfile ]
+safe: true
+pygments: true
 permalink: /:title

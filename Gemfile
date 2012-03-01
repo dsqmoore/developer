@@ -1,4 +1,5 @@
 source :gemcutter
 
+gem 'jekyll'
 gem 'liquid'
-gem 'rack-jekyll'
+gem 'RedCloth'
