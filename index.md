@@ -22,6 +22,7 @@ Great applications are already using the CloudApp API. Here are some popular exa
 * [DropCloud](http://itunes.apple.com/app/dropcloud-for-cloudapp/id493848413?mt=8) -- full-featured CloudApp iOS app
 * [Doxie](http://www.getdoxie.com/) -- scan directly into the cloud
 * [FluffyApp](http://fluffyapp.com/) -- CloudApp client for Windows
+* [Hojoki](http://hojoki.com) -- Make all your cloud apps work as one
 * [Komocloud](http://itunes.apple.com/us/app/komocloud/id487186645?mt=8) -- CloudApp client for iPhone
 * [OsiriX](http://software.kanteron.com/cloudapp/) -- plugin for OsiriX
 * [py-cloudapp](https://github.com/abhinandh/py-cloudapp) -- PyQt based, drag and drop uploader that runs on Ubuntu
