@@ -48,11 +48,9 @@ Sample `application/vnd.collection+json` representation.
           href: "http://api.getcloudapp.com/drops/1",
           links: [{
             rel:  "canonical",
-            type: "text/html",
             href: "http://cl.ly/40b6ab341aca432a34ee"
           }, {
             rel:  "icon",
-            type: "image/png",
             href: "http://my.cl.ly/images/item_types/bookmark.png"
           }],
           data: [
@@ -64,15 +62,12 @@ Sample `application/vnd.collection+json` representation.
           href: "http://api.getcloudapp.com/drops/2",
           links: [{
             rel:  "canonical",
-            type: "text/html",
             href: "http://cl.ly/2wr4"
           }, {
             rel:  "alternate",
-            type: "image/png",,
             href: "http://cl.ly/2wr4/CloudApp%20Logo.png"
           }, {
             rel:  "icon",
-            type: "image/png",
             href: "http://my.cl.ly/images/item_types/bookmark.png"
           }],
           data: [
