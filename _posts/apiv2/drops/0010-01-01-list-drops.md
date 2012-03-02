@@ -28,3 +28,66 @@ Follow the link `next` to get the next page of drops.
           <http://api.getcloudapp.com/drops?page=3&per_page=20>; rel="next"
 
     [{...}, {...}, ...]
+
+
+Sample `application/vnd.collection+json` representation.
+
+    {
+      collection: {
+        version: "1.0",
+
+        href: "http://api.getcloudapp.com/drops?page=2&per_page=5",
+        links: [{
+          rel:  "next",
+          href: "http://api.getcloudapp.com/drops?page=1&per_page=5"
+        }, {
+          rel:  "previous",
+          href: "http://api.getcloudapp.com/drops?page=3&per_page=5"
+        }],
+        items: [{
+          href: "http://api.getcloudapp.com/drops/1",
+          links: [{
+            rel:  "canonical",
+            type: "text/html",
+            href: "http://cl.ly/40b6ab341aca432a34ee"
+          }, {
+            rel:  "icon",
+            type: "image/png",
+            href: "http://my.cl.ly/images/item_types/bookmark.png"
+          }],
+          data: [
+            { name: "name",           value: "My CloudApp" },
+            { name: "private",        value: true },
+            { name: "bookmark_url",   value: "http://my.cl.ly" }
+          ]
+        }, {
+          href: "http://api.getcloudapp.com/drops/2",
+          links: [{
+            rel:  "canonical",
+            type: "text/html",
+            href: "http://cl.ly/2wr4"
+          }, {
+            rel:  "alternate",
+            type: "image/png",,
+            href: "http://cl.ly/2wr4/CloudApp%20Logo.png"
+          }, {
+            rel:  "icon",
+            type: "image/png",
+            href: "http://my.cl.ly/images/item_types/bookmark.png"
+          }],
+          data: [
+            { name: "name",           value: "CloudApp Logo.png" },
+            { name: "private",        value: false },
+            { name: "content_length", value: 3516 }
+          ]
+        }],
+        template: {
+          data: [
+            { name: "name",           value: "" },
+            { name: "private",        value: true },
+            { name: "bookmark_url",   value: "" },
+            { name: "content_length", value: 0 }
+          ]
+        }
+      }
+    }
