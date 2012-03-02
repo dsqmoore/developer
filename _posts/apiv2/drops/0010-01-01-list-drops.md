@@ -37,22 +37,16 @@ Sample `application/vnd.collection+json` representation.
         version: "1.0",
 
         href: "http://api.getcloudapp.com/drops?page=2&per_page=5",
-        links: [{
-          rel:  "next",
-          href: "http://api.getcloudapp.com/drops?page=1&per_page=5"
-        }, {
-          rel:  "previous",
-          href: "http://api.getcloudapp.com/drops?page=3&per_page=5"
-        }],
+        links: [
+          { rel: "next",     href: "http://api.getcloudapp.com/drops?page=1&per_page=5" },
+          { rel: "previous", href: "http://api.getcloudapp.com/drops?page=3&per_page=5" }
+        ],
         items: [{
           href: "http://api.getcloudapp.com/drops/1",
           links: [{
-            rel:  "canonical",
-            href: "http://cl.ly/40b6ab341aca432a34ee"
-          }, {
-            rel:  "icon",
-            href: "http://my.cl.ly/images/item_types/bookmark.png"
-          }],
+            { rel: "canonical", href: "http://cl.ly/40b6ab341aca432a34ee" },
+            { rel: "icon",      href: "http://my.cl.ly/images/item_types/bookmark.png" }
+          ],
           data: [
             { name: "name",           value: "My CloudApp" },
             { name: "private",        value: true },
@@ -61,15 +55,10 @@ Sample `application/vnd.collection+json` representation.
         }, {
           href: "http://api.getcloudapp.com/drops/2",
           links: [{
-            rel:  "canonical",
-            href: "http://cl.ly/2wr4"
-          }, {
-            rel:  "alternate",
-            href: "http://cl.ly/2wr4/CloudApp%20Logo.png"
-          }, {
-            rel:  "icon",
-            href: "http://my.cl.ly/images/item_types/bookmark.png"
-          }],
+            { rel: "canonical", href: "http://cl.ly/2wr4" },
+            { rel: "alternate", href: "http://cl.ly/2wr4/CloudApp%20Logo.png" },
+            { rel: "icon",      href: "http://my.cl.ly/images/item_types/bookmark.png" }
+          ],
           data: [
             { name: "name",           value: "CloudApp Logo.png" },
             { name: "private",        value: false },
