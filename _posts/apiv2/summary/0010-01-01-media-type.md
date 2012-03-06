@@ -1,10 +1,10 @@
 ---
 layout: apiv2
-title: Mime Type
+title: Media Type
 categories: summary
 ---
 
-# Mime Type
+# Media Type
 
 The CloudApp API accepts and returns only the [Collection+JSON][collection-json]
 media type. For convenience, this media type is also used for any generic
