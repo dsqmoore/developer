@@ -15,10 +15,10 @@ possible, link relations from [RFC5988][standard-links] are used.
  - `alternate`
  - `canonical`
  - `next`
- - `payment`
  - `previous`
  - `root`
  - `self`
  - `/rels/account`
  - `/rels/authenticate`
  - `/rels/drops`
+ - `/rels/remove`
