@@ -74,7 +74,7 @@ in `action` using the HTTP method in `method`.
                    "content_length": 0
                  }
                }' \
-           "http://api.getcloudapp.com/account/token"
+           "http://api.getcloudapp.com/drops"
 
 ### File
 
