@@ -26,8 +26,12 @@ categories: drops
           "links": [{
             "rel":  "canonical",
             "href": "http://localhost:3000/472k3i21201H2O3O0h2L"
+          }, {
+            "rel":  "icon",
+            "href": "http://localhost:3001/472k3i21201H2O3O0h2L"
           }],
           "data": [
+            { "name": "id",      "value": 101 },
             { "name": "name",    "value": null },
             { "name": "private", "value": true },
             { "name": "views",   "value": 1 }
@@ -37,12 +41,16 @@ categories: drops
           "links": [{
             "rel":  "canonical",
             "href": "http://localhost:3000/2U1b1J363E47170M303Z"
+          }, {
+            "rel":  "icon",
+            "href": "http://localhost:3001/2U1b1J363E47170M303Z"
           }],
           "data": [
+            { "name": "id",      "value": 95 },
             { "name": "name",    "value": null },
             { "name": "private", "value": true },
             { "name": "views",   "value": 0 }
-          ],
+          ]
         }
         ...
         {
@@ -50,13 +58,25 @@ categories: drops
           "links": [{
             "rel":  "canonical",
             "href": "http://localhost:3000/081T3q0B0b2T160M3n0V"
+          }, {
+            "rel":  "icon",
+            "href": "http://localhost:3001/081T3q0B0b2T160M3n0V"
           }],
           "data": [
+            { "name": "id",      "value": 94 },
             { "name": "name",    "value": "api.md" },
             { "name": "private", "value": true },
             { "name": "views",   "value": 0 }
-          ],
-         },
+          ]
+        }],
+        "templates": [{
+          "rel":  "/rels/recover",
+          "href": "/drops?filter=trash",
+          "data": [{ "name": "drop_ids", "value": [] }]
+        }, {
+          "rel":  "/rels/remove",
+          "href": "/drops",
+          "data": [{ "name": "drop_ids", "value": [] }]
         }]
       }
     }
