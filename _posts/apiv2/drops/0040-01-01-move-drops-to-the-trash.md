@@ -15,20 +15,20 @@ categories: drops
     {
       "collection": {
         "version":   "1.0",
-        "href":      "/drops?page=1&per_page=20",
+        "href":      "...",
         "links":     [...],
         "items":     [...],
         "templates": [{
           "rel":    "/rels/trash-drops",
-          "href":   "/drops",
+          "href":   "...",
           "data":   [{ "name": "drop_ids", "value": [] }]
         }, {
           "rel":    "/rels/delete-drops",
-          "href":   "/drops?filter=trash",
+          "href":   "...",
           "data":   [{ "name": "drop_ids", "value": [] }]
         }, {
           "rel":    "/rels/restore-drops",
-          "href":   "/drops",
+          "href":   "...",
           "data":   [{ "name": "drop_ids", "value": [] }]
         }]
       }

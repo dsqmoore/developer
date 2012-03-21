@@ -30,9 +30,9 @@ Response when requesting an account's token.
     {
       collection: {
         version: "1.0",
-        href: "http://api.getcloudapp.com/account/token",
+        href: "...",
         items: [{
-          href: "http://api.getcloudapp.com/account/token",
+          href: "...",
           data: [{ name: "token", value: "0gc504cf7e4a51ff8119" }]
         }],
         template: {
@@ -51,16 +51,16 @@ Listing drops.
       collection: {
         version: "1.0",
 
-        href: "http://api.getcloudapp.com/drops?page=2&per_page=5",
+        href: "...",
         links: [
-          { rel: "next",     href: "http://api.getcloudapp.com/drops?page=1&per_page=5" },
-          { rel: "previous", href: "http://api.getcloudapp.com/drops?page=3&per_page=5" }
+          { rel: "next",     href: "..." },
+          { rel: "previous", href: "..." }
         ],
         items: [{
-          href: "http://api.getcloudapp.com/drops/1",
+          href: "...",
           links: [{
-            { rel: "canonical", href: "http://cl.ly/40b6ab341aca432a34ee" },
-            { rel: "icon",      href: "http://my.cl.ly/images/item_types/bookmark.png" }
+            { rel: "canonical", href: "..." },
+            { rel: "icon",      href: "..." }
           ],
           data: [
             { name: "name",           value: "My CloudApp" },
@@ -68,11 +68,11 @@ Listing drops.
             { name: "bookmark_url",   value: "http://my.cl.ly" }
           ]
         }, {
-          href: "http://api.getcloudapp.com/drops/2",
+          href: "...",
           links: [{
-            { rel: "canonical", href: "http://cl.ly/2wr4" },
-            { rel: "alternate", href: "http://cl.ly/2wr4/CloudApp%20Logo.png" },
-            { rel: "icon",      href: "http://my.cl.ly/images/item_types/bookmark.png" }
+            { rel: "canonical", href: "..." },
+            { rel: "alternate", href: "..." },
+            { rel: "icon",      href: "..." }
           ],
           data: [
             { name: "name",           value: "CloudApp Logo.png" },

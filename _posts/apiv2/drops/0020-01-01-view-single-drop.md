@@ -18,16 +18,13 @@ Follow a drop's `href` from the [drops collection](/list-drops).
     {
       "collection": {
         "version": "1.0",
-        "href":    "/drops",
+        "href":    "...",
         "items": [{
-          "href":  "/drops/101",
-          "links": [{
-            "rel":  "canonical",
-            "href": "http://localhost:3000/472k3i21201H2O3O0h2L"
-          }, {
-            "rel":  "icon",
-            "href": "http://localhost:3001/472k3i21201H2O3O0h2L"
-          }],
+          "href":  "...",
+          "links": [
+            { "rel":  "canonical", "href": "..." },
+            { "rel":  "icon",      "href": "..." }
+          ],
           "data": [
             { "name": "id",      "value": 101 },
             { "name": "name",    "value": null },
@@ -37,11 +34,11 @@ Follow a drop's `href` from the [drops collection](/list-drops).
         }],
         "templates": [{
           "rel":  "/rels/recover",
-          "href": "/drops?filter=trash",
+          "href": "...",
           "data": [{ "name": "drop_ids", "value": [] }]
         }, {
           "rel":  "/rels/remove",
-          "href": "/drops",
+          "href": "...",
           "data": [{ "name": "drop_ids", "value": [] }]
         }]
       }

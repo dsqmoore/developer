@@ -16,20 +16,14 @@ categories: drops
     {
       "collection": {
         "version": "1.0",
-        "href":    "/drops",
-        "links":   [{
-          "rel":  "next",
-          "href": "/drops?page=2&per_page=20"
-        }],
+        "href":    "...",
+        "links":   [{ "rel": "next", "href": "..." }],
         "items": [{
-          "href":  "/drops/101",
-          "links": [{
-            "rel":  "canonical",
-            "href": "http://localhost:3000/472k3i21201H2O3O0h2L"
-          }, {
-            "rel":  "icon",
-            "href": "http://localhost:3001/472k3i21201H2O3O0h2L"
-          }],
+          "href":  "...",
+          "links": [
+            { "rel":  "canonical", "href": "..." },
+            { "rel":  "icon",      "href": "..." }
+          ],
           "data": [
             { "name": "id",      "value": 101 },
             { "name": "name",    "value": null },
@@ -37,14 +31,11 @@ categories: drops
             { "name": "views",   "value": 1 }
           ]
         }, {
-          "href":  "/drops/95",
-          "links": [{
-            "rel":  "canonical",
-            "href": "http://localhost:3000/2U1b1J363E47170M303Z"
-          }, {
-            "rel":  "icon",
-            "href": "http://localhost:3001/2U1b1J363E47170M303Z"
-          }],
+          "href":  "...",
+          "links": [
+            { "rel":  "canonical", "href": "..." },
+            { "rel":  "icon",      "href": "..." }
+          ],
           "data": [
             { "name": "id",      "value": 95 },
             { "name": "name",    "value": null },
@@ -54,14 +45,11 @@ categories: drops
         }
         ...
         {
-          "href":  "/drops/94",
-          "links": [{
-            "rel":  "canonical",
-            "href": "http://localhost:3000/081T3q0B0b2T160M3n0V"
-          }, {
-            "rel":  "icon",
-            "href": "http://localhost:3001/081T3q0B0b2T160M3n0V"
-          }],
+          "href":  "...",
+          "links": [
+            { "rel":  "canonical", "href": "..." },
+            { "rel":  "icon",      "href": "..." }
+          ],
           "data": [
             { "name": "id",      "value": 94 },
             { "name": "name",    "value": "api.md" },
@@ -71,11 +59,11 @@ categories: drops
         }],
         "templates": [{
           "rel":  "/rels/recover",
-          "href": "/drops?filter=trash",
+          "href": "...",
           "data": [{ "name": "drop_ids", "value": [] }]
         }, {
           "rel":  "/rels/remove",
-          "href": "/drops",
+          "href": "...",
           "data": [{ "name": "drop_ids", "value": [] }]
         }]
       }
@@ -93,14 +81,11 @@ Follow the link `next` to get the next page of drops.
     {
       "collection": {
         "version": "1.0",
-        "href":    "/drops",
-        "links": [{
-          "rel":  "previous",
-          "href": "/drops?page=1&per_page=20"
-        }, {
-          "rel":  "next",
-          "href": "/drops?page=3&per_page=20"
-        }],
+        "href":    "...",
+        "links": [
+          { "rel":  "previous", "href": "..." },
+          { "rel":  "next",     "href": "..." }
+        ],
         "items": [...]
       }
     }
