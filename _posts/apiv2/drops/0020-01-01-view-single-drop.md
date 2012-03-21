@@ -18,7 +18,7 @@ Follow a drop's `href` from the [drops collection](/list-drops).
     {
       "collection": {
         "version": "1.0",
-        "href":    "/drops?page=1&per_page=20",
+        "href":    "/drops",
         "items": [{
           "href":  "/drops/101",
           "links": [{

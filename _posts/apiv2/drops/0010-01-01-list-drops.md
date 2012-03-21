@@ -16,7 +16,7 @@ categories: drops
     {
       "collection": {
         "version": "1.0",
-        "href":    "/drops?page=1&per_page=20",
+        "href":    "/drops",
         "links":   [{
           "rel":  "next",
           "href": "/drops?page=2&per_page=20"
@@ -93,7 +93,7 @@ Follow the link `next` to get the next page of drops.
     {
       "collection": {
         "version": "1.0",
-        "href":    "/drops?page=2&per_page=20",
+        "href":    "/drops",
         "links": [{
           "rel":  "previous",
           "href": "/drops?page=1&per_page=20"
