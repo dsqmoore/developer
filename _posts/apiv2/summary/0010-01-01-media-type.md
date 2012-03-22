@@ -36,7 +36,6 @@ Response when requesting an account's token.
           data: [{ name: "token", value: "0gc504cf7e4a51ff8119" }]
         }],
         template: {
-          rel:  '/rels/authenticate',
           data: [
             { name: "email",    value: "" },
             { name: "password", value: "" }

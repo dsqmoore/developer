@@ -13,8 +13,6 @@ possible, link relations from [RFC5988][standard-links] are used.
 
 
  - `/rels/account`: View authenticated user's CloudApp account.
- - `/rels/authenticate`: POST account credentials to retrieve authentication
-   token.
  - `/rels/drops`: List authenticated user's drops.
 
 ## Drop Collection
