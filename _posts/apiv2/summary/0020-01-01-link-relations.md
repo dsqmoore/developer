@@ -12,22 +12,25 @@ possible, link relations from [RFC5988][standard-links] are used.
 [standard-links]: http://www.iana.org/assignments/link-relations/link-relations.xml
 
 
- - `/rels/account`: View authenticated user's CloudApp account.
- - `/rels/drops`: List authenticated user's drops.
+ - `/rels/account`: GET authenticated user's CloudApp account.
+ - `/rels/drops`: GET authenticated user's drops.
 
 ## Drop Collection
 
- - `next`: View the next page of drops.
- - `previous`: View the previous page of drops.
+ - `next`: GET the next page of drops.
+ - `previous`: GET the previous page of drops.
  - `root`: _I don't think this link is necessary and will likely be remove._
- - `/rels/trash-drops`: POST a list of drop IDs to move to the trash.
- - `/rels/restore-drops`: POST a list of drop IDs to restore from the trash.
+ - `/rels/create`: POST to create a new drop.
  - `/rels/delete-drops`: POST a list of drop IDs to immediately and permanently
+ - `/rels/restore-drops`: POST a list of drop IDs to restore from the trash.
    delete.
+ - `/rels/trash-drops`: POST a list of drop IDs to move to the trash.
 
 ## Drop Item
 
  - `alternate`: Alternate public representations of a drop (direct content link,
    force download).
- - `canonical`: A drop's public, sharable link.
- - `icon`: A drop's publicly viewable thumbnail.
+ - `canonical`: The public, sharable link.
+ - `download`: A public link to download the drop's content.
+ - `embed`: A public link to the drop's content.
+ - `icon`: The publicly viewable thumbnail.
