@@ -38,7 +38,7 @@ Fill the `/rels/trash-drops` template with an array of the drop IDs to move to
 the trash.
 
     $ curl -i -H 'Authorization: Token token="0gc504cf7e4a51ff8119"' \
-           -H "Content-Type: application/json" \
+           -H "Content-Type: application/json; charset=utf-8" \
            -X DELETE \
            -d '{
                  "drop_ids": [ 1, 2, 3, 4 ]
