@@ -42,7 +42,8 @@ or `application/json` and POST it to the template's `href`. **Note:** The value
 of the `private` field will be the default drop privacy the owner has configured
 for their account.
 
-    $ curl -i -H "Content-Type: application/json; charset=utf-8" \
+    $ curl -i -H 'Authorization: Token token="0gc504cf7e4a51ff8119"' \
+           -H "Content-Type: application/json; charset=utf-8" \
            -X POST \
            -d '{
                  "name":         "CloudApp",
@@ -89,7 +90,8 @@ the file to be uploaded. Encode each name and value pair in `data` as
 template's `href`. **Note:** The value of the `private` field will be the
 default drop privacy the owner has configured for their account.
 
-    $ curl -i -H "Content-Type: application/json; charset=utf-8" \
+    $ curl -i -H 'Authorization: Token token="0gc504cf7e4a51ff8119"' \
+           -H "Content-Type: application/json; charset=utf-8" \
            -X POST \
            -d '{
                  "name":         "CloudApp",
