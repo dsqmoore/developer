@@ -19,9 +19,9 @@ categories: drops
         "links":     [...],
         "items":     [...],
         "templates": [{
-          "rel":    "/rels/create",
-          "href":   "...",
-          "data":   [
+          "rel":  "/rels/create",
+          "href": "...",
+          "data": [
             { "name": "name",         "value": null },
             { "name": "private",      "value": true },
             { "name": "bookmark_url", "value": null },
