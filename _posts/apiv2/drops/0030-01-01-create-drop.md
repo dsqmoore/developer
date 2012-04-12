@@ -143,10 +143,6 @@ Fill the `/rels/upload` template with the file to be uploaded. Encode each name
 and value pair in `data` as `application/x-www-form-urlencoded` and POST it to
 the template's `href`.
 
-**Note:** Submitting the upload template will return a `303 See Other` response
-pointing back to our API. Be sure to include the authentication token when
-following this link.
-
 **Note:** According to [Amazon's documentation][s3-docs], any parameter after
 `file` is ignored. Make sure `file` is the last parameter in the encoded request
 or the upload may be rejected.
@@ -169,6 +165,8 @@ or the upload may be rejected.
     ETag: "567d2d49d2d30e2db956d680a4d03f25"
     Location: http://api.getcloudapp.com/drops/140/s3?bucket=f.cl.ly&key=items%2F1L2c052P0F0V2X1i0r30%2Ffavicon.ico&etag=%22567d2d49d2d30e2db956d680a4d03f25%22
 
+Now follow the redirect back to our API. Be sure to include the authentication
+token when following this link.
 
     curl -i -H 'Authorization: Token token="abc123"' \
          'http://api.getcloudapp.com/drops/140/s3?bucket=f.cl.ly&key=items%2F1L2c052P0F0V2X1i0r30%2Ffavicon.ico&etag=%22567d2d49d2d30e2db956d680a4d03f25%22'
