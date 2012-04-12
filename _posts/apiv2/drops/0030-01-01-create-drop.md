@@ -81,7 +81,7 @@ for their account.
     }
 
 
-# Upload a file
+# Upload a File
 
 Fill the `/rels/create` template with the drop's name and the size in bytes of
 the file to be uploaded. Encode each name and value pair in `data` as
