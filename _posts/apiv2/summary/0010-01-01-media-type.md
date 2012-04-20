@@ -88,7 +88,10 @@ which require authentication.
 ### Drop Collection
 
 Each `item` MUST be a drop. It SHOULD have a `root` link and MAY have a `next`
-and `previous` link.
+and `previous` link. Creating a new drop SHOULD include either a `bookmark_url`
+or `file_size` property. The response will be a drop collection if
+`bookmark_url` is given and will be an upload collection if `file_size` is
+given.
 
     // sample drop collection
     {
@@ -114,9 +117,10 @@ and `previous` link.
 
 ### Drop
 
-A drop MAY have any of the following properties: `id` (REQUIRED),
-`private` (OPTIONAL), `name` (OPTIONAL), `views` (OPTIONAL). A drop MAY have
-any of the following links: `canonical`, `icon`, `embed`, `download`
+A drop MAY have any of the following properties: `id` (REQUIRED), `private`
+(OPTIONAL), `name` (OPTIONAL), `views` (OPTIONAL). A drop SHOULD have a `root`
+and `collection` link and MAY have any of the following links: `canonical`,
+`icon`, `embed`, `download`
 
     // sample drop item
     {
@@ -133,6 +137,37 @@ any of the following links: `canonical`, `icon`, `embed`, `download`
         { "name" : "name",    "value" : "The Guide" },
         { "name" : "views",   "value" : 42 }
       ]
+    }
+
+### Upload Collection
+
+Each `item` MUST be a drop. The `template` MUST be filled with the file to be
+uploaded, MUST be encoded as `application/x-www-form-urlencoded`, and MUST be
+sent as an HTTP POST to the collection's `href`.
+
+**Note:** According to [Amazon's documentation][s3-docs], any parameter after
+`file` is ignored. Make sure `file` is the last parameter in the encoded request
+or the upload may be rejected.
+
+[s3-docs]: http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1434
+
+    // sample upload collection
+    {
+      "href" : URI,
+      "template" :
+      {
+        "data" :
+        [
+          { "name": "success_action_redirect", "value": "http://api.getcloudapp.com/drops/140/s3" },
+          { "name": "AWSAccessKeyId", "value": "AKIAIDPUZISHSBEOFS6Q" },
+          { "name": "key",            "value": "items/1L2c052P0F0V2X1i0r30/${filename}" },
+          { "name": "policy",         "value": "eyJleHBpcmF0aW9uIjoiMjAxM..." },
+          { "name": "signature",      "value": "6n0Y1P8y6wgMGcKZ2shxiodgDW4=" },
+          { "name": "acl",            "value": "public-read" },
+          { "name": "file",           "value": null }
+        ]
+      },
+      "items" : [DROP]
     }
 
 ### Link Relations
