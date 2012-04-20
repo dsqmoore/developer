@@ -10,62 +10,59 @@ categories: drops
            "http://api.getcloudapp.com/drops"
 
     HTTP/1.1 200 OK
-    Content-Type: application/vnd.collection+json; charset=utf-8
-    ETag: "fb83cd304bacd599af0a1e73603500e5"
     Cache-Control: max-age=0, private, must-revalidate
+    Content-Type: application/vnd.collection+json; charset=utf-8
+    Etag: "52284b921f36b0e124e1b4b423a1ff69"
     {
       "collection": {
         "version": "1.0",
         "href":    "...",
         "links":   [{ "rel": "next", "href": "..." }],
-        "items": [{
-          "href":  "...",
-          "links": [
-            { "rel":  "canonical", "href": "..." },
-            { "rel":  "icon",      "href": "..." }
-          ],
+        "template": {
           "data": [
-            { "name": "id",      "value": 101 },
-            { "name": "name",    "value": null },
-            { "name": "private", "value": true },
-            { "name": "views",   "value": 1 }
+            { "name": "name",         "value": null },
+            { "name": "private",      "value": true },
+            { "name": "bookmark_url", "value": null },
+            { "name": "file_size",    "value": null }
           ]
-        }, {
-          "href":  "...",
-          "links": [
-            { "rel":  "canonical", "href": "..." },
-            { "rel":  "icon",      "href": "..." }
-          ],
-          "data": [
-            { "name": "id",      "value": 95 },
-            { "name": "name",    "value": null },
-            { "name": "private", "value": true },
-            { "name": "views",   "value": 0 }
-          ]
-        }
-        ...
-        {
-          "href":  "...",
-          "links": [
-            { "rel":  "canonical", "href": "..." },
-            { "rel":  "icon",      "href": "..." }
-          ],
-          "data": [
-            { "name": "id",      "value": 94 },
-            { "name": "name",    "value": "api.md" },
-            { "name": "private", "value": true },
-            { "name": "views",   "value": 0 }
-          ]
-        }],
-        "templates": [{
-          "rel":  "/rels/recover",
-          "href": "...",
-          "data": [{ "name": "drop_ids", "value": [] }]
-        }, {
-          "rel":  "/rels/remove",
-          "href": "...",
-          "data": [{ "name": "drop_ids", "value": [] }]
-        }]
+        },
+        "items": [
+          {
+            "href": "...",
+            "links": [
+              { "rel": "root",       "href": "..." },
+              { "rel": "collection", "href": "..." },
+              { "rel": "canonical",  "href": "..." },
+              { "rel": "icon",       "href": "..." }
+            ],
+            "data": [
+              { "name": "id",           "value": 17009086 },
+              { "name": "name",         "value": "Bing" },
+              { "name": "private",      "value": false },
+              { "name": "bookmark_url", "value": "http://bing.com" },
+              { "name": "views",        "value": 4 }
+            ]
+          },
+          ...
+          {
+            "href": "...",
+            "links": [
+              { "rel": "root",       "href": "..." },
+              { "rel": "collection", "href": "..." },
+              { "rel": "canonical",  "href": "..." },
+              { "rel": "icon",       "href": "..." },
+              { "rel": "embed",      "href": "..." },
+              { "rel": "download",   "href": "..." }
+            ],
+            "data": [
+              { "name": "id",           "value": 13950097 },
+              { "name": "name",         "value": "favicon.ico" },
+              { "name": "private",      "value": true },
+              { "name": "bookmark_url", "value": null },
+              { "name": "views",        "value": 29 }
+            ]
+          }
+        ]
       }
     }
 
@@ -82,10 +79,11 @@ Follow the link `next` to get the next page of drops.
       "collection": {
         "version": "1.0",
         "href":    "...",
-        "links": [
-          { "rel":  "previous", "href": "..." },
-          { "rel":  "next",     "href": "..." }
+        "links":   [
+          { "rel": "next",     "href": "..." },
+          { "rel": "previous", "href": "..." }
         ],
-        "items": [...]
+        "template": {...},
+        "items":    [...]
       }
     }

@@ -4,22 +4,20 @@ title: Create Drop
 categories: drops
 ---
 
-_**All responses currently fake.**_
-
 # Create Drop
 
     $ curl -i -H 'Authorization: Token token="0gc504cf7e4a51ff8119"' \
            "http://api.getcloudapp.com/drops"
 
     HTTP/1.1 200 OK
-    Content-Type: application/vnd.collection+json; charset=utf-8
-    ETag: "a128e2f8c12aaa95637a5d4af58efa22"
     Cache-Control: max-age=0, private, must-revalidate
+    Content-Type: application/vnd.collection+json; charset=utf-8
+    Etag: "52284b921f36b0e124e1b4b423a1ff69"
     {
       "collection": {
-        "version":   "1.0",
-        "href":      "...",
-        "links":     [...],
+        "version": "1.0",
+        "href":    "...",
+        "links":   [...],
         "template": {
           "data": [
             { "name": "name",         "value": null },
@@ -28,16 +26,19 @@ _**All responses currently fake.**_
             { "name": "file_size",    "value": null }
           ]
         },
-        "items": [...],
+        "items": [...]
       }
     }
 
 # Bookmark a Link
 
-Fill `template` with the drop's name and the URL to bookmark. Send it as an HTTP
-POST as defined by Collection+JSON[#]. **Note:** The value of the `private`
-field will be the default drop privacy the owner has configured for their
-account.
+Following the Collection+JSON spec, fill `template` with the drop's name and URL
+to bookmark. Send it as an HTTP POST to the collection's `href`. **Note:** The
+value of the `private` field will be the default drop privacy the owner has
+configured for their account.
+
+**TODO:** This resource MUST accept `application/vnd.collection+json` as per the
+Collection+JSON spec.
 
     $ curl -i -H 'Authorization: Token token="0gc504cf7e4a51ff8119"' \
            -H "Content-Type: application/json; charset=utf-8" \
@@ -51,23 +52,33 @@ account.
            "http://api.getcloudapp.com/drops"
 
     HTTP/1.1 201 Created
-    Content-Type: application/vnd.collection+json; charset=utf-8
     Cache-Control: no-cache
+    Content-Type: application/vnd.collection+json; charset=utf-8
     {
       "collection": {
-        "version":  "1.0",
-        "href":     "...",
-        "template": {...},
-        "items":    [{
-          "href":  "...",
+        "version": "1.0",
+        "href": "...",
+        "template": {
+          "data": [
+            { "name": "name",         "value": null },
+            { "name": "private",      "value": true },
+            { "name": "bookmark_url", "value": null },
+            { "name": "file_size",    "value": null }
+          ]
+        },
+        "items": [{
+          "href": "...",
           "links": [
-            { "rel": "canonical", "href": "..." },
-            { "rel": "icon",      "href": "..." }
+            { "rel": "root",       "href": "..." },
+            { "rel": "collection", "href": "..." },
+            { "rel": "canonical",  "href": "..." },
+            { "rel": "icon",       "href": "..." }
           ],
           "data": [
-            { "name": "id",           "value": 136 },
+            { "name": "id",           "value": 17532961 },
             { "name": "name",         "value": "CloudApp" },
             { "name": "private",      "value": true },
+            { "name": "bookmark_url", "value": "http://getcloudapp.com" },
             { "name": "views",        "value": 0 }
           ]
         }]
@@ -76,10 +87,13 @@ account.
 
 # Upload a File
 
-Fill `template` with the drop's name and the size in bytes of the file to be
-uploaded. Send it as an HTTP POST as defined by Collection+JSON[#]. **Note:**
-The value of the `private` field will be the default drop privacy the owner has
-configured for their account.
+Following the Collection+JSON spec, fill `template` with the drop's name and the
+size in bytes of the file to be uploaded. Send it as an HTTP POST to the
+collection's `href`. **Note:** The value of the `private` field will be the
+default drop privacy the owner has configured for their account.
+
+**TODO:** This resource MUST accept `application/vnd.collection+json` as per the
+Collection+JSON spec.
 
     $ curl -i -H 'Authorization: Token token="0gc504cf7e4a51ff8119"' \
            -H "Content-Type: application/json; charset=utf-8" \
@@ -93,25 +107,40 @@ configured for their account.
            "http://api.getcloudapp.com/drops"
 
     HTTP/1.1 201 Created
-    Content-Type: application/vnd.collection+json; charset=utf-8
     Cache-Control: no-cache
+    Content-Type: application/vnd.collection+json; charset=utf-8
     {
       "collection": {
         "version":  "1.0",
         "href":     "...",
-        "links":    [...]
         "template": {
           "data": [
-            { "name": "success_action_redirect", "value": "http://api.getcloudapp.com/drops/140/s3" },
+            { "name": "success_action_redirect", "value": "http://api.getcloudapp.com/drops/17533090/s3" },
             { "name": "AWSAccessKeyId", "value": "AKIAIDPUZISHSBEOFS6Q" },
+            { "name": "key",            "value": "items/422X1J3J020J1Z1S0V19/${filename}" },
             { "name": "key",            "value": "items/1L2c052P0F0V2X1i0r30/${filename}" },
             { "name": "policy",         "value": "eyJleHBpcmF0aW9uIjoiMjAxM..." },
-            { "name": "signature",      "value": "6n0Y1P8y6wgMGcKZ2shxiodgDW4=" },
+            { "name": "signature",      "value": "0zsDbT0t8hRkyHfWj2MTo0Ot6ec=" },
             { "name": "acl",            "value": "public-read" },
             { "name": "file",           "value": null }
           ]
         },
-        "items": [...]
+        "items": [{
+          "href":  "...",
+          "links": [
+            { "rel": "root",       "href": "..." },
+            { "rel": "collection", "href": "..." },
+            { "rel": "canonical",  "href": "..." },
+            { "rel": "icon",       "href": "..." }
+          ],
+          "data": [
+            { "name": "id",           "value": 17533090 },
+            { "name": "name",         "value": null },
+            { "name": "private",      "value": true },
+            { "name": "bookmark_url", "value": null },
+            { "name": "views",        "value": 0 }
+          ]
+        }]
       }
     }
 
@@ -126,11 +155,11 @@ or the upload may be rejected.
 [s3-docs]: http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1434
 
     $ curl -i -X POST \
-           -F 'success_action_redirect=http://api.getcloudapp.com/drops/140/s3' \
+           -F 'success_action_redirect=http://api.getcloudapp.com/drops/17533090/s3' \
            -F 'AWSAccessKeyId=AKIAIDPUZISHSBEOFS6Q' \
-           -F 'key=items/1L2c052P0F0V2X1i0r30/${filename}' \
+           -F 'key=items/422X1J3J020J1Z1S0V19/${filename}' \
            -F 'policy=eyJleHBpcmF0aW9uIjoiMjAxM...' \
-           -F 'signature=6n0Y1P8y6wgMGcKZ2shxiodgDW4=' \
+           -F 'signature=0zsDbT0t8hRkyHfWj2MTo0Ot6ec=' \
            -F 'acl=public-read' \
            -F 'file=@/Users/Larry/Desktop/favicon.ico' \
            'http://f.cl.ly'
@@ -139,41 +168,49 @@ or the upload may be rejected.
 
     HTTP/1.1 303 See Other
     ETag: "567d2d49d2d30e2db956d680a4d03f25"
-    Location: http://api.getcloudapp.com/drops/140/s3?bucket=f.cl.ly&key=items%2F1L2c052P0F0V2X1i0r30%2Ffavicon.ico&etag=%22567d2d49d2d30e2db956d680a4d03f25%22
+    Location: http://api.getcloudapp.com/drops/17533090/s3?bucket=f.cl.ly&key=items%2F422X1J3J020J1Z1S0V19%2Ffavicon.ico&etag=%22567d2d49d2d30e2db956d680a4d03f25%22
 
 Follow the redirect back to our API. Be sure to include the authentication token
 when following this link.
 
-    curl -i -H 'Authorization: Token token="abc123"' \
-         'http://api.getcloudapp.com/drops/140/s3?bucket=f.cl.ly&key=items%2F1L2c052P0F0V2X1i0r30%2Ffavicon.ico&etag=%22567d2d49d2d30e2db956d680a4d03f25%22'
+    $ curl -i -H 'Authorization: Token token="0gc504cf7e4a51ff8119"' \
+           'http://api.getcloudapp.com/drops/17533090/s3?bucket=f.cl.ly&key=items%2F422X1J3J020J1Z1S0V19%2Ffavicon.ico&etag=%22567d2d49d2d30e2db956d680a4d03f25%22'
 
     HTTP/1.1 200 OK
+    Cache-Control: max-age=0, private, must-revalidate
     Content-Type: application/vnd.collection+json; charset=utf-8
-    Cache-Control: no-cache
+    Etag: "4ef7d5eccf7c1a0bdcaa1dd5ea792de0"
     {
       "collection": {
         "version":  "1.0",
         "href":     "...",
-        "template": {...}
-        "items": [{
-          "href": "...",
-          "links": [
-            { "rel": "canonical", "href": "..." },
-            { "rel": "icon",      "href": "..." },
-            { "rel": "embed",     "href": "..." },
-            { "rel": "download",  "href": "..." }
-          ],
+        "template": {
           "data": [
-            { "name": "id",           "value": 140 },
-            { "name": "name",         "value": "favicon.ico" },
+            { "name": "name",         "value": null },
             { "name": "private",      "value": true },
-            { "name": "views",        "value": 0 }
+            { "name": "bookmark_url", "value": null },
+            { "name": "file_size",    "value": null }
           ]
-        }]
+        },
+        "items": [
+          {
+            "href": "...",
+            "links": [
+              { "rel": "root",       "href": "..." },
+              { "rel": "collection", "href": "..." },
+              { "rel": "canonical",  "href": "..." },
+              { "rel": "icon",       "href": "..." },
+              { "rel": "embed",      "href": "..." },
+              { "rel": "download",   "href": "..." }
+            ],
+            "data": [
+              { "name": "id",           "value": 17533090 },
+              { "name": "name",         "value": "favicon.ico" },
+              { "name": "private",      "value": true },
+              { "name": "bookmark_url", "value": null },
+              { "name": "views",        "value": 0 }
+            ]
+          }
+        ]
       }
     }
-
-
-# Errors
-
-_Exceeded plan limits (file too large, too many drops)._

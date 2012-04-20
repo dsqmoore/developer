@@ -10,28 +10,17 @@ Get a drop's details either by [listing drops](/list-drops) or
 [viewing a single drop](/view-single-drop).
 
     $ curl -i -H 'Authorization: Token token="0gc504cf7e4a51ff8119"' \
-           "http://api.getcloudapp.com/drops/101"
+           "http://api.getcloudapp.com/drops/13949577"
 
     HTTP/1.1 200 OK
+    Cache-Control: max-age=0, private, must-revalidate
     Content-Type: application/vnd.collection+json; charset=utf-8
     ETag: "fb83cd304bacd599af0a1e73603500e5"
-    Cache-Control: max-age=0, private, must-revalidate
     {
       "collection": {
-        "version": "1.0",
-        "href":    "...",
-        "items": [{
-          "href":  "...",
-          "links": [...],
-          "data":  [
-            { "name": "id",      "value": 101 },
-            { "name": "name",    "value": null },
-            { "name": "private", "value": true },
-            { "name": "views",   "value": 2 }
-          ]
-        }],
-        "templates": [{
-          "rel":  "/rels/create",
+        "version":  "1.0",
+        "href":     "...",
+        "template": {
           "data": [
             { "name": "name",         "value": null },
             { "name": "private",      "value": true },
@@ -39,45 +28,48 @@ Get a drop's details either by [listing drops](/list-drops) or
             { "name": "file_size",    "value": null }
           ]
         },
-        ...
-        ]
+        "items": [{
+          "href":  "...",
+          "links": [...],
+          "data":  [
+            { "name": "id",           "value": 13949577 },
+            { "name": "name",         "value": "CloudApp" },
+            { "name": "private",      "value": true },
+            { "name": "bookmark_url", "value": "http://getcloudapp.com" },
+            { "name": "views",        "value": 3 }
+          ]
+        }]
       }
     }
 
-Copy the drop's `data` into the `/rels/create` template igoring any attributes
-that don't exist in the template. Update any desired attributes. Encode each
-name and value pair in the template as `application/x-www-form-urlencoded` or
-`application/json` and POST it to the drop's `href`.
+Following the Collection+JSON spec, copy the drop's `data` into `template`
+ignoring any properties that don't exist in `template`, update any desired
+properties, encode the `template` data as `application/json`, and send it as an
+HTTP PUT request to the drop's `href`.
+
+**TODO:** This resource MUST accept `application/vnd.collection+json` as per the
+Collection+JSON spec.
 
     $ curl -i -H 'Authorization: Token token="0gc504cf7e4a51ff8119"' \
            -H "Content-Type: application/json; charset=utf-8" \
-           -X POST \
+           -X PUT \
            -d '{
                  "name":         "Renamed Drop",
                  "private":      true,
                  "bookmark_url": null,
                  "file_size":    null
                }' \
-           "http://api.getcloudapp.com/drops/101"
+           "http://api.getcloudapp.com/drops/13949577"
 
     HTTP/1.1 200 OK
+    Cache-Control: max-age=0, private, must-revalidate
     Content-Type: application/vnd.collection+json; charset=utf-8
+    Etag: "3981883fe2e30e480c700aeee20d6346"
     {
       "collection": {
-        "version": "1.0",
-        "href":    "...",
-        "items": [{
-          "href":  "...",
-          "links": [...],
-          "data":  [
-            { "name": "id",      "value": 101 },
-            { "name": "name",    "value": "Renamed Drop" },
-            { "name": "private", "value": true },
-            { "name": "views",   "value": 2 }
-          ]
-        }],
-        "templates": [{
-          "rel":  "/rels/create",
+        "version":  "1.0",
+        "href":     "...",
+        "template": {
           "data": [
             { "name": "name",         "value": null },
             { "name": "private",      "value": true },
@@ -85,7 +77,16 @@ name and value pair in the template as `application/x-www-form-urlencoded` or
             { "name": "file_size",    "value": null }
           ]
         },
-        ...
-        ]
+        "items": [{
+          "href":  "...",
+          "links": [...],
+          "data":  [
+            { "name": "id",           "value": 13949577 },
+            { "name": "name",         "value": "Renamed Drop" },
+            { "name": "private",      "value": true },
+            { "name": "bookmark_url", "value": "http://getcloudapp.com" },
+            { "name": "views",        "value": 3 }
+          ]
+        }]
       }
     }
