@@ -135,6 +135,7 @@ and `collection` link and MAY have any of the following links: `canonical`,
         { "name" : "id",      "value" : 123 },
         { "name" : "private", "value" : true },
         { "name" : "name",    "value" : "The Guide" },
+        { "name" : "created", "value" : "2012-04-01T18:38:42Z" },
         { "name" : "views",   "value" : 42 }
       ]
     }
