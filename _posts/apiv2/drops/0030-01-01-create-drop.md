@@ -115,10 +115,9 @@ Collection+JSON spec.
         "href":     "...",
         "template": {
           "data": [
-            { "name": "success_action_redirect", "value": "http://api.getcloudapp.com/drops/17533090/s3" },
+            { "name": "success_action_redirect", "value": "http://api.getcloudapp.com/..." },
             { "name": "AWSAccessKeyId", "value": "AKIAIDPUZISHSBEOFS6Q" },
             { "name": "key",            "value": "items/422X1J3J020J1Z1S0V19/${filename}" },
-            { "name": "key",            "value": "items/1L2c052P0F0V2X1i0r30/${filename}" },
             { "name": "policy",         "value": "eyJleHBpcmF0aW9uIjoiMjAxM..." },
             { "name": "signature",      "value": "0zsDbT0t8hRkyHfWj2MTo0Ot6ec=" },
             { "name": "acl",            "value": "public-read" },
@@ -146,7 +145,8 @@ Collection+JSON spec.
 
 Fill `template` with the file to be uploaded. Encode each name and value pair in
 `data` as `application/x-www-form-urlencoded` and POST it to the template's
-`href`.
+`href`. The server will respond with a `303 See Other` redirect which MUST be
+followed to complete the upload process.
 
 **Note:** According to [Amazon's documentation][s3-docs], any parameter after
 `file` is ignored. Make sure `file` is the last parameter in the encoded request
@@ -154,8 +154,8 @@ or the upload may be rejected.
 
 [s3-docs]: http://developer.amazonwebservices.com/connect/entry.jspa?externalID=1434
 
-    $ curl -i -X POST \
-           -F 'success_action_redirect=http://api.getcloudapp.com/drops/17533090/s3' \
+    $ curl -iL \
+           -F 'success_action_redirect=http://api.getcloudapp.com/...' \
            -F 'AWSAccessKeyId=AKIAIDPUZISHSBEOFS6Q' \
            -F 'key=items/422X1J3J020J1Z1S0V19/${filename}' \
            -F 'policy=eyJleHBpcmF0aW9uIjoiMjAxM...' \
@@ -168,18 +168,12 @@ or the upload may be rejected.
 
     HTTP/1.1 303 See Other
     ETag: "567d2d49d2d30e2db956d680a4d03f25"
-    Location: http://api.getcloudapp.com/drops/17533090/s3?bucket=f.cl.ly&key=items%2F422X1J3J020J1Z1S0V19%2Ffavicon.ico&etag=%22567d2d49d2d30e2db956d680a4d03f25%22
-
-Follow the redirect back to our API. Be sure to include the authentication token
-when following this link.
-
-    $ curl -i -H 'Authorization: Token token="0gc504cf7e4a51ff8119"' \
-           'http://api.getcloudapp.com/drops/17533090/s3?bucket=f.cl.ly&key=items%2F422X1J3J020J1Z1S0V19%2Ffavicon.ico&etag=%22567d2d49d2d30e2db956d680a4d03f25%22'
+    Location: http://api.getcloudapp.com/drops/17533090/s3?token=0gc504cf7e4a51ff8119&bucket=f.cl.ly&key=items%2F013o2H1k0w3s1a2i0B38%2Ffavicon.ico&etag=%22567d2d49d2d30e2db956d680a4d03f25%22
 
     HTTP/1.1 200 OK
-    Cache-Control: max-age=0, private, must-revalidate
     Content-Type: application/vnd.collection+json; charset=utf-8
-    Etag: "4ef7d5eccf7c1a0bdcaa1dd5ea792de0"
+    ETag: "847ce46a8e2199ef5ab7f772c2599dcf"
+    Cache-Control: max-age=0, private, must-revalidate
     {
       "collection": {
         "version":  "1.0",
