@@ -202,7 +202,7 @@ A drop MUST have all of the following properties: `auth_url`, `api_key`,
  - `root`: A [root collection](#root_collection).
  - `drops`: A [drop collection](#drop_collection).
  - `drop`: A [drop collection](#drop_collection) containing a single drop.
- - `drops_stream`: A [stream collection](#stream_collection) to connect to all
+ - `drops-stream`: A [stream collection](#stream_collection) to connect to all
    created, updated, and deleted drops for the authenticated user.
  - `next`: The next set of items in the collection.
  - `previous`: The previous set of items in the collection.
