@@ -171,18 +171,46 @@ or the upload may be rejected.
       "items" : [DROP]
     }
 
+### Stream Collection
+
+Each `item` MUST be a stream.
+
+    // sample stream collection
+    {
+      "href" : URI,
+      "items" : [STREAM]
+    }
+
+### Stream
+
+A drop MUST have all of the following properties: `auth_url`, `api_key`,
+`app_id`, `channel`.
+
+    // sample drop item
+    {
+      "data" :
+      [
+        { "name" : "auth_url", "value" : "http://api.getcloudapp.com/stream/auth },
+        { "name" : "api_key",  "value" : "36b8e92a50487f79cbb3" },
+        { "name" : "app_id",   "value" : "4072" },
+        { "name" : "channel",  "value" : "private-drops_42" }
+      ]
+    }
+
 ### Link Relations
 
- - `root`: A root collection.
- - `drops`: A drops collection.
- - `drop`: A drops collection containing a single drop.
+ - `root`: A [root collection](#root_collection).
+ - `drops`: A [drop collection](#drop_collection).
+ - `drop`: A [drop collection](#drop_collection) containing a single drop.
+ - `drops_stream`: A [stream collection](#stream_collection) to connect to all
+   created, updated, and deleted drops for the authenticated user.
  - `next`: The next set of items in the collection.
  - `previous`: The previous set of items in the collection.
  - `collection`: The collection of items containing the resource.
- - `canonical`: A drop's sharable URL. _This link is publicly accessible._
- - `download`: Download a drop's content. _This link is publicly accessible._
- - `embed`: The drop's content. _This link is publicly accessible._
- - `icon`: The drop's thumbnail. _This link is publicly accessible._
+ - `canonical`: A [drop's](#drop) sharable URL. _This link is publicly accessible._
+ - `download`: Download a [drop's](#drop) content. _This link is publicly accessible._
+ - `embed`: The [drop's](#drop) content. _This link is publicly accessible._
+ - `icon`: The [drop's](#drop) thumbnail. _This link is publicly accessible._
 
 ## Acknowledgements
 
