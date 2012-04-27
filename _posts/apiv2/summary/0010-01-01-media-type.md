@@ -205,9 +205,9 @@ A drop MUST have all of the following properties: `auth_url`, `api_key`,
     {
       "data" :
       [
-        { "name" : "auth_url", "value" : "http://api.getcloudapp.com/stream/auth },
-        { "name" : "api_key",  "value" : "36b8e92a50487f79cbb3" },
-        { "name" : "app_id",   "value" : "4072" },
+        { "name" : "auth_url", "value" : "http://api.getcloudapp.com/drops/stream/auth" },
+        { "name" : "api_key",  "value" : "4f6dbc3b89fa4ee9a8ff" },
+        { "name" : "app_id",   "value" : "4721" },
         { "name" : "channel",  "value" : "private-drops_42" }
       ]
     }
