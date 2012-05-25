@@ -15,6 +15,7 @@ There is a good chance most of the work is already cut out for you. A variety of
 Great applications are already using the CloudApp API. Here are some popular examples:
 
 {: .index}
+* [BlueNube](http://itunes.apple.com/us/app/bluenube/id420282258?mt=8) -- CloudApp client for iPad
 * [Cloud2go](http://cloud2goapp.com/) -- powerful iPhone client to access CloudApp on the go
 * [Cloudette](http://cloudetteapp.com/) -- free CloudApp iPhone client
 * [ClouDrop](http://itunes.apple.com/us/app/cloudrop-for-cloudapp/id493848413?mt=8) -- full-featured CloudApp iOS app
