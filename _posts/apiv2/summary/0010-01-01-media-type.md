@@ -43,15 +43,14 @@ the generic `application/json` media type.
 
 ### Root Collection
 
-The collection SHOULD have a `drops` and `account` link.
+The collection SHOULD have a `drops` link.
 
     // sample root collection
     {
       "href" : URI,
       "links" :
       [
-        { "href" : URI, "rel" : "drops" },
-        { "href" : URI, "rel" : "account" }
+        { "href" : URI, "rel" : "drops" }
       ]
     }
 

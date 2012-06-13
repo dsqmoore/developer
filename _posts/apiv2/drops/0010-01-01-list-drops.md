@@ -48,8 +48,7 @@ format `Token token="<value>"` and follow the `root` link.
         "href"    : "...",
         "links"   :
         [
-          { "rel" : "account", "href" : "..." },
-          { "rel" : "drops",   "href" : "..." }
+          { "rel" : "drops", "href" : "..." }
         ]
       }
     }
