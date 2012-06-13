@@ -149,7 +149,7 @@ template. Fill in the `time_zone` parameter using an
             { "name" : "file_size",    "value" : null }
           ]
         },
-        "items"   :
+        "items" :
         [
           {
             "href"  : "...",
